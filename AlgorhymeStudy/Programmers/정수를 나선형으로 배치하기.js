@@ -19,7 +19,7 @@ function generateSpiralMatrix(n) {
   for (let i = 1; i <= n * n; i++) {
     matrix[x][y] = i;
 
-    // 다음 위치로 이동
+    // 다음 위치로 이동 ( 다음 x, y 의 위치를 계산하기 위한 중간 값)
     const nextX = x + directionX[direction];
     const nextY = y + directionY[direction];
 
@@ -47,3 +47,38 @@ function solution(n) {
 }
 
 solution(3);
+
+/*
+1 씩 증가하는 정방형의 2차원 배열 만들기
+
+<<< 1 >>>
+function create2DArray(n) {
+  const array = new Array(n);
+  let counter = 1;
+
+  for (let i = 0; i < n; i++) {
+    array[i] = new Array(n);
+    for (let j = 0; j < n; j++) {
+      array[i][j] = counter++;
+    }
+  }
+
+  return array;
+}
+
+<<< 2 >>>
+function matrix(n) {
+  const matrix = []
+  for (let i = 0; i < n; i++) {
+   const innerMatrix = []
+    for (let j = i * n + 1; j <= ( n * i ) + n; j++ ){
+      innerMatrix.push( j );
+    }
+  	matrix.push(innerMatrix);  
+  }
+  console.log(matrix);
+}
+
+matrix(3);
+
+*/
