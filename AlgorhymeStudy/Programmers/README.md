@@ -9,3 +9,4 @@ Lv.0
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120866" target="_blank"> 5. 안전지대</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120923" target="_blank"> 6. 연속된 수의 합</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120808" target="_blank"> 7. 분수의 덧셉</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120924" target="_blank"> 8. 다음에 올 숫자</a><br>
