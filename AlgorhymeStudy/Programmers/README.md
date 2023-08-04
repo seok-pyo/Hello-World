@@ -13,3 +13,4 @@ Lv.0
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/181893" target="_blank"> 9. 배열 조각하기</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120907" target="_blank"> 10. OX 퀴즈</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120907" target="_blank"> 11. 최빈값 구하기</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120863" target="_blank"> 12. 다항식 구하기</a><br>
