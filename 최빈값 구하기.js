@@ -9,7 +9,6 @@ function solution(array) {
 }
 
 // ... acc 누적값 복사
-//
 const solution = (array) => {
   const counter = array.reduce(
     (acc, cur) => ({
@@ -30,3 +29,14 @@ const solution = (array) => {
 
   return items[0][0]; // 최빈값이 하나인 경우 해당 키 리턴
 };
+
+// reduce 문제 풀이
+function solution(array) {
+  const cntObj = array.reduce(
+    (a, c) => (a[c] ? { ...a, [c]: a[c] + 1 } : { ...a, [c]: 1 }),
+    {}
+  );
+  const maxVal = Math.max(...Object.values(cntObj));
+  const maxArr = Object.keys(cntObj).filter((el) => cntObj[el] === maxVal);
+  return maxArr.length >= 2 ? -1 : +maxArr[0];
+}
