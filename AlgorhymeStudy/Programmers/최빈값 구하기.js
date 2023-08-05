@@ -8,6 +8,7 @@ function solution(array) {
   return m.length === 1 || m[0][1] > m[1][1] ? m[0][0] : -1;
 }
 
+// 풀이 2번
 // ... acc 누적값 복사
 const solution = (array) => {
   const counter = array.reduce(
