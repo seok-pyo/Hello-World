@@ -15,3 +15,8 @@ Lv.0
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120907" target="_blank"> 11. 최빈값 구하기</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120863" target="_blank"> 12. 다항식 구하기</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/181921" target="_blank"> 13. 배열 만들기2</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/181932" target="_blank"> 14. 코드 처리하기</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120805" target="_blank"> 15. 몫 구하기 (100일 챌린지-1)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120807" target="_blank"> 16. 숫자 비교하기 (100일 챌린지-2)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120820" target="_blank"> 17. 나이 출력하기 (100일 챌린지-2)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120829" target="_blank"> 18. 짝수의 합(100일 챌린지-5)</a><br>
