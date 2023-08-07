@@ -20,3 +20,8 @@ Lv.0
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120807" target="_blank"> 16. 숫자 비교하기 (100일 챌린지-2)</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120820" target="_blank"> 17. 나이 출력하기 (100일 챌린지-2)</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120829" target="_blank"> 18. 짝수의 합(100일 챌린지-5)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120817" target="_blank"> 19. 배열의 평균값(100일 챌린지-6)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120585" target="_blank"> 20. 머쓱이보다 키 큰 사람(100일 챌린지-7)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120583" target="_blank"> 21. 중복된 숫자 개수(100일 챌린지-8)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120814" target="_blank"> 22. 피자 나눠 먹기(1)(100일 챌린지-9)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120824" target="_blank"> 23. 짝수 홀수 개수(100일 챌린지-10)</a><br>
