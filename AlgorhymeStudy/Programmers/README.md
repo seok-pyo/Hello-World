@@ -5,12 +5,12 @@ Lv.입문
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120805" target="_blank"> 1. 몫 구하기 (100일 챌린지-1)</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120807" target="_blank"> 2. 숫자 비교하기 (100일 챌린지-2)</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120820" target="_blank"> 3. 나이 출력하기 (100일 챌린지-2)</a><br>
-<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120829" target="_blank"> 4. 짝수의 합(100일 챌린지-5)</a><br>
-<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120817" target="_blank"> 5. 배열의 평균값(100일 챌린지-6)</a><br>
-<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120585" target="_blank"> 6. 머쓱이보다 키 큰 사람(100일 챌린지-7)</a><br>
-<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120583" target="_blank"> 7. 중복된 숫자 개수(100일 챌린지-8)</a><br>
-<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120814" target="_blank"> 8. 피자 나눠 먹기(1)(100일 챌린지-9)</a><br>
-<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120824" target="_blank"> 9. 짝수 홀수 개수(100일 챌린지-10)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120829" target="_blank"> 4. 짝수의 합 (100일 챌린지-5)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120817" target="_blank"> 5. 배열의 평균값 (100일 챌린지-6)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120585" target="_blank"> 6. 머쓱이보다 키 큰 사람 (100일 챌린지-7)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120583" target="_blank"> 7. 중복된 숫자 개수 (100일 챌린지-8)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120814" target="_blank"> 8. 피자 나눠 먹기(1) (100일 챌린지-9)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120824" target="_blank"> 9. 짝수 홀수 개수 (100일 챌린지-10)</a><br>
 
 Lv.0
 
