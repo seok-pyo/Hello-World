@@ -12,6 +12,15 @@ Lv.입문
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120814" target="_blank"> 8. 피자 나눠 먹기(1) (100일 챌린지-9)</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120824" target="_blank"> 9. 짝수 홀수 개수 (100일 챌린지-10)</a><br>
 
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120809" target="_blank"> 10. 배열 두배 만들기 (100일 챌린지-11)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120822" target="_blank"> 11. 문자열 뒤집기 (100일 챌린지-12)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120826" target="_blank"> 12. 특정 문자 제거하기 (100일 챌린지-13)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120903" target="_blank"> 13. 배열의 유사도 (100일 챌린지-14)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120839" target="_blank"> 14. 가위 바위 보 (100일 챌린지-15)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120844" target="_blank"> 15. 배열 회전시키기 (100일 챌린지-16)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120834" target="_blank"> 16. 외계행성의 나이 (100일 챌린지-17)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120891" target="_blank"> 17. 369게임 (100일 챌린지-18)</a><br>
+
 Lv.0
 
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/181832" target="_blank"> 1. 정수를 나선형으로 배치하기 </a><br>
