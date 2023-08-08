@@ -11,7 +11,6 @@ Lv.입문
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120583" target="_blank"> 7. 중복된 숫자 개수 (100일 챌린지-8)</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120814" target="_blank"> 8. 피자 나눠 먹기(1) (100일 챌린지-9)</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120824" target="_blank"> 9. 짝수 홀수 개수 (100일 챌린지-10)</a><br>
-
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120809" target="_blank"> 10. 배열 두배 만들기 (100일 챌린지-11)</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120822" target="_blank"> 11. 문자열 뒤집기 (100일 챌린지-12)</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120826" target="_blank"> 12. 특정 문자 제거하기 (100일 챌린지-13)</a><br>
