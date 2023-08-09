@@ -19,6 +19,8 @@ Lv.입문
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120844" target="_blank"> 15. 배열 회전시키기 (100일 챌린지-16)</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120834" target="_blank"> 16. 외계행성의 나이 (100일 챌린지-17)</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120891" target="_blank"> 17. 369게임 (100일 챌린지-18)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120888" target="_blank"> 18. 중복된 문자 제거 (100일 챌린지-19)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120886" target="_blank"> 19. A로 B만들기 (100일 챌린지-20)</a><br>
 
 Lv.0
 
