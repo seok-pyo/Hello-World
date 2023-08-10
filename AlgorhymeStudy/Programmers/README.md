@@ -21,6 +21,9 @@ Lv.입문
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120891" target="_blank"> 17. 369게임 (100일 챌린지-18)</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120888" target="_blank"> 18. 중복된 문자 제거 (100일 챌린지-19)</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120886" target="_blank"> 19. A로 B만들기 (100일 챌린지-20)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120848" target="_blank"> 20. 팩토리얼 (100일 챌린지-21)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120887" target="_blank"> 21. k의 개수 (100일 챌린지-22)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120890" target="_blank"> 22. 가까운 수 (100일 챌린지-23)</a><br>
 
 Lv.0
 
