@@ -24,6 +24,11 @@ Lv.입문
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120848" target="_blank"> 20. 팩토리얼 (100일 챌린지-21)</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120887" target="_blank"> 21. k의 개수 (100일 챌린지-22)</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120890" target="_blank"> 22. 가까운 수 (100일 챌린지-23)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120896" target="_blank"> 23. 한 번만 등장한 문자 (100일 챌린지-24)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120913" target="_blank"> 24. 잘라서 배열로 저장하기 (100일 챌린지-25)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120835" target="_blank"> 25. 진료순서 정하기 (100일 챌린지-26)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120894" target="_blank"> 26. 영어가 싫어요 (100일 챌린지-27)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120869" target="_blank"> 27. 외계어 사전 (100일 챌린지-28)</a><br>
 
 Lv.0
 
