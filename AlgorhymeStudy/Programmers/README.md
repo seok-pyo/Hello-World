@@ -29,6 +29,10 @@ Lv.입문
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120835" target="_blank"> 25. 진료순서 정하기 (100일 챌린지-26)</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120894" target="_blank"> 26. 영어가 싫어요 (100일 챌린지-27)</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120869" target="_blank"> 27. 외계어 사전 (100일 챌린지-28)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120921" target="_blank"> 28. 문자열 밀기 (100일 챌린지-29)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120853" target="_blank"> 29. 컨트롤 제트 (100일 챌린지-30)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120882" target="_blank"> 30. 등수 매기기 (100일 챌린지-31)</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120871" target="_blank"> 31. 저주의 숫자 3 (100일 챌린지-32)</a><br>
 
 Lv.0
 
