@@ -42,7 +42,7 @@ Lv.0
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/181916" target="_blank"> 4. 주사위 게임 3</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120866" target="_blank"> 5. 안전지대 (100일 챌린지-34)</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120923" target="_blank"> 6. 연속된 수의 합</a><br>
-<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120808" target="_blank"> 7. 분수의 덧셉</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/120808" target="_blank"> 7. 분수의 덧셈</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120924" target="_blank"> 8. 다음에 올 숫자</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/181893" target="_blank"> 9. 배열 조각하기</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120907" target="_blank"> 10. OX 퀴즈</a><br>

@@ -1,3 +1,3 @@
 function solution(A, B) {
-  return B + B.indexOf(A);
+  return (B + B).indexOf(A);
 }
