@@ -4,7 +4,7 @@ function solution(polynomial) {
     .filter((n) => n.includes("x"))
     .map((n) => n.replace("x", "") || "1") // 논리 OR 연산자는 왼쪽 피연산자를 평가한 결과과 falsy 값이 되는
     // 순간 오른쪽 피연산자를 반환한다. falsy 값은 [ 빈문자열, 0, null, undefined, NaN, false ]
-    .reduce((acc, cur) => acc + parseInt(cur, 10), 0);
+    .reduce((acc, cur) => acc + parseInt(cur, 10), 0); // reduce에서 초기값을 제공하지 않으면 배열의 첫번째 값을 사용한다.
   const num = arr
     .filter((n) => !inNaN(n))
     .reduce((acc, cur) => acc + parseInt(cur, 10), 0);
