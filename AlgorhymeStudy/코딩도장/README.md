@@ -10,3 +10,6 @@
 <a href="https://codingdojang.com/scode/490" target="_blank"> 10. 120번째 간수(100일 챌린지-44)</a><br>
 <a href="https://codingdojang.com/scode/490" target="_blank"> 11. 비슷한 단어 찾아내기(100일 챌린지-45)</a><br>
 <a href="https://codingdojang.com/scode/490" target="_blank"> 12. Subdate(100일 챌린지-46)</a><br>
+
+아마존 면접 문제 중에서 swap 풀이 도전
+for 반복문 break; > 가성비 최대화 / 비슷한 단어 찾아내기
