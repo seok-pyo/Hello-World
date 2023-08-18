@@ -51,3 +51,4 @@ Lv.0 ~ 1
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/181921" target="_blank"> 43. 배열 만들기2</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/181932" target="_blank"> 44. 코드 처리하기</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120825" target="_blank"> 45. 문자 반복 출력하기</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/17682" target="_blank"> 46. [1차] 다트게임</a><br>
