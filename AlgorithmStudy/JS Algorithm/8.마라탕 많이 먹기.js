@@ -57,3 +57,26 @@ function solution(data) {
 
   return Math.max(...com);
 }
+
+// 동적프로그래밍
+
+function findMaxNonAdjacentSum(arr) {
+  if (arr.length === 0) {
+    return 0; // 빈 배열인 경우 합은 0
+  }
+
+  if (arr.length === 1) {
+    return arr[0]; // 원소가 하나뿐인 경우 해당 원소 반환
+  }
+
+  let inclusive = arr[0]; // 현재 원소를 포함한 최대 합
+  let exclusive = 0; // 현재 원소를 포함하지 않은 최대 합
+
+  for (let i = 1; i < arr.length; i++) {
+    const temp = inclusive;
+    inclusive = Math.max(inclusive, exclusive + arr[i]);
+    exclusive = temp;
+  }
+
+  return Math.max(inclusive, exclusive);
+}
