@@ -10,4 +10,4 @@
 <a href="https://jsalgo.co.kr/?page=12#" target="_blank"> 8. 마라탕 많이 먹기(순열, 완전탐색)</a><br>
 <a href="https://jsalgo.co.kr/?page=9#" target="_blank"> 9. 최대 손실액(투포인터, 슬라이딩윈도우)</a><br>
 <a href="https://jsalgo.co.kr/?page=13#" target="_blank"> 10. 비행정 탑승(힙, 순열과 조합)</a><br>
-<a href="https://jsalgo.co.kr/?page=14#" target="_blank"> 11. 비행정 탑승(힙, 순열과 조합)</a><br>
+<a href="https://jsalgo.co.kr/?page=14#" target="_blank"> 11. (꿈-1) 출항준비</a><br>
