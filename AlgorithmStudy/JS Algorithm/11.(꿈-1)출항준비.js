@@ -34,6 +34,7 @@ function solution(data) {
   let goal = false; // 목적지 도착 여부
 
   while (queue) {
+    // console.log(JSON.stringity(queue))
     count += 1;
     if (count == (N * M) ** 3) {
       if (goal) {
