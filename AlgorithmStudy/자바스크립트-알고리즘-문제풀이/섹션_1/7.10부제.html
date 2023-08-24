@@ -6,6 +6,9 @@
   <body>
     <script>
       arr = [25, 23, 11, 47, 53, 17, 33];
+      function solution(n, arr) {
+        return arr.filter((v) => v.toString()[1] == n.toString()).length;
+      }
       console.log(solution(3, arr));
     </script>
   </body>

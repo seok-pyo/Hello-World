@@ -6,6 +6,10 @@
   <body>
     <script>
       arr = [12, 77, 38, 41, 53, 92, 85];
+      function solution(arr) {
+        let filterArr = arr.filter((v) => v % 2 !== 0);
+        `${filterArr.reduce((a, c) => a + c)}\n${Math.min(...filterArr)}`;
+      }
       console.log(solution(arr));
     </script>
   </body>
