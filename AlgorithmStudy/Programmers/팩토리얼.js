@@ -21,7 +21,6 @@ function solution(n) {
   }
   return factorial;
 }
-
 function solution(n) {
   let fac = 1;
   for (let i = 1; i <= n; i++) {
