@@ -11,10 +11,29 @@
         for (let i = 0; i < s.length; i++) {
           //console.log(s[i], i, s.indexOf(s[i]));
           if (s.indexOf(s[i]) === i) answer += s[i];
+          // indexOf는 첫번째 요소의 발견 인덱스를 리턴하기 때문에, 자신의 위치 인덱스와
+          // idexOf 의 인덱스가 다른 경우 중복으로 존재하는 요소가 된다.
         }
         return answer;
       }
       console.log(solution("ksekkset"));
+
+      // mySolution
+      function mySolution(s) {
+        let mySet = new Set(s.split(""));
+        return Array.from(mySet).join("");
+      }
+
+      // 특정 원소의 개수
+      function solution(s) {
+        let answer = 0;
+        let pos = s.indexOf("k");
+        while (pos !== -1) {
+          answer++;
+          pos = s.indexOf("k", pos + 1);
+        }
+        return answer;
+      }
     </script>
   </body>
 </html>
