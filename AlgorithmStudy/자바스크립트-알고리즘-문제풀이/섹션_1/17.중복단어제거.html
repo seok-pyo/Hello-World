@@ -9,12 +9,17 @@
         let answer;
         //console.log(s.indexOf("time"));
         answer = s.filter(function (v, i) {
-          return s.indexOf(v) === i;
+          return s.indexOf(v) === i; // 참일때만
+          // if(s.indexOf(v) === i) return true;
         });
         return answer;
       }
       let str = ["good", "time", "good", "time", "student"];
       console.log(solution(str));
+
+      // mySolution
+      let mySet = new Set(s);
+      return Array.from(mySet);
     </script>
   </body>
 </html>
