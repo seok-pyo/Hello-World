@@ -5,17 +5,41 @@
   </head>
   <body>
     <script>
-      function solution(s) {
-        let answer = "",
-          max = Number.MIN_SAFE_INTEGER;
-        for (let x of s) {
-          if (x.length > max) {
-            max = x.length;
-            answer = x;
-          }
-        }
-        return answer;
+      // 1번째 풀이 (배열로 바꾼 후 풀이)
+      function solution(arr) {
+        let map = new Map();
+        arr.forEach((v) => map.set(v, v.length));
+        let myArr = Array.from(map); // Array.from() 메서드는 Key : value 형태를 유지하지 않는다.
+
+        let maxNum = Math.max(...map.values());
+        let result = [];
+
+        myArr.forEach(
+          (
+            v // forEach()는 undefined를 리턴한다.
+          ) =>
+            v[1].toString() === maxNum.toString() ? result.push(v[0]) : false
+        );
+        return result.join("");
       }
+      // 바로 Map에서 풀이
+      function solution(arr) {
+        let map = new Map();
+        arr.forEach((v) => map.set(v, v.length));
+
+        let maxNum = Math.max(...map.values()); // 전개해야 최대값을 구할 수 있다.
+        let result = [];
+
+        map.forEach((length, word) => {
+          // map에서의 forEach문의 매개변수가 다르다 map.forEach((value, key, map) => ())
+          if (length === maxNum) {
+            result.push(word);
+          }
+        });
+
+        return result;
+      }
+
       let str = ["teacher", "time", "student", "beautiful", "good"];
       console.log(solution(str));
     </script>

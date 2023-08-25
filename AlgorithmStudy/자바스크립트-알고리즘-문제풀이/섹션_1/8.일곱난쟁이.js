@@ -19,6 +19,9 @@
 //     : [];
 // }
 
+// 생각의 전환 !!!
+// 얕은 복사, splice, slice, replace 활용 해보기
+
 let arr = [20, 7, 23, 19, 10, 15, 25, 8, 13];
 
 function solution(arr) {

@@ -5,12 +5,12 @@
   </head>
   <body>
     <script>
-      function solution(s, t) {
-        let answer = s.split(t).length;
-        return answer - 1;
+      let str = "COMPUTERPROGRAMMING";
+
+      function solution(str, cha) {
+        return str.split("").filter((v) => v === cha).length;
       }
 
-      let str = "COMPUTERPROGRAMMING";
       console.log(solution(str, "R"));
     </script>
   </body>
