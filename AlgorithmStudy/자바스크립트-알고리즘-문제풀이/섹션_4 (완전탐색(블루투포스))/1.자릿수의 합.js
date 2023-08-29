@@ -27,7 +27,7 @@ function solution(arr) {
       tmp = x; // 기존의 원소값 변경시키지 않게(반환값으로 돌려줘야 하니까)
     while (tmp) {
       sum += tmp % 10;
-      tmp = Math.floor(tmp / 10);
+      tmp = Math.floor(tmp / 10); // parseInt() or Number()
     } // 각 자리수 더하기
     if (sum > max) {
       max = sum;
