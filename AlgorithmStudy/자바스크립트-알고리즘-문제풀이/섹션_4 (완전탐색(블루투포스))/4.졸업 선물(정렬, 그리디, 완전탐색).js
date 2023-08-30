@@ -37,3 +37,5 @@ let arr = [
   [10, 3],
 ];
 console.log(solution(28, arr));
+
+// 일곱난쟁이 문제 확인
