@@ -26,3 +26,7 @@ console.log(solution(a, b));
 // 전위 증가 연산자는 변수의 값을 1 증가시킨 후에 그 값을 사용한다.
 // let x = 5;
 // let y = ++x; // y에 6 할당, x도 6이 된다.
+
+// 예시
+// let a = 1
+// let result = --a || a + 10

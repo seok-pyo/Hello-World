@@ -33,7 +33,8 @@ function solution(arr1, arr2) {
   let temp_obj = {};
   const sum_arr = [...arr1, ...arr2];
   for (let i = 0; i < sum_arr.length; i++) {
-    temp_obj[sum_arr[i]] = temp_obj[sum_arr[i]] + 1 || 1;
+    temp_obj[sum_arr[i]] = temp_obj[sum_arr[i]] + 1 || 1; // undefinded + 1 이 될 경우, 즉 해당 값이 없는 경우 초기값을 1로 설정
+    // || 연산자는 왼쪽 피연사자를 먼저 평가하고, 이후 오른쪽으로 넘어간다.
   }
   for (let key in temp_obj) {
     if (temp_obj[key] === 2) {
