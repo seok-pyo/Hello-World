@@ -32,7 +32,7 @@ function solution(arr, m) {
   return answer;
 }
 
-// 강의 풀이
+// 강의 풀이 - for 문 안에 while 문이 n번 돌고 종료된다. O(n^2)
 function solution(m, arr) {
   let answer = 0,
     lp = 0,
@@ -42,8 +42,29 @@ function solution(m, arr) {
     if (sum === m) answer++;
     while (sum >= m) {
       sum -= arr[lp++];
-      if (sum === m) answer++; // 위쪽 풀이에서 while 문 안에 it(sum===m) 이 중복되는 것이 보인다.
+      if (sum === m) answer++; // 위쪽 풀이에서 while 문 안에 it(sum===m) answer++ 이 중복되는 것이 보인다.
     }
   }
   return answer;
 }
+
+// 시간 복잡도가 안 좋게 짜여진 경우
+function solution(m, arr) {
+  let answer = 0;
+  for (let i = 0; i < arr.length; i++) {
+    let sum = 0;
+    let index = i;
+    while (sum < m) {
+      // while 문이 매번 i부터 시작해서 a배열 전체를 탐색하는 구조 O(n^2)
+      sum += arr[index];
+      if (sum === m) {
+        answer++;
+        break;
+      } else index++;
+    }
+  }
+  return answer;
+}
+
+let a = [1, 2, 1, 3, 1, 1, 1, 2];
+console.log(solution(6, a));
