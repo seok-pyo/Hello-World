@@ -23,7 +23,7 @@ function solution(t1, t2) {
   return answer;
 }
 
-// 강의 풀기 전 시도 .. 제대로 구현을 못함
+// 강의 풀기 전 시도 (x)
 
 function solution(t1, t2) {
   let checker = (a, b) => {
@@ -107,7 +107,7 @@ function solution(a, b) {
   for (let x of aArr) {
     let map = new Map();
     for (let s of x) map.has(x) ? map.set(s, map.get(s) + 1) : map.set(s, 1);
-
+    console.log(map);
     for (let i = 0; i < b.length; i++) {
       if (map.get(b[i])) map.delete(b[i]);
       else break;
@@ -118,3 +118,66 @@ function solution(a, b) {
 
   return answer;
 }
+
+// 다른 사람 풀이2
+
+function compareMaps(tmp, sH) {
+  let sH1 = new Map();
+  for (let [key, val] of sH) {
+    sH1.set(key, val);
+  }
+  for (let x of tmp) {
+    if (!sH1.has(x) || sH1.get(x) === 0) return 0; // sH1.get(x) === 0 이 아나그램인지 확인할 수 있는 이유
+    sH1.set(x, sH1.get(x) - 1);
+  }
+  return 1;
+}
+
+function solution(s, t) {
+  let answer = 0;
+  sH = new Map();
+  let len = t.length;
+  let tmp = s.slice(0, len);
+  for (let x of t) {
+    if (sH.has(x)) sH.set(x, sH.get(x) + 1);
+    else sH.set(x, 1);
+  }
+  if (compareMaps(tmp, sH)) answer++;
+
+  for (let i = len; i < s.length; i++) {
+    tmp = tmp.slice(1);
+    tmp = tmp + s[i];
+    if (compareMaps(tmp, sH)) answer++;
+  }
+  return answer;
+}
+
+let a = "bacaAacba";
+let b = "abc";
+console.log(solution(a, b));
+
+// O(n) 강사님 풀이
+function solution(s, t) {
+  let answer = 0;
+  let sH = new Map();
+  for (let x of t) {
+    sH.set(x, (sH.get(x) || 0) - 1);
+  }
+  let len = t.length - 1;
+  for (let i = 0; i < len; i++) {
+    sH.set(s[i], (sH.get(s[i]) || 0) + 1);
+    if (sH.get(s[i]) === 0) sH.delete(s[i]);
+  }
+  let lt = 0;
+  for (let rt = len; rt < s.length; rt++) {
+    sH.set(s[rt], (sH.get(s[rt]) || 0) + 1);
+    if (sH.get(s[rt]) === 0) sH.delete(s[rt]);
+    if (sH.size === 0) answer++;
+    sH.set(s[lt], (sH.get(s[lt]) || 0) - 1);
+    if (sH.get(s[lt]) === 0) sH.delete(s[lt]);
+    lt++;
+  }
+  return answer;
+}
+
+console.log(solution("bacacbcba", "abc"));
