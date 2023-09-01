@@ -27,7 +27,7 @@ function solution(a, b) {
   return answer;
 }
 
-// +보너스 / 맵을 활용한 배열 교집합 추출하기 (object는 같은 키는 중복하지 않으므로)
+// +보너스 / 해시맵을 활용한 배열 교집합 추출하기 (object는 같은 키는 중복하지 않으므로)
 function solution(arr1, arr2) {
   let answer = [];
   let temp_obj = {};
