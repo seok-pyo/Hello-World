@@ -40,3 +40,5 @@ function solution(board, moves) {
   }
   return cnt;
 }
+
+// 강의 코드 추가
