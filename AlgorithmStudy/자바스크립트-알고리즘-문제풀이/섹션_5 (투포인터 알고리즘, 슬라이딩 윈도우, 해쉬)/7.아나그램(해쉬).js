@@ -29,3 +29,17 @@ function solution(t1, t2) {
   }
   return "YES";
 }
+
+// 객체를 사용한 아나그램 판별 프로그램
+function solution(a, b) {
+  if (a.length !== b.length) return false;
+  let charCount = {};
+
+  for (let c of a) charCount[c] = charCount[c] || 0 + 1;
+
+  for (let c of b) {
+    if (!charCount[c]) return false;
+    charCount[c]--;
+  }
+  return true;
+}
