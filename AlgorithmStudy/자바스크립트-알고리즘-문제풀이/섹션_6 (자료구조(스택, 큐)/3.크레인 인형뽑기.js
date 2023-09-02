@@ -1,3 +1,4 @@
+// 오류 발생!
 function solution(board, moves) {
   let stack = [];
   let depth = 0;
@@ -14,7 +15,6 @@ function solution(board, moves) {
   }
   return stack;
 }
-// 오류 발생!
 
 // 정답코드 작성 완료!
 function solution(board, moves) {
