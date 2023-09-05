@@ -11,6 +11,22 @@
         return str.replaceAll("A", "#");
       }
       console.log(solution(str));
+
+      // 강의 코드 추가-1
+      function solution(s) {
+        let answer = "";
+        for (let x of s) {
+          if (x === "A") answer += "#";
+          else answer += x;
+        }
+        return answer;
+      }
+      // 강의 코드 추가-2
+      function solution(s) {
+        let answer = s; // 배열에서는 얕은 복사이지만, 문자열에 경우 깊은 복사가 된다.
+        answer = answer.replace(/A/g, "#");
+        return answer;
+      }
     </script>
   </body>
 </html>
