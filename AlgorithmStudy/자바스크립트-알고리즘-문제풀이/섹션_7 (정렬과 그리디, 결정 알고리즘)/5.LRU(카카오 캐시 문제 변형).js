@@ -13,6 +13,23 @@ function solution(t, n) {
   }
   return cache.join("");
 }
+// 내장함수 활용 강의 풀이
+function solution(size, arr) {
+  let answer = []; // 내장함수 활용할 땐 인덱스로 접근하지 않으니 0으로 초기화 해줄 필요가 없다.
+  arr.forEach((v) => {
+    let pos = -1;
+    for (let i = 0; i < size; i++) if (v === answer[i]) pos = i;
+    if (pos === -1) {
+      answer.unshift(v);
+      if (answer.length > size) answer.pop(); // 조건문으로 확인해주는 편이 효율성이 좋다. 내장함수를 사용하기 떄문에 배열의 길이가
+      // 늘어났다, 줄어들었다 한다.
+    } else {
+      answer.splice(pos, 1);
+      answer.unshift(v); // unshift할 대상을 적어줘야 한다..!
+    }
+  });
+  return answer;
+}
 
 // 삽입정렬 알고리즘
 
