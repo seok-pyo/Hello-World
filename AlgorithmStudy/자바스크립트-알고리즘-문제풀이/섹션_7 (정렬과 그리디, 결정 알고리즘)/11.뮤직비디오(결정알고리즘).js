@@ -42,7 +42,7 @@ function solution(songs, m) {
   while (lt <= rt) {
     let mid = Math.floor((lt + rt) / 2);
     if (count(songs, mid) <= m) {
-      answer = mid; // rt가 lt 보다 작아지거나, lt가 rt 보다 커지는 경우
+      answer = mid;
       rt = mid - 1;
     } else lt = mid + 1;
   }
