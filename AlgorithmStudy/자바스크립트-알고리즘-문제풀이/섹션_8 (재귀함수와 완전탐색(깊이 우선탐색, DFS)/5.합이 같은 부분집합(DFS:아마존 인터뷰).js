@@ -30,15 +30,15 @@ function solution(arr) {
   let total = arr.reduce((a, c) => a + c, 0);
   let n = arr.length;
   function DFS(L, sum) {
-    if (flag) returnn;
+    if (flag) return;
     if (L === n) {
       if (total - sum === sum) {
         answer = "YES";
         flag = 1;
       }
     } else {
-      DFL(L + 1, sum + arr[L]);
-      DFL(L + 1, sum);
+      DFS(L + 1, sum + arr[L]);
+      DFS(L + 1, sum);
     }
   }
   DFS(0, 0);
