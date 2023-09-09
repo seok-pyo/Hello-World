@@ -38,3 +38,20 @@ function solution(n) {
   }
   DFS(1);
 }
+// 다른 사람 코드 추가
+function solution(n) {
+  function DFS(v, arr) {
+    if (v > n) return;
+    else {
+      let set1 = arr.slice();
+      let set2 = arr.slice();
+      set1.push(v);
+      DFS(v + 1, set1);
+      console.log(set1.join(" "));
+      DFS(v + 1, set2);
+    }
+    DFS(1, []);
+  }
+}
+
+solution(3);
