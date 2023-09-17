@@ -32,10 +32,10 @@ function solution(s, e) {
   while (queue.length) {
     let [v, time] = queue.shift();
 
-    if (v === e) return time; // 넣고 나서 검색?
+    if (v === e) return time;
 
     for (let nv of [v + 1, v - 1, v + 5]) {
-      if (!visited[nv] && nv > 0 && vn <= 10000) {
+      if (!visited[nv] && nv > 0 && nv <= 10000) {
         visited[nv] = 1;
         queue.push([nv, time + 1]);
       }
