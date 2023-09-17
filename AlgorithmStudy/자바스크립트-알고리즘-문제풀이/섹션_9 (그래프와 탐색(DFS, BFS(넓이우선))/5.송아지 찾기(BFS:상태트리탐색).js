@@ -21,3 +21,24 @@ function solution(s, e) {
 }
 
 console.log(solution(8, 3));
+
+// 다른 사람 코드 추가
+function solution(s, e) {
+  let queue = [];
+  let visited = Array.from({ length: e }, () => 0);
+  queue.push([s, 0]);
+  visited[s] = 1;
+
+  while (queue.length) {
+    let [v, time] = queue.shift();
+
+    if (v === e) return time; // 넣고 나서 검색?
+
+    for (let nv of [v + 1, v - 1, v + 5]) {
+      if (!visited[nv] && nv > 0 && vn <= 10000) {
+        visited[nv] = 1;
+        queue.push([nv, time + 1]);
+      }
+    }
+  }
+}
