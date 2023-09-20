@@ -8,6 +8,14 @@ function solution(t) {
   }
 }
 
+// 메서드 추가
+function solution(s) {
+  let answer = "YES";
+  s = s.toLowerCase();
+  if (s.split("").reverse().join("") !== s) return "NO";
+  return answer;
+}
+
 function solution(s) {
   let answer = "YES";
   s = s.toLowerCase();
