@@ -53,3 +53,6 @@ Lv.0 ~ 1
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/120825" target="_blank"> 45. 문자 반복 출력하기</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/17682" target="_blank"> 46. [1차] 다트게임</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/42862" target="_blank"> 47. 체육복</a><br>
+
+Lv.2
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/118667" target="_blank"> 1. 두 큐 합 같게 만들기</a><br>
