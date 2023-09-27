@@ -5,7 +5,7 @@ function solution(sequence, k) {
   let lt = 0;
   sum = 0;
   for (rt = 0; rt < sequence.length; rt++) {
-    sum += suqeunce[rt];
+    sum += sequence[rt];
     if (sum === k) {
       answer.push([lt, rt]);
     }
@@ -24,7 +24,36 @@ function solution(sequence, k) {
 
   let smallestKey = keyArr[0];
   for (let key of keyArr) {
-    if (key < smallestKey) smallestkey = key;
+    if (key < smallestKey) smallestKey = key;
   }
-  return M.get(smallestkey);
+  return M.get(smallestKey);
+}
+
+// 다른 사람 풀이 추가
+// 길이가 같은 경우, 앞쪽 인덱스 반환하는 것 확인, 길이로 Map사용하지 않고 구현,
+function solution(sequence, k) {
+  var answer = [0, sequence.length - 1];
+  let left = 0;
+  let right = 0;
+
+  let sum = sequence[left];
+  while (right < sequence.length) {
+    if (sum > k) {
+      sum -= sequence[left];
+      left++;
+    } else if (sum < k) {
+      right++;
+      sum += sequence[right];
+    } else {
+      let distance = answer[1] - answer[0];
+      let currentDistance = right - left;
+      if (distance > currentDistance) {
+        answer = [left, right];
+      }
+      sum -= sequence[left];
+      left++;
+    }
+  }
+
+  return answer;
 }
