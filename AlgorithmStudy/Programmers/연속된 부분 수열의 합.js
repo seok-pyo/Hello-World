@@ -45,6 +45,7 @@ function solution(sequence, k) {
       right++;
       sum += sequence[right];
     } else {
+      // 조건 자체가 sum === k 이기 때문에 distance 가 같아지는 경우는 생각하지 않아도 된다.
       let distance = answer[1] - answer[0];
       let currentDistance = right - left;
       if (distance > currentDistance) {
