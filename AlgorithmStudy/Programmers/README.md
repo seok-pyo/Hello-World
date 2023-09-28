@@ -57,3 +57,4 @@ Lv.0 ~ 1
 Lv.2
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/118667" target="_blank"> 1. 두 큐 합 같게 만들기</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/178870" target="_blank"> 2. 연속된 부분 수열의 합</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/12939" target="_blank"> 3. 최댓값과 최솟값</a><br>
