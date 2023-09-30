@@ -35,3 +35,21 @@ function solution(n, t, m, p) {
 
   return answer.toUpperCase();
 }
+
+// 다른 풀이 추가
+// while 문, slice() 활용 확인!
+function solution(n, t, m, p) {
+  let res = "";
+  let num = 0;
+  let seq = "";
+  while (res.length < t) {
+    if (seq.length >= m) {
+      res += seq[p - 1];
+      seq = seq.slice(m);
+    } else {
+      seq += num.toString(n).toUpperCase();
+      num++;
+    }
+  }
+  return res;
+}
