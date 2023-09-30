@@ -13,3 +13,21 @@
 // let matches = [...s.matchAll(regex)];
 
 // 배열 길이는 1부터 n까지
+
+// 나의 풀이
+function solution(s) {
+  let reg = /{([^}]+)}/g;
+  let reg2 = /[{}]/g;
+  let arr = s.match(reg);
+  let answer = [];
+  for (let x of arr) {
+    answer.push(x.replace(reg2, ""));
+  }
+  let result = answer.map((v) => v.split(","));
+  let F_RESULT = [];
+  for (let x of result) {
+    F_RESULT[x.length - 1] = x;
+  }
+  let RF = new Array(...new Set(F_RESULT.flat()));
+  return RF.map((v) => Number(v));
+}
