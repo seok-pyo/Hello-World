@@ -61,3 +61,4 @@ Lv.2
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/12951" target="_blank"> 4. JadenCase 문자열 만들기</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/12946" target="_blank"> 5. 하노이의 탑</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/64065" target="_blank"> 6. 튜플</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/17687" target="_blank"> 7. n진수 게임</a><br>

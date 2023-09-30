@@ -34,6 +34,7 @@ function solution(s) {
 
 // 다른 사람 풀이 추가
 // 정렬과 reduce의 활용 방법 참고하자!
+// 길이로 정렬! 기본기!
 
 const tupleFrom = (str) =>
   str
