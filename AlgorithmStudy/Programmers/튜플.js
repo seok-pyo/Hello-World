@@ -31,3 +31,40 @@ function solution(s) {
   let RF = new Array(...new Set(F_RESULT.flat()));
   return RF.map((v) => Number(v));
 }
+
+// 다른 사람 풀이 추가
+// 정렬과 reduce의 활용 방법 참고하자!
+
+const tupleFrom = (str) =>
+  str
+    .slice(2, -2)
+    .split("},{")
+    .map((it) => toNumbers(it))
+    .sort(accendingByLength)
+    .reduce(
+      (acc, cur) => [...acc, ...cur.filter((it) => !acc.includes(it))],
+      []
+    );
+
+const toNumbers = (str) => str.split(",").map((it) => Number(it));
+
+const accendingByLength = (arr1, arr2) => arr1.length - arr2.length;
+
+const solution = (s) => tupleFrom(s);
+
+// reduce에서 set 활용 방법 확인!
+
+const solution = (s) => tupple(changeMatrix(getSets(s)));
+
+const getSets = (s) => {
+  const sets = s.match(/{[\d,]+}/g);
+  return sets
+    .map((set) => set.match(/[\d]+,?/g).map((v) => parseInt(v)))
+    .sort((a, b) => a.length - b.length);
+};
+
+const changeMatrix = (sets) => sets.reduce((_, set) => _.concat(set), []);
+
+const tupple = (arr) => [
+  ...arr.reduce((set, value) => set.add(value), new Set()),
+];
