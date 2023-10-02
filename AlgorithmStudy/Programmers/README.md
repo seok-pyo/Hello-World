@@ -63,3 +63,4 @@ Lv.2
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/64065" target="_blank"> 6. 튜플</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/17687" target="_blank"> 7. n진수 게임</a><br>
 <a href="https://school.programmers.co.kr/learn/courses/30/lessons/1844" target="_blank"> 8. 게임 맵 최단거리</a><br>
+<a href="https://school.programmers.co.kr/learn/courses/30/lessons/17677" target="_blank"> 9. 뉴스 클러스터링</a><br>
