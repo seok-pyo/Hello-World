@@ -2,16 +2,9 @@
 
 int main()
 {
-    // int num;
-    // num = 3;
-    // printf("%d\n", num);
-    // return 0;
-    char str;
-    float a;
-    str = 'A';
-    a = 123456789;
-    printf("%d\n", str);
-    printf("%c\n", str);
-    printf("%f", a);
+    int a, b, c, k;
+    a = b = c = 3;
+    k = a + 3 * 6 - 6 / c;
+    printf("혼합연산의 결과 = %d\n", k);
     return 0;
 }
