@@ -3,9 +3,12 @@
 
 int main()
 {
-    double a;
+    double a, result;
 
     scanf("%lf", &a);
-    printf("%0.6f\n", round(a * 10) / 10);
+
+    // scanf("%lf", &a);
+    printf("%f\n", round(a * 10) / 10);
+
     return 0;
 }
