@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 
 int main()
 {
@@ -8,7 +7,13 @@ int main()
 
     scanf("%d %d %d", &a, &b, &c);
 
-    result = (float)(a + b + c) / 3;
+    result = (double)(a + b + c) / 3;
+    // result = (float)(a + b + c) / 3.0;
+    result = result * 100 + 0.5;
+    // result = result / 100; // 이 부분은 불필요
+    // result = result * 100;
+    result = (int)result;
 
-    printf("%f\n", round(result * 100) / 100);
+    printf("%f\n", result / 100);
+    return 0;
 }
