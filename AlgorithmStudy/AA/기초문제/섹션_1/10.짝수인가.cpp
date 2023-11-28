@@ -11,5 +11,6 @@ int main()
 
     // printf("%s\n", result ? "true" : "false");
     printf("%s\n", a % 2 == 0 ? "true" : "false");
+
     return 0;
 }

@@ -5,6 +5,6 @@ int main()
 
     scanf("%d", &h);
 
-    printf("%s\n", (120 <= h && h <= 150) ? "true" : "false");
+    printf((120 <= h && h <= 150) ? "true\n" : "false\n");
     return 0;
 }
