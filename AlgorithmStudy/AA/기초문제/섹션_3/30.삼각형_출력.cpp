@@ -7,7 +7,8 @@ int main()
 
     for (i = 1; i <= a; i++)
     {
-        for (j = a - i + 1; j >= 1; j--)
+        // for (j = a - i + 1; j >= 1; j--)
+        for (j = 1; j <= a - i + 1; j++)
         {
             printf("@ ");
         }
