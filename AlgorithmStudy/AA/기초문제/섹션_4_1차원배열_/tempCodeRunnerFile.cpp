@@ -1,1 +1,1 @@
-a[index] = a[i];
+tmp = a[0];
