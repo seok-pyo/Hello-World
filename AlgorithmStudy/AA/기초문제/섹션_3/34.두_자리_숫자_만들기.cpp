@@ -9,10 +9,15 @@ int main()
     {
         for (j = 1; j <= a; j++)
         {
-            if (i != j)
+            // if (i != j)
+            // {
+            //     printf("%d%d", i, j);
+            //     printf("\n");
+            // }
+            if (i == j)
+                continue;
             {
-                printf("%d%d", i, j);
-                printf("\n");
+                printf("%d%d\n", i, j);
             }
         }
     }
