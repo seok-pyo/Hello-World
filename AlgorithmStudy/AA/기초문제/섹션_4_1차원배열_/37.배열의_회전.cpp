@@ -17,7 +17,11 @@ int main()
         {
             a[j] = a[j + 1];
         }
-        a[length - 1] = tmp;
+        // a[length - 1] = tmp;
+        // length에서 1을 뺄 필요 없이 j for문이 완료되고 내려오기 때문에
+        // j = length - 1 이 된다.
+        // j라는 거 이해가십니까
+        a[j] = tmp;
     }
 
     for (i = 0; i < length; i++)
