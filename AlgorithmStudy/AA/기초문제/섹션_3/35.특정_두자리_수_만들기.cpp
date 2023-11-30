@@ -32,12 +32,19 @@ int main()
     {
         for (j = 1; j < i; j++)
         {
-            tmp = 1 * 10 + j;
-            if (tmp <= c)
-            {
-                printf("%d\n", tmp);
-                cnt++;
-            }
+            tmp = i * 10 + j;
+
+            // if (tmp <= c)
+            // {
+            //     printf("%d\n", tmp);
+            //     cnt++;
+            // }
+
+            // 불필요한 반복 제거
+            if (tmp > c)
+                break;
+            printf("%d\n", tmp);
+            cnt++;
         }
     }
     printf("%d\n", cnt);
