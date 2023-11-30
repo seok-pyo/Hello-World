@@ -10,7 +10,8 @@ int main()
         if (a % i == 0)
         {
             printf("NO");
-            return 0;
+            // return 0;
+            break;
         }
     }
     printf("YES\n");
