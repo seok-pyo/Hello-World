@@ -8,7 +8,8 @@ int main()
 
     for (i = 1; i <= center; i++)
     {
-        for (k = 1; k <= center - i; k++)
+        // for (k = 1; k <= center - i; k++)
+        for (k = i; k < center; k++)
         {
             printf(" ");
         }
