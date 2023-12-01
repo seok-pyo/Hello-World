@@ -18,12 +18,10 @@ int main()
         if (a[i] > m)
             a[i + 1] = a[i];
         else
-        {
-            a[i + 1] = m;
             break;
-        }
     }
 
+    a[i + 1] = m;
     for (i = 0; i <= n; i++)
     {
         printf("%d ", a[i]);
