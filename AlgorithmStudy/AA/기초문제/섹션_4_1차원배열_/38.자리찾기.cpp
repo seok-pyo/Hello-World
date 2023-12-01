@@ -4,7 +4,7 @@ int a[101];
 
 int main()
 {
-    int n, i, s = 0, m;
+    int n, i, m;
 
     scanf("%d", &n);
     for (i = 0; i < n; i++)
@@ -13,17 +13,19 @@ int main()
     }
     scanf("%d", &m);
 
-    for (i = 0; i < n; i++)
+    for (i = n - 1; i >= 0; i--)
     {
-        if (a[i] <= m)
+        if (a[i] > m)
+            a[i + 1] = a[i];
+        else
         {
-            printf("%d ", a[i]);
-            continue;
+            a[i + 1] = m;
+            break;
         }
-        if (a[i] > m && a[i - 1] < m)
-        {
-            printf("%d ", m);
-        }
+    }
+
+    for (i = 0; i <= n; i++)
+    {
         printf("%d ", a[i]);
     }
 
