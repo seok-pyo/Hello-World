@@ -11,7 +11,7 @@ int main()
         sum += arr[i];
     }
 
-    for (i = 0; i < 9; i++)
+    for (i = 0; i < 9; i++) // 8까지만 돌면 된다.
     {
         for (j = i + 1; j < 9; j++)
         {
@@ -22,6 +22,8 @@ int main()
                 break;
             }
         }
+        if (arr[i] + arr[j] == 100)
+            break; // break 추가
     }
 
     for (i = 0; i < 9; i++)
