@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+// 경우의 수, 수학적 직관
 int arr[30];
 
 int main()
