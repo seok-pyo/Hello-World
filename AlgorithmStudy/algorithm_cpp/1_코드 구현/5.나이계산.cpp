@@ -11,6 +11,10 @@ int main()
         year = 2000 + ((a[0] - 48) * 10 + (a[1] - 48));
     age = 2023 - year + 1;
     printf("%d\n", age);
+    if (a[7] == '1' || a[7] == '3')
+        printf("M\n");
+    else
+        printf("W\n");
 
     return 0;
 }
