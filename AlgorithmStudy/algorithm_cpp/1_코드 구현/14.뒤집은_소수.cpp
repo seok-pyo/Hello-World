@@ -13,15 +13,32 @@ int reverse(int x)
     return sum;
 };
 
+// bool isPrime(int x)
+// {
+//     int i;
+//     for (i = 2; i < x; i++)
+//     {
+//         if (x % i == 0)
+//             return false;
+//     }
+//     return true;
+// }
+
 bool isPrime(int x)
 {
     int i;
+    if (x == 1)
+        return false;
+    bool flag = true;
     for (i = 2; i < x; i++)
     {
         if (x % i == 0)
-            return false;
+        {
+            flag = false;
+            break;
+        }
     }
-    return true;
+    return flag;
 }
 
 int main()
