@@ -17,16 +17,22 @@ int main()
     for (i = 0; i < n; i++)
     {
         scanf("%d %d", &a, &b);
+        // if (sum(a) == b)
+        //     res[i] = 1;
         if (sum(a) == b)
-            res[i] = 1;
-    }
-    for (i = 0; i < n; i++)
-    {
-        if (res[i] == 1)
+        {
             printf("YES\n");
+        }
         else
             printf("NO\n");
     }
+    // for (i = 0; i < n; i++)
+    // {
+    //     if (res[i] == 1)
+    //         printf("YES\n");
+    //     else
+    //         printf("NO\n");
+    // }
 
     return 0;
 }
