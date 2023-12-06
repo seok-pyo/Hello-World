@@ -16,6 +16,7 @@ int main()
             if (a[i] == b[j])
             {
                 b[j] = '0';
+                break;
             }
         }
     }
