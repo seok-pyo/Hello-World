@@ -18,6 +18,9 @@ int main()
             cnt = 0;
         }
     }
-    printf("%d\n", res);
+    if (res == 0)
+        printf("-1\n");
+    else
+        printf("%d\n", res);
     return 0;
 }
