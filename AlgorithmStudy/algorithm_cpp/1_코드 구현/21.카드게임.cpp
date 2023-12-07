@@ -38,22 +38,21 @@ int main()
                 continue;
             if (aa[i] > ba[i])
             {
-                printf("A\n");
+                w = 'A';
                 flag = 1;
-                break;
             }
             else
             {
-                printf("B\n");
+                w = 'B';
                 flag = 1;
-                break;
             }
         }
+        if (flag == 1)
+            printf("%c\n", w);
         if (flag == 0)
             printf("D\n");
     }
-
-    if (a > b)
+    else if (a > b)
     {
         printf("A\n");
     }

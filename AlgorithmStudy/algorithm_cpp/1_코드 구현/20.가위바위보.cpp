@@ -21,6 +21,7 @@ int main()
         if (sub == 0)
         {
             printf("D\n");
+            continue;
         }
         if (sub < 0)
         {
