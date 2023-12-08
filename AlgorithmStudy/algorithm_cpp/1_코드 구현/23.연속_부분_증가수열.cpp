@@ -25,7 +25,7 @@ int main()
         tmp = a[i];
     }
 
-    // printf("%d\n", res + 1);
+    printf("%d\n", res + 1);
     printf("%d\n", cnt);
     return 0;
 }
