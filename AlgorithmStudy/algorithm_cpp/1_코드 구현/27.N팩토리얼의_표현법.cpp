@@ -11,6 +11,7 @@ long long fac(int x)
 }
 
 long long res[50000];
+
 int main()
 {
     int n, p = 2, idx = 0, i;

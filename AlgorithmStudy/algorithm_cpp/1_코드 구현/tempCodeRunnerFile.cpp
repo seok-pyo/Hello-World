@@ -1,1 +1,1 @@
-int a[n], b[n];
+vector<int> res(n + 1);
