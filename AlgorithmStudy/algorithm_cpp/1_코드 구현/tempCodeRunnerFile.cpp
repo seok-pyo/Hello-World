@@ -1,1 +1,1 @@
-vector<int> res(n + 1);
+   a = n;
