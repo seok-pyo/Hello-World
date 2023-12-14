@@ -4,37 +4,28 @@
 using namespace std;
 int main()
 {
-    int n, i, j, tmp;
-    int a[101];
-    int b[101];
+    int n, i, j, pos;
     scanf("%d", &n);
+    vector<int> is(n + 1);
+    vector<int> os(n + 1);
     for (i = 1; i <= n; i++)
     {
-        scanf("%d", &a[i]);
-    }
-    for (i = 1; i <= n; i++)
-    {
-        b[i] = i;
+        scanf("%d", &is[i]);
     }
 
-    for (i = 1; i <= a[i]; i++)
+    for (i = n; i >= 1; i--)
     {
-        j = i + 1;
-        while (j <= a[i])
+        pos = i;
+        for (j = 1; j <= is[i]; j++)
         {
-            if (b[j - 1] < b[j])
-            {
-                tmp = b[j - 1];
-                b[j - 1] = b[j];
-                b[j] = tmp;
-                j += 1;
-            }
+            os[pos] = os[pos + 1];
+            pos++;
         }
+        os[pos] = i;
     }
-
     for (i = 1; i <= n; i++)
     {
-        printf("%d ", b[i]);
+        printf("%d ", os[i]);
     }
     return 0;
 }
