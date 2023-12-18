@@ -23,11 +23,11 @@ int main()
         tmp = s + e / 2;
         if (a[tmp] > m)
         {
-            e = (tmp);
+            e = tmp - 1;
         }
         else if (a[tmp] < m)
         {
-            s = (tmp);
+            s = tmp + 1;
         }
     }
     printf("%d ", tmp);
