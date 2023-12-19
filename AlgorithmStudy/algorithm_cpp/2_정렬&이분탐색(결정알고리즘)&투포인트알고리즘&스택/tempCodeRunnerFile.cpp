@@ -1,1 +1,1 @@
-sum = 0;
+#include <vector>
