@@ -1,1 +1,1 @@
-scanf("%d", &tmp);
+freopen("input.txt", "rt", stdin);
