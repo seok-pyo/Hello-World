@@ -1,1 +1,1 @@
-printf("-1\n");
+freopen("input.txt", "rt", stdin);
