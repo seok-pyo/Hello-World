@@ -19,8 +19,10 @@ int main()
         for (j = 1; j <= w - tw + 1; j++)
         {
             for (k = 0; k < th; k++)
+            // for (k = i; k < i + th; k++) i에서 시작
             {
                 for (l = 0; l < tw; l++)
+                // for (l = j; l < j + tw; l++) j에서 시작
                 {
                     sum += a[i + k][j + l];
                 }
