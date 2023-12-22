@@ -1,1 +1,1 @@
-freopen("input.txt", "rt", stdin);
+sum = 0;
