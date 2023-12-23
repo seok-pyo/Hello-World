@@ -25,7 +25,7 @@ int main()
     }
     while (top != -1) // 전체 스택을 출력
     {
-        printf("%c", str[pop()]);
+        printf("%c", str[pop()]); // str[pop()] 문자표와 나머지값과 대응되는 값을 출력
     }
     printf("\n");
     return 0;
