@@ -27,16 +27,21 @@ bool check(int x)
 
 int main()
 {
-    int n, i = 1, cnt = 1;
+    int n, i = 2, cnt = 1;
     scanf("%d", &n);
-    while (n != cnt)
+    while (cnt < n)
     {
         if (check(i))
         {
             cnt++;
         }
+        if (cnt == n)
+        {
+            printf("%d\n", i);
+            break;
+        }
         i++;
     }
-    printf("%d\n", i + 1);
+
     return 0;
 }
