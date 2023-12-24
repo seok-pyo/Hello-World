@@ -1,1 +1,2 @@
-sum = 0;
+if (s.empty())
+                break;
