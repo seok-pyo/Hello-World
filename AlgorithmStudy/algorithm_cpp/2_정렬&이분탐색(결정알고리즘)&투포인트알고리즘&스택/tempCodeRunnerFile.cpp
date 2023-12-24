@@ -1,2 +1,1 @@
-if (s.empty())
-                break;
+print(n - 1);
