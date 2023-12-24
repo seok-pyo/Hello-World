@@ -1,11 +1,13 @@
 #include <stdio.h>
-int print(int n)
+void print(int n)
 {
     if (n == 0)
-        return 0;
-    print(n - 1);
-    printf("%d ", n);
-    return 0;
+        return;
+    else
+    {
+        print(n - 1);
+        printf("%d ", n);
+    }
 }
 
 int main()
