@@ -1,1 +1,1 @@
-print(n - 1);
+printf("%d", x % 2);
