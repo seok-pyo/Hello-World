@@ -28,6 +28,9 @@ int main()
         scanf("%d", &a[i]);
     }
     DFS(1, 0);
-    printf("%d\n", cnt);
+    if (cnt == 0)
+        printf("-1\n");
+    else
+        printf("%d\n", cnt);
     return 0;
 }
