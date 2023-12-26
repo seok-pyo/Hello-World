@@ -1,1 +1,1 @@
-     printf("%d", a[i]);
+printf("%d ", x);
