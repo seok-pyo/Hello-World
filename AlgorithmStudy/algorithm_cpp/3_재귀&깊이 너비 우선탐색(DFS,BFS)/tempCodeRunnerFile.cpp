@@ -1,1 +1,1 @@
-puts("");
+     printf("%d", a[i]);
