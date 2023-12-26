@@ -5,6 +5,10 @@ int n, a[11], total = 0;
 bool check = false;
 void DFS(int L, int sum)
 {
+    if (sum > total / 2)
+    {
+        return;
+    }
     if (check)
     {
         return;
