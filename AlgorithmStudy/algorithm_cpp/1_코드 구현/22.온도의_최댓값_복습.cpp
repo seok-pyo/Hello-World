@@ -3,6 +3,8 @@
 using namespace std;
 int main()
 {
+    // 이중 for문으로 풀면 시간제한에 걸린다.
+    // n 시간복잡도만에 푸는 방법 익혀두기.
     freopen("input.txt", "rt", stdin);
     int n, k, i, j, max = -2147000000, sum;
     scanf("%d %d", &n, &k);

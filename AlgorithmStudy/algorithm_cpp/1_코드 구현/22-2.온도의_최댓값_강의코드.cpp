@@ -3,6 +3,7 @@
 using namespace std;
 int main()
 {
+    freopen("input.txt", "rt", stdin);
     int n, k, i, sum = 0, res;
     scanf("%d %d", &n, &k);
     vector<int> a(n);
@@ -10,13 +11,14 @@ int main()
     {
         scanf("%d", &a[i]);
     }
-    for (i = 0; i < k; i++) // k의 범위 확인, 아래 반복문의 k와 연결
+    for (i = 0; i < k; i++) // 처음 구간(k)의 합을 구한다.
     {
         sum += a[i];
     }
-    res = sum;
-    for (i = k; i < n; i++) // i 가 n 전까지인 이유는? k가 2 이상이라면?
-    // 이 아니라 범위는 위에서 k만큼 더해졌기 때문에 항상 '한칸'씩 이동하게 된다.
+    res = sum;                   // 처음 구간의 합을 구한다.
+    for (i = k; i <= n - k; i++) // 처음 구간의 합을 구하고, 한 칸씩 이동하면서(앞에 원소는 빼고, 그 다음 원소는 더하고)
+    // 전체의 합을 구할 수 있다.
+    // 범위는 n-k까지
     {
         sum += (a[i] - a[i - k]);
         if (sum > res)
