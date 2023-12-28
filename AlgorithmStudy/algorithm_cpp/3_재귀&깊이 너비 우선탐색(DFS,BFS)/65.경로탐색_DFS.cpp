@@ -1,41 +1,37 @@
 #include <stdio.h>
-int map[21][21];
-int cnt = 0;
-int n, m;
-void DFS(int s, int e)
+int map[30][30], ch[30], n, cnt = 0;
+void DFS(int v)
 {
-    if (map[s][e] == 0)
+    int i;
+    if (v == n)
     {
-        return;
+        cnt++;
     }
     else
     {
-        if (e == n)
+        for (i = 1; i <= n; i++)
         {
-            cnt++;
-            return;
+            if (map[v][i] == 1 && ch[i] == 0)
+            {
+                ch[i] = 1;
+                DFS(i);
+                ch[i] = 0;
+            }
         }
-        DFS(e, e + 1);
     }
 }
 int main()
 {
     freopen("input.txt", "rt", stdin);
-    int i, j, a, b;
+    int m, i, a, b;
     scanf("%d %d", &n, &m);
     for (i = 1; i <= m; i++)
     {
         scanf("%d %d", &a, &b);
         map[a][b] = 1;
     }
-
-    for (i = 1; i <= n; i++)
-    {
-        for (j = 1; j <= n; j++)
-        {
-            DFS(i, j);
-        }
-    }
+    ch[1] = 1;
+    DFS(1);
     printf("%d\n", cnt);
     return 0;
 }
