@@ -1,1 +1,1 @@
-#include <stdio.h>
+vector<int> map[30];
