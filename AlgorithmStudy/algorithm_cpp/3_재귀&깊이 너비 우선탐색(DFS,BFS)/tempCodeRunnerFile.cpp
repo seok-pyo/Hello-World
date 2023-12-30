@@ -1,1 +1,3 @@
-vector<int> map[30];
+ // if(sum == dis){
+            //     break;
+            // }
