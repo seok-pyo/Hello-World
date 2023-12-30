@@ -10,15 +10,26 @@ int main(){
     for(int i=1; i<=n; i++){
         Q.push(i);
     }
+    // while(!Q.empty()){
+    //     cnt++;
+    //     if(cnt==k){
+    //         Q.pop();
+    //         cnt = 0;
+    //     } else {
+    //         ans = Q.front();
+    //         Q.pop();
+    //         Q.push(ans);
+    //     }
+    // }
     while(!Q.empty()){
-        cnt++;
-        if(cnt==k){
+        for(i=1; i<k; i++){
+            Q.push(Q.front());
             Q.pop();
-            cnt = 0;
-        } else {
-            ans = Q.front();
+        }
+        Q.pop();
+        if(Q.size()==1){
+            printf("%d\n", Q.front());
             Q.pop();
-            Q.push(ans);
         }
     }
     printf("%d\n", ans);
