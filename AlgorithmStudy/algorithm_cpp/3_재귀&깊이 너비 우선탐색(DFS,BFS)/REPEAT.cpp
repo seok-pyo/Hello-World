@@ -1,38 +1,35 @@
-// 그래프 최단거리 복습(BFS) 🍎🍎🍎🍎🍎
+// 공주 구하기, 조세퍼스(시뮬레이션) 복습 🍎
 
 #include <stdio.h>
 #include <vector>
-#include <queue>
 using namespace std;
-
-vector<int> map[30];
-queue<int> Q;
-int dis[30], ch[30];
-
 int main(){
     freopen("r.txt", "rt", stdin);
-    int n, m, a, b, x, i;
-    scanf("%d %d", &n, &m);
-    for(i=1; i<=m; i++){
-        scanf("%d %d", &a, &b);
-        map[a].push_back(b);
-    }
-    ch[1] = 1;
-    Q.push(1);
-    while(!Q.empty()){
-        x = Q.front();
-        Q.pop();
-        for(i=0; i<map[x].size(); i++){
-            if(ch[map[x][i]]==0){
-                ch[map[x][i]] = 1;
-                Q.push(map[x][i]);
-                dis[map[x][i]] = dis[x] + 1;
-            }
+    int n, k, pos=0, cnt=0, i, bp=0;
+    scanf("%d %d", &n, &k);
+    vector<int> ch(n+1);
+    while(1){
+        pos++;
+        if(pos>n) pos = 1;
+        if(ch[pos]==0){
+            cnt++;
+        }
+        if(cnt==k){
+            ch[pos] = 1;
+            cnt = 0;
+            bp++;
+        }
+        if(bp==n-1){
+            break;
         }
     }
-    for(i=2; i<=n; i++){
-        printf("%d : %d\n", i, dis[i]);
+    for(i=1; i<=n; i++){
+        if(ch[i]==0) {
+            printf("%d\n", i);
+        }
     }
     return 0;
-    }
+}
+
+
 
