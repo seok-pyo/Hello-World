@@ -7,7 +7,7 @@ vector<int> map[10];
 int main(){
     freopen("input.txt", "rt", stdin);
     int i, a, b, x;
-    for(i = 1; i<= 6; i++){
+    for(i = 1; i<= 6; i++){ // 간선은 (노드의 수 - 1)
         scanf("%d %d", &a, &b);
         map[a].push_back(b);
         map[b].push_back(a);

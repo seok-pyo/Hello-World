@@ -1,24 +1,21 @@
-// 그래프 최단거리 복습(BFS) 🍎🍎🍎🍎🍎
-
 #include <stdio.h>
 #include <vector>
 #include <queue>
+#include <algorithm>
 using namespace std;
-
-vector<int> map[30];
-queue<int> Q;
-int dis[30], ch[30];
-
+int ch[30], dis[30];
 int main(){
-    freopen("r.txt", "rt", stdin);
+    freopen("input.txt", "rt", stdin);
     int n, m, a, b, x, i;
+    vector<int> map[30];
+    queue<int> Q;
     scanf("%d %d", &n, &m);
     for(i=1; i<=m; i++){
         scanf("%d %d", &a, &b);
         map[a].push_back(b);
     }
-    ch[1] = 1;
     Q.push(1);
+    ch[1] = 1;
     while(!Q.empty()){
         x = Q.front();
         Q.pop();
@@ -34,5 +31,4 @@ int main(){
         printf("%d : %d\n", i, dis[i]);
     }
     return 0;
-    }
-
+}
