@@ -13,11 +13,11 @@ int main(){
         if(pos>n) pos = 1;
         if(ch[pos]==0){
             cnt++;
-        }
-        if(cnt==k){
-            ch[pos] = 1;
-            cnt = 0;
-            bp++;
+            if(cnt==k){
+                ch[pos] = 1;
+                cnt = 0;
+                bp++;
+            }
         }
         if(bp==n-1){
             break;
