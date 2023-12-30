@@ -1,1 +1,1 @@
-    ch[1] = 1;
+using namespace std;
