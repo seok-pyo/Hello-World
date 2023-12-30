@@ -22,6 +22,7 @@ int main(){
             ch.push_back(2);
         } else {
              ch.push_back(3);
+           
         }
     }
 
