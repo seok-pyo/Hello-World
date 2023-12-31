@@ -1,14 +1,16 @@
 #include <stdio.h>
 
 int main(){
-    int x;
-    scanf("%d", &x);
-    if(x%4==0 && x%100!=0) {
-        printf("%d\n", 1);
-    } else if(x%400==0){
-        printf("%d\n", 1);
-    } else {
-        printf("%d\n", 0);
+    int n, a, b;
+    scanf("%d", &n);
+    for(int i=1; i<=n; i++){
+        for(int j=n-i-1; j>=0; j--){
+            printf(" ");
+        }
+        for(int k=1; k<=i; k++){
+            printf("*");
+        }
+        printf("\n");
     }
     return 0;
 }
