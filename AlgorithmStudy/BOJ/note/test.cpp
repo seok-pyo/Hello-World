@@ -1,20 +1,27 @@
-#include <iostream>
+#include <stdio.h>
+#include <algorithm>
 
 using namespace std;
 int main(){
-    int i, n, max=-2147000000, x;
-    double ans, sum = 0;
-    scanf("%d", &n);
-    double a[n];
-    for(i = 0; i<n; i++){
-        scanf("%d", &x);
-        a[i] = double(x);
-        max = max < x ? x : max; 
-    }    
-    for(i = 0; i<n; i++){
-        sum += (a[i]/max)*100;
+    int a, b, n, m, i, j, s, e;
+    scanf("%d %d", &n, &m);
+    int arr[n+1];
+    for(i=1; i<=n; i++){
+        arr[i] = i;
     }
-    ans = (sum / n);
-    printf("%f\n", ans);
+    for(i=0; i<m; i++){
+        scanf("%d %d", &a, &b);
+        if(a < b){
+            s = a;
+            e = b;
+        } else {
+            s = b;
+            e = a;
+        }
+        reverse(arr + s, arr + (e + 1));
+    }
+    for(i=1; i<=n; i++){
+        printf("%d ", arr[i]);
+    }
     return 0;
 }
