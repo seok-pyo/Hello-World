@@ -1,10 +1,20 @@
-#include <stdio.h>
+#include <iostream>
 
+using namespace std;
 int main(){
-    int n;
+    int i, n, max=-2147000000, x;
+    double ans, sum = 0;
     scanf("%d", &n);
-    for(int i=1; i<=9; i++){
-        printf("%d * %d = %d\n", n, i, n*i);
+    double a[n];
+    for(i = 0; i<n; i++){
+        scanf("%d", &x);
+        a[i] = double(x);
+        max = max < x ? x : max; 
+    }    
+    for(i = 0; i<n; i++){
+        sum += (a[i]/max)*100;
     }
+    ans = (sum / n);
+    printf("%f\n", ans);
     return 0;
 }
