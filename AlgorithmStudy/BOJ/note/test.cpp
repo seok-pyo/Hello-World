@@ -3,25 +3,13 @@
 
 using namespace std;
 int main(){
-    int a, b, n, m, i, j, s, e;
-    scanf("%d %d", &n, &m);
-    int arr[n+1];
-    for(i=1; i<=n; i++){
-        arr[i] = i;
+    int max = -2147000000, min = 2147000000, n, tmp;
+    scanf("%d", &n);
+    for(int i = 0; i < n; i++){
+        scanf("%d", &tmp);
+        max = max < tmp ? tmp : max;
+        min = tmp < min ? tmp : min;
     }
-    for(i=0; i<m; i++){
-        scanf("%d %d", &a, &b);
-        if(a < b){
-            s = a;
-            e = b;
-        } else {
-            s = b;
-            e = a;
-        }
-        reverse(arr + s, arr + (e + 1));
-    }
-    for(i=1; i<=n; i++){
-        printf("%d ", arr[i]);
-    }
+    printf("%d %d\n", min, max);
     return 0;
 }
