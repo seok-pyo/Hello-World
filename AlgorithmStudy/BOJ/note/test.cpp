@@ -1,16 +1,16 @@
-#include <stdio.h>
+#include <iostream>
 
+using namespace std;
 int main(){
-    int n, a, b;
-    scanf("%d", &n);
-    for(int i=1; i<=n; i++){
-        for(int j=n-i-1; j>=0; j--){
-            printf(" ");
+    int a, b;
+    
+    while(cin >> a >> b){
+        int sum = a + b;
+        cout << sum << endl;
+        if(cin.eof()){
+            break;
         }
-        for(int k=1; k<=i; k++){
-            printf("*");
-        }
-        printf("\n");
     }
+
     return 0;
 }
