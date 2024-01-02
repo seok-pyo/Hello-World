@@ -1,15 +1,16 @@
 #include <stdio.h>
 #include <algorithm>
-
+#include <set>
 using namespace std;
+
 int main(){
-    int max = -2147000000, min = 2147000000, n, tmp;
-    scanf("%d", &n);
-    for(int i = 0; i < n; i++){
-        scanf("%d", &tmp);
-        max = max < tmp ? tmp : max;
-        min = tmp < min ? tmp : min;
+    int a, res, tmp, cnt = 0;   
+    set<int> unique;
+    for(int i = 0; i < 10; i++){
+        scanf("%d", &a);
+        res = a % 42;
+        unique.insert(res);
     }
-    printf("%d %d\n", min, max);
+    printf("%lu\n", unique.size());
     return 0;
 }
