@@ -5,21 +5,30 @@
 using namespace std;
 
 int main(){
-    int k, sum = 0, i, num, length;
-    stack<int> S;
+    freopen("input.txt", "rt", stdin);
+    int k, i, num, length, j;
     scanf("%d", &k);
+    vector<string> w(k);
+    int res[k];
     for(i=0; i<k; i++){
-        scanf("%d", &num);
-        if(num == 0){
-            S.pop();
-        } else {
-            S.push(num);
+        stack<int> S;
+        cin >> w[i];
+        for(j=0; j < w[i].length(); j++){
+            if(w[i][j]=='(') S.push(w[i][j]);
+            else if(w[i][j]==')') {
+                if(S.empty() || S.top() != '('){
+                    res[i] = 0;
+                    break;
+                }
+                S.pop();
+            }
         }
+        if(S.empty() && res[i] != 0) res[i] = 1;
     }
-    while(!S.empty()){
-        sum += S.top();
-        S.pop();
+
+    for(i=0; i<k; i++){
+        if(res[i] == 1) printf("YES\n");
+        else printf("NO\n");
     }
-    printf("%d\n", sum);
     return 0;
 }
