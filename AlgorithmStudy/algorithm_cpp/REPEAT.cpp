@@ -6,6 +6,12 @@
 using namespace std;
 int unf[1001];
 
+int Find(int x){
+    if(unf[x] == x) return x;
+    else return unf[x] = Find(unf[x]); // 경로단축
+}
+
+
 void Union(int a, int b){
     a = Find(a);
     b = Find(b);
@@ -13,6 +19,7 @@ void Union(int a, int b){
 }
 
 int main(){
+    freopen("r.txt", "rt", stdin);
     int i, n, m, a, b, fa, fb, j;
     scanf("%d %d", &n, &m);
     for(i=1; i<=n; i++){
