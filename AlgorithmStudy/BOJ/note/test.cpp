@@ -5,25 +5,29 @@
 using namespace std;
 
 int main(){
-    freopen("input.txt", "rt", stdin);
-    int k, i, num, length, j;
-    scanf("%d", &k);
+    int k, i, j;
+    cin >> k;
     vector<string> w(k);
-    int res[k];
+    vector<int> res(k);
     for(i=0; i<k; i++){
-        stack<int> S;
+        bool isBal = true;
+        stack<char> S;
         cin >> w[i];
         for(j=0; j < w[i].length(); j++){
             if(w[i][j]=='(') S.push(w[i][j]);
             else if(w[i][j]==')') {
                 if(S.empty() || S.top() != '('){
-                    res[i] = 0;
+                    isBal = false;
                     break;
                 }
                 S.pop();
             }
         }
-        if(S.empty() && res[i] != 0) res[i] = 1;
+        if(S.empty() && isBal) {
+            res[i] = 1;
+        } else {
+            res[i] = 0;
+        }
     }
 
     for(i=0; i<k; i++){

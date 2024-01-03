@@ -5,13 +5,12 @@
 using namespace std;
 
 int main(){
-    freopen("input.txt", "rt", stdin);
-    int k, i, num, length, j;
+    int k, i, j;
     scanf("%d", &k);
     vector<string> w(k);
-    int res[k];
+    vector<int> res(k);
     for(i=0; i<k; i++){
-        stack<int> S;
+        stack<char> S;
         cin >> w[i];
         for(j=0; j < w[i].length(); j++){
             if(w[i][j]=='(') S.push(w[i][j]);
