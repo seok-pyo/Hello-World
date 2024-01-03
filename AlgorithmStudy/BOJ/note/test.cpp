@@ -1,57 +1,59 @@
 #include <iostream>
-#include <queue>
-#include <vector>
 #include <string>
+#include <stack>
+#include <vector>
 using namespace std;
+
 int main(){
-    queue<int> q;
+    string w;
+    int small, i; 
+    int large, ch;
+    int flag;
     vector<int> res;
-    int n, i, p, num;
-    string a;
-    scanf("%d", &n);
-    for(i=0; i<n; i++){
-        cin >> a;
-        if(a=="push"){
-            scanf("%d", &num);
-            q.push(num);
-        }
-        if(a=="pop"){
-            if(q.empty()){
-                res.push_back(-1);
-            } else {
-                res.push_back(q.front());
-                q.pop();
+    while(1){
+        stack<char> Q;
+        getline(cin, w);
+        if(w=="."){
+            break;
+        } else {
+            flag = 0;
+            for(i=0; w[i]!='\0'; i++){
+                if(w[i]=='('){
+                    Q.push(w[i]);
+                } else if (w[i]=='['){
+                    Q.push(w[i]);
+                } else if (w[i]==')'){
+                    if(Q.empty()) {
+                        flag = 1;
+                    } else {
+                        if(Q.top()=='('){
+                            Q.pop();
+                        } else {
+                            flag = 1;
+                        }
+                    }
+                } else if (w[i] == ']'){
+                    if(Q.empty()){
+                        flag = 1;
+                    } else {
+                        if(Q.top()=='['){
+                            Q.pop();
+                        } else {
+                            flag = 1;
+                        }
+                    }
+                }
             }
+            if(!Q.empty()) flag = 1;
+            res.push_back(flag);
         }
-        if(a=="size"){
-            res.push_back(q.size());
-        }
-        if(a=="empty"){
-            if(q.empty()){
-                res.push_back(1);
-            } else {
-                res.push_back(0);
-            }
-        }
-        if(a=="front"){
-            if(q.empty()){
-                res.push_back(-1);
-            } else {
-                res.push_back(q.front());
-            }
-        }
-        if(a=="back"){
-            if(q.empty()){
-                res.push_back(-1);
-            } else {
-                res.push_back(q.back());
-            }
-        }       
-    }
-    
+    }  
+
     for(i=0; i<res.size(); i++){
-        printf("%d\n", res[i]);
+        if(res[i]==1) printf("no\n");
+        else printf("yes\n");
     }
+
     return 0;
 }
 
