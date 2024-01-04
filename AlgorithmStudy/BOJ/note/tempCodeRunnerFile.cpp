@@ -1,1 +1,1 @@
-printf("%d\n", t);
+res.push_back(f);

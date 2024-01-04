@@ -3,23 +3,33 @@
 #include <queue>
 #include <vector>
 using namespace std;
-int ch[1001];
+vector<int> res;
 queue<int> Q;
 int main(){
-    int n, tmp;
-    scanf("%d", &n);
-    for(int i = 1; i<=n; i++){
+    int n, k, cnt=0, f, i;
+    scanf("%d %d", &n, &k);
+    for(i = 1; i<=n; i++){
         Q.push(i);
     }
-    while(1){
-        if(Q.size()==1){
-            break;
+    while(!Q.empty()){
+        cnt++;
+        f = Q.front();
+        if(cnt!=k){
+            Q.push(f);
+        } else {
+            res.push_back(f);
+
+            cnt = 0;
         }
         Q.pop();
-        tmp = Q.front();
-        Q.pop();
-        Q.push(tmp);
     }
-    printf("%d\n", Q.front());
+    printf("<");
+    for(i = 0; i<n; i++){
+        printf("%d", res[i]);
+        if(i < res.size()-1){
+            printf(", ");
+        }
+    }
+    printf(">\n");
     return 0;
 }
