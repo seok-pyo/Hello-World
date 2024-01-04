@@ -1,30 +1,25 @@
 #include <iostream>
 #include <string>
-#include <stack>
+#include <queue>
 #include <vector>
 using namespace std;
 int ch[1001];
-stack<int> S;
+queue<int> Q;
 int main(){
-    int n, i, j, num, pos=1;
+    int n, tmp;
     scanf("%d", &n);
-    for(i=1; i<=n; i++){
-        ch[i] = i;
+    for(int i = 1; i<=n; i++){
+        Q.push(i);
     }
-    for(i=0; i<n; i++){
-        scanf("%d", &num);
-        S.push(num);
-        while(!S.empty()){
-            if(S.top()==ch[pos]){
-                S.pop();
-                pos++;
-            } else {
-                break;
-            }
+    while(1){
+        if(Q.size()==1){
+            break;
         }
+        Q.pop();
+        tmp = Q.front();
+        Q.pop();
+        Q.push(tmp);
     }
-
-    if(S.empty()) printf("Nice\n");
-    else printf("Sad\n");
+    printf("%d\n", Q.front());
     return 0;
 }
