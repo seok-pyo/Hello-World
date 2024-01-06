@@ -2,8 +2,7 @@
 #include <vector>
 #include <deque>
 using namespace std;
-vector<int> res;
-deque<int> ball;
+vector<int> ball;
 deque<int> order;
 int main(){
     int n, i, a, f, b;
@@ -11,13 +10,11 @@ int main(){
     for(i=1; i<=n; i++){
         scanf("%d", &a);
         ball.push_back(a);
-    }
-    for(i=1; i<=n; i++){
         order.push_back(i);
     }
     int nf, nb;
     f = order.front();
-    while(order.size()!=0){
+    while(!order.empty()){
         if(ball[f-1]>0){
             for(i=0; i<ball[f-1]; i++){
                 if(i==0) {
@@ -38,12 +35,8 @@ int main(){
                 order.push_front(nb);
             }
         }
-        res.push_back(f);
+        printf("%d ", f);
         f = order.front();
-    }
-    
-    for(i=0; i<n; i++){
-        printf("%d ", res[i]);
     }
     return 0;
 }
