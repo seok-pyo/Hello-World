@@ -14,27 +14,27 @@
 //     return 0;
 // }
 
-////////////// 순열 구하기
+//////////// 순열 구하기
 // #include <iostream>
 // #include <vector>
 // using namespace std;
 
 // void printV(vector<int> &v){
-//     for(int i = 0; i<v.size(); i++){
+//     for(int i = 0; i<3; i++){
 //         cout << v[i] << " ";
 //     }
 //     cout << "\n";
 // }
 
 // int main(){
-//     int a[3] = {1,2,3};
+//     int a[5] = {1,2,3,4,5};
 //     vector<int> v;
 
-//     for(int i = 0; i<3; i++) v.push_back(a[i]);
+//     for(int i = 0; i<5; i++) v.push_back(a[i]);
 
 //     do{
 //         printV(v);
-//     }while(next_permutation(v.begin(), v.end()));
+//     }while(next_permutation(v.begin(), v.begin()+3));
 //     cout << "-----------" << "\n";
 
 //     return 0;
@@ -88,9 +88,9 @@
 //         print(b);
 //         return;
 //     }
-//     for(int i = start + 1; i<n; i++){
-//         b.push_back(i);
-//         combi(i,b);
+//     for(int i = start; i<n; i++){
+//         b.push_back(a[i]);
+//         combi(i+1,b);
 //         b.pop_back();
 //     }
 //     return;
@@ -98,7 +98,7 @@
 
 // int main(){
 //     vector<int> b;
-//     combi(-1, b);
+//     combi(0, b);
 //     return 0;
 // }
 
@@ -248,31 +248,29 @@
 // 	return 0;
 // }
 
-#include <iostream>
-#include <vector>
-using namespace std;
+// #include <iostream>
+// #include <vector>
+// using namespace std;
 
-vector<string> split(string input, string delimiter){
-	vector<string> ret;
-	long long pos = 0;
-	string token = "";
-	while((pos = input.find(delimiter)) != string::npos){
-		token = input.substr(0, pos);
-		ret.push_back(token);
-		input.erase(0, pos + delimiter.length());
-	}
-	ret.push_back(input);
-	return ret;
-}
+// vector<string> split(string input, string delimiter){
+// 	vector<string> ret;
+// 	long long pos = 0;
+// 	string token = "";
+// 	while((pos = input.find(delimiter)) != string::npos){
+// 		token = input.substr(0, pos);
+// 		ret.push_back(token);
+// 		input.erase(0, pos + delimiter.length());
+// 	}
+// 	ret.push_back(input);
+// 	return ret;
+// }
 
-int main(){
-	string s = "abcfabcfabc";
-	string d = "f";
-	vector<string> a = split(s, d);
-	for(string b : a) cout << b << '\n';
-	return 0;
-}
-
-
+// int main(){
+// 	string s = "abcfabcfabc";
+// 	string d = "f";
+// 	vector<string> a = split(s, d);
+// 	for(string b : a) cout << b << '\n';
+// 	return 0;
+// }
 
 
