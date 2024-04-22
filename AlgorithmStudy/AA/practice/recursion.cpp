@@ -276,25 +276,23 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-int n = 5, r = 3;
-int a[5] = {1,2,3,4,5};
 
-void combi(int s, int L, vector<int> v){
-    if(L==r){
-        for(int i = 0; i<3; i++){
-            cout << v[i] << " ";
-        }
-        puts("");
-    } else {
-        for(int i = s; i<n; i++){
-            v.push_back(a[i]);
-            combi(i+1, L+1, v);
-            v.pop_back();
-        }
+vector<string> split(const string& input, string delimiter){
+    vector<string> result;
+    auto start = 0;
+    auto end = input.find(delimiter);
+    cout << end << "this is end" << '\n';
+    while(end != string::npos){
+        result.push_back(input.substr(start, end - start));
+        start = end + delimiter.size();
+        end = input.find(delimiter, start);
     }
+    result.push_back(input.substr(start));
+    return result;
 }
+
 int main(){
-    vector<int> v;
-    combi(0,0,v);
-    return 0;
+    string a = "hellophello", d = "p";
+    vector<string> an = split(a, d);
+    for(string b : an) cout << b << '\n';
 }
