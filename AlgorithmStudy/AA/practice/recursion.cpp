@@ -273,4 +273,28 @@
 // 	return 0;
 // }
 
+#include <iostream>
+#include <vector>
+using namespace std;
+int n = 5, r = 3;
+int a[5] = {1,2,3,4,5};
 
+void combi(int s, int L, vector<int> v){
+    if(L==r){
+        for(int i = 0; i<3; i++){
+            cout << v[i] << " ";
+        }
+        puts("");
+    } else {
+        for(int i = s; i<n; i++){
+            v.push_back(a[i]);
+            combi(i+1, L+1, v);
+            v.pop_back();
+        }
+    }
+}
+int main(){
+    vector<int> v;
+    combi(0,0,v);
+    return 0;
+}
