@@ -273,26 +273,86 @@
 // 	return 0;
 // }
 
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// vector<string> split(const string& input, string delimiter){
+//     vector<string> result;
+//     auto start = 0;
+//     auto end = input.find(delimiter);
+//     cout << end << "this is end" << '\n';
+//     while(end != string::npos){
+//         result.push_back(input.substr(start, end - start));
+//         start = end + delimiter.size();
+//         end = input.find(delimiter, start);
+//     }
+//     result.push_back(input.substr(start));
+//     return result;
+// }
+
+// int main(){
+//     string a = "hellophello", d = "p";
+//     vector<string> an = split(a, d);
+//     for(string b : an) cout << b << '\n';
+// }
+
+
+// 문자열로 표현된 두 정수를 더하는 함수
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
-vector<string> split(const string& input, string delimiter){
-    vector<string> result;
-    auto start = 0;
-    auto end = input.find(delimiter);
-    cout << end << "this is end" << '\n';
-    while(end != string::npos){
-        result.push_back(input.substr(start, end - start));
-        start = end + delimiter.size();
-        end = input.find(delimiter, start);
+string addStrings(string num1, string num2) {
+    reverse(num1.begin(), num1.end());
+    reverse(num2.begin(), num2.end());
+
+    int carry = 0;
+    string result = "";
+
+    int i = 0, j = 0;
+    while (i < num1.size() || j < num2.size() || carry) {
+        cout << 0 + '0' << " this is minus" << '\n';
+        if (i < num1.size()) carry += num1[i++] - '0';
+        if (j < num2.size()) carry += num2[j++] - '0';
+        cout << carry << " : this is carry " << '\n';
+        result.push_back(carry % 10 + '0');
+        cout << result << " : this is result " << '\n';
+        carry /= 10;
+        cout << carry << " this is last-carry" << '\n';
     }
-    result.push_back(input.substr(start));
+
+    reverse(result.begin(), result.end());
+
     return result;
 }
 
-int main(){
-    string a = "hellophello", d = "p";
-    vector<string> an = split(a, d);
-    for(string b : an) cout << b << '\n';
+string binomialCoefficient(int n, int m) {
+    vector<string> c(n + 1, "0");
+    c[0] = "1";
+
+    for (int i = 1; i <= n; i++) {
+        for (int j = min(i, m); j > 0; j--) {
+            c[j] = addStrings(c[j], c[j - 1]);
+        }
+    }
+
+    return c[m];
 }
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    //cout << binomialCoefficient(n, m) << '\n';
+    cout << addStrings("12", "8");
+
+    // string t = "";
+    // t.push_back(0);
+    // t.push_back(0);
+    // t.push_back(0);
+    // t.push_back(48);
+    // cout << t << " this is t" << '\n';
+    return 0;
+}
+
