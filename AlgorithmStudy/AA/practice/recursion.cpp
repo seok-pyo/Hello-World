@@ -356,62 +356,115 @@
 //     return 0;
 // }
 
+// 4/24
 //순열이란 
 //순서가 부여된 임의의 집합을 다른 순서로 뒤섞는 연산
 
-#include <iostream>
-using namespace std;
-int n = 5, r = 3, cnt = 0, cnt2 = 0;
-int a[5] = {1,2,3,4,5}, chk[20], res[20];
+// #include <iostream>
+// using namespace std;
+// int n = 5, r = 3, cnt = 0, cnt2 = 0;
+// int a[5] = {1,2,3,4,5}, chk[20], res[20];
 
-void DFS(int L){
-    if(L==r){
-        for(int i = 0; i<r; i++){
-            cout << res[i] << " ";
-        }
-        puts("");
-        cnt++;
-    }
-    else {
-        for(int j = 0; j<n; j++){
-            if(chk[j] == 0){
-                chk[j]=1;
-                res[L] = a[j];
-                DFS(L+1);
-                chk[j] = 0;
-            }
-            // swap(a[j], a[L]);
-            // DFS(L+1);
-            // swap(a[j], a[L]);
-        }
-    }
-}
-
-void combi(int s, int L){
-    if(L==r){
-        for(int i = 0; i<r; i++){
-            cout << a[i] << " ";
-        }
-        puts("");
-        cnt2++;
-    } else {
-        for(int j = s; j<n; j++){
-            swap(a[j], a[L]);
-            combi(j+1, L+1);
-            swap(a[j], a[L]);
-        }
-    }
-}
-
-int main(){
-    DFS(0);
-    cout << cnt << '\n';
-    cout << "--------------" << '\n';
-    combi(0, 0);
-    cout << cnt2 << '\n';
-    return 0;
-}
+// void DFS(int L){
+//     if(L==r){
+//         for(int i = 0; i<r; i++){
+//             cout << res[i] << " ";
+//         }
+//         puts("");
+//         cnt++;
+//     }
+//     else {
+//         for(int j = 0; j<n; j++){
+//             if(chk[j] == 0){
+//                 chk[j]=1;
+//                 res[L] = a[j];
+//                 DFS(L+1);
+//                 chk[j] = 0;
+//             }
+//             // swap(a[j], a[L]);
+//             // DFS(L+1);
+//             // swap(a[j], a[L]);
+//         }
+//     }
+// }
 
 // 조합이란
 // 집합에서 주어진 수만큼의 원소들을 고르는 방법
+
+// void combi(int s, int L){
+//     if(L==r){
+//         for(int i = 0; i<r; i++){
+//             cout << a[i] << " ";
+//         }
+//         puts("");
+//         cnt2++;
+//     } else {
+//         for(int j = s; j<n; j++){
+//             swap(a[j], a[L]);
+//             combi(j+1, L+1);
+//             swap(a[j], a[L]);
+//         }
+//     }
+// }
+
+// int main(){
+//     DFS(0);
+//     cout << cnt << '\n';
+//     cout << "--------------" << '\n';
+//     combi(0, 0);
+//     cout << cnt2 << '\n';
+//     return 0;
+// }
+
+// 이항계수 - 파스칼의 삼각형 - 조합의 수 구하기
+// binomial coefficient
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+string addStrings(string num1, string num2){
+    reverse(num1.begin(), num1.end());
+    reverse(num2.begin(), num2.end());
+
+    int carry = 0;
+    string result = "";
+
+    int i = 0, j=0;
+    while(i < num1.size() || j < num2.size() || carry){
+        if(i < num1.size()) carry += num1[i++] - '0';
+        if(j < num2.size()) carry += num2[j++] - '0';
+        cout << carry % 10 + '0' << " this is ";
+        puts("");
+        result.push_back(carry % 10 + '0');
+        carry /= 10;
+    }
+
+    reverse(result.begin(), result.end());
+
+    return result;
+}
+
+string binomialCoefficient(int n, int m) {
+    vector<string> c(n+1, "0");
+    c[0] = "1";
+
+    for(int i = 1; i<=n; i++){
+        for(int j = min(i,m); j>0; j--){
+            c[j] = addStrings(c[j], c[j-1]);
+        }
+    }
+
+    return c[m];
+}
+
+int main() {
+    // cout << addStrings("12", "8") << '\n';
+    string t = "";
+    t.push_back(50);
+    cout << t << '\n';
+    return 0;
+}
+
 
