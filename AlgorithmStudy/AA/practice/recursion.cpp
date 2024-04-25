@@ -419,52 +419,132 @@
 // 이항계수 - 파스칼의 삼각형 - 조합의 수 구하기
 // binomial coefficient
 
+// #include <iostream>
+// #include <vector>
+// #include <algorithm>
+// using namespace std;
+
+// string addStrings(string num1, string num2){
+//     reverse(num1.begin(), num1.end());
+//     reverse(num2.begin(), num2.end());
+
+//     int carry = 0;
+//     string result = "";
+
+//     int i = 0, j=0;
+//     while(i < num1.size() || j < num2.size() || carry){
+//         if(i < num1.size()) carry += num1[i++] - '0';
+//         if(j < num2.size()) carry += num2[j++] - '0';
+//         cout << carry % 10 + '0' << " this is ";
+//         puts("");
+//         result.push_back(carry % 10 + '0');
+//         carry /= 10;
+//     }
+
+//     reverse(result.begin(), result.end());
+
+//     return result;
+// }
+
+// string binomialCoefficient(int n, int m) {
+//     vector<string> c(n+1, "0");
+//     c[0] = "1";
+
+//     for(int i = 1; i<=n; i++){
+//         for(int j = min(i,m); j>0; j--){
+//             c[j] = addStrings(c[j], c[j-1]);
+//         }
+//     }
+
+//     return c[m];
+// }
+
+// int main() {
+//     // cout << addStrings("12", "8") << '\n';
+//     string t = "";
+//     t.push_back(50);
+//     cout << t << '\n';
+//     return 0;
+// }
+
+// 0425
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// vector<string> split(const string& input, string delimiter){
+//     vector<string> result;
+//     auto start = 0;
+//     auto end = input.find(delimiter);
+//     while(end != string::npos){
+//         result.push_back(input.substr(start, end-start));
+//         start = end + delimiter.size();
+//         end = input.find(delimiter, start);
+//     }
+//     result.push_back(input.substr(start));
+//     return result;
+// }
+
+// #include <iostream>
+// #include <vector>
+// #include <algorithm>
+// using namespace std;
+
+// int sum(vector<int> &v){
+//     sort(v.begin(), v.end());
+//     return v[v.size()-1] + v[v.size()-2];   
+// }
+
+// int main(){
+//     int a[] = {1,2,5,9,8};
+//     int arr_size = sizeof(a) / sizeof(a[0]);
+ 
+//     vector<int> v;
+//     for(int i = 0; i < arr_size; i++){
+//         v.push_back(a[i]);
+//     }
+//     cout << sum(v) << "\n";
+ 
+//     return 0;
+// }
+
+// #include <iostream>
+// using namespace std;
+
+// long long factorial(int n){
+//     if(n <= 0) return 0;
+//     if(n==1) return 1;
+//     else return n * factorial(n-1);
+// }
+
+// int main(){
+//     int n;
+//     cin >> n;
+//     cout << factorial(n) << "\n";
+//     return 0;
+// }
+
+// 한글 펠린드롬?
 #include <iostream>
-#include <vector>
 #include <algorithm>
 using namespace std;
 
-string addStrings(string num1, string num2){
-    reverse(num1.begin(), num1.end());
-    reverse(num2.begin(), num2.end());
+int main(){
+    string a = "";
+    cin >> a;
 
-    int carry = 0;
-    string result = "";
+    string b = a;
+    reverse(b.begin(), b.end());
 
-    int i = 0, j=0;
-    while(i < num1.size() || j < num2.size() || carry){
-        if(i < num1.size()) carry += num1[i++] - '0';
-        if(j < num2.size()) carry += num2[j++] - '0';
-        cout << carry % 10 + '0' << " this is ";
-        puts("");
-        result.push_back(carry % 10 + '0');
-        carry /= 10;
+    int flag = 0;
+
+    for(int i = 0; i<a.size(); i++){
+        if(a[i] == b[i]) continue;
+        flag = 1;
     }
 
-    reverse(result.begin(), result.end());
+    if(flag) cout << "\"" << a << "\"" << "는 회문이 아닙니다."<<"\n";
+    else cout << "\"" << a << "\"" << "는 회문입니다." <<"\n";
 
-    return result;
-}
-
-string binomialCoefficient(int n, int m) {
-    vector<string> c(n+1, "0");
-    c[0] = "1";
-
-    for(int i = 1; i<=n; i++){
-        for(int j = min(i,m); j>0; j--){
-            c[j] = addStrings(c[j], c[j-1]);
-        }
-    }
-
-    return c[m];
-}
-
-int main() {
-    // cout << addStrings("12", "8") << '\n';
-    string t = "";
-    t.push_back(50);
-    cout << t << '\n';
     return 0;
 }
-
-
