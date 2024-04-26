@@ -525,26 +525,90 @@
 // }
 
 // 한글 펠린드롬?
+// #include <iostream>
+// #include <algorithm>
+// using namespace std;
+
+// int main(){
+//     string a = "";
+//     cin >> a;
+
+//     string b = a;
+//     reverse(b.begin(), b.end());
+
+//     int flag = 0;
+
+//     for(int i = 0; i<a.size(); i++){
+//         if(a[i] == b[i]) continue;
+//         flag = 1;
+//     }
+
+//     if(flag) cout << "\"" << a << "\"" << "는 회문이 아닙니다."<<"\n";
+//     else cout << "\"" << a << "\"" << "는 회문입니다." <<"\n";
+
+//     return 0;
+// }
+
+// 0426
+// #include <iostream> 
+// #include <vector>
+// using namespace std;
+
+// vector<string> split(const string& input, string delimiter){
+//     vector<string> result;
+//     auto start = 0;
+//     auto end = input.find(delimiter);
+//     while(end != string::npos){
+//         result.push_back(input.substr(start, end-start));
+//         start = end + delimiter.size();
+//         end = input.find(delimiter, start);
+//     }
+//     result.push_back(input.substr(start));
+//     return result;
+// }
+
+// int main(){
+//     string a = "hellophello", d = "p";
+//     vector<string> res = split(a, d);
+//     for(string b : res) cout << b << " ";
+//     return 0; 
+// }
+
+// 다음 코드의 시간복잡도는?
+// #include <iostream>
+// using namespace std;
+// int n;
+// int main(){
+//     cin >> n;
+//     int a = 0;
+//     for (int i = 0; i < n; i++){
+//         for (int j = 0; j < i; j++){
+//             a += i + j;
+//         }
+//     }
+//     cout << a << '\n';
+//     return 0;
+// }
+
+// 다음 코드의 시간복잡도는? 2
+
 #include <iostream>
-#include <algorithm>
 using namespace std;
+int n, a[1004], cnt;
+int go(int l, int r){
+    if(l==r) return a[l];
+    int mid = (l + r) / 2;
+    int sum = go(l, mid) + go(mid + 1, r);
+    return sum;
+}
 
 int main(){
-    string a = "";
-    cin >> a;
-
-    string b = a;
-    reverse(b.begin(), b.end());
-
-    int flag = 0;
-
-    for(int i = 0; i<a.size(); i++){
-        if(a[i] == b[i]) continue;
-        flag = 1;
+    cin >> n;
+    for(int i = 1; i <= n; i++){
+        a[i-1] = i;
     }
-
-    if(flag) cout << "\"" << a << "\"" << "는 회문이 아닙니다."<<"\n";
-    else cout << "\"" << a << "\"" << "는 회문입니다." <<"\n";
-
+    int sum = go(0, n-1);
+    cout << sum << '\n';
     return 0;
 }
+
