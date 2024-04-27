@@ -592,23 +592,41 @@
 
 // 다음 코드의 시간복잡도는? 2
 
+// #include <iostream>
+// using namespace std;
+// int n, a[1004], cnt;
+// int go(int l, int r){
+//     if(l==r) return a[l];
+//     int mid = (l + r) / 2;
+//     int sum = go(l, mid) + go(mid + 1, r);
+//     return sum;
+// }
+
+// int main(){
+//     cin >> n;
+//     for(int i = 1; i <= n; i++){
+//         a[i-1] = i;
+//     }
+//     int sum = go(0, n-1);
+//     cout << sum << '\n';
+//     return 0;
+// }
+
+// 0427
 #include <iostream>
 using namespace std;
-int n, a[1004], cnt;
-int go(int l, int r){
-    if(l==r) return a[l];
-    int mid = (l + r) / 2;
-    int sum = go(l, mid) + go(mid + 1, r);
-    return sum;
-}
-
-int main(){
-    cin >> n;
-    for(int i = 1; i <= n; i++){
-        a[i-1] = i;
+int N, cnt;
+void solve(int N){
+    cnt++;
+    cout << cnt << '\n';
+    if(N==0) return;
+    for(int i = 0; i<3; i++){
+        solve(N-1);
     }
-    int sum = go(0, n-1);
-    cout << sum << '\n';
+    return;
+}
+int main(){
+    cin >> N;
+    solve(N);
     return 0;
 }
-
