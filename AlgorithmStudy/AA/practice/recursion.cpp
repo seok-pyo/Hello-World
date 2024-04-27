@@ -613,20 +613,69 @@
 // }
 
 // 0427
+// #include <iostream>
+// using namespace std;
+// int N, cnt;
+// void solve(int N){
+//     cnt++;
+//     cout << cnt << '\n';
+//     if(N==0) return;
+//     for(int i = 0; i<3; i++){
+//         solve(N-1);
+//     }
+//     return;
+// }
+// int main(){
+//     cin >> N;
+//     solve(N);
+//     return 0;
+// }
+
 #include <iostream>
+#include <vector>
 using namespace std;
-int N, cnt;
-void solve(int N){
-    cnt++;
-    cout << cnt << '\n';
-    if(N==0) return;
-    for(int i = 0; i<3; i++){
-        solve(N-1);
+const int n = 3;
+int a[3][3] = {
+    {10,20,30},
+    {40,50,60},
+    {70,80,90}
+};
+int xd[4] = {-1, 0, 1, 0};
+int yd[4] = {0, 1, 0, -1};
+int c[3][3];
+
+
+void DFS(int x, int y, vector<int> v){
+    if(x == n-1 && y == n-1){
+        int sum = 0;
+        for(int i = 0; i<v.size(); i++){
+            cout << v[i] << " ";
+            sum += v[i];
+        }
+        cout << "<< " <<sum << '\n';
+        //puts("");
+    } else {
+        for(int i = 0; i < 4; i++){
+            int nx = x + xd[i];
+            int ny = y + yd[i];
+            if(c[nx][ny]==0 && nx >= 0 && nx < 3 && ny >= 0 && ny < 3){
+                c[nx][ny] = 1;
+                v.push_back(a[nx][ny]);
+
+                DFS(nx, ny, v);
+
+                c[nx][ny] = 0;
+                v.pop_back();
+            }
+        }
     }
-    return;
 }
+
 int main(){
-    cin >> N;
-    solve(N);
+    vector<int> v;
+    c[0][0] = 1;
+    v.push_back(a[0][0]);
+    DFS(0,0, v);
     return 0;
 }
+ 
