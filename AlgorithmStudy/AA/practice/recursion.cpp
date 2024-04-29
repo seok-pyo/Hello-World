@@ -683,34 +683,43 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
+int sum = 0;
+pair<int, int> ret;
+vector<int> h(9);
+bool chk = true;
+
+void combi(int s, int L){
+    if(!chk) return;
+    ret.first = h[0];
+    ret.second = h[1];
+
+    if(L == 2 && sum - (ret.first + ret.second) == 100){
+        chk = false;
+        return;
+    } else {
+        for(int i = s; i < 9; i++){
+            swap(h[i], h[L]);
+            combi(i+1, L+1);
+            swap(h[i], h[L]);
+        }
+    }
+}
 
 int main(){
-    vector<int> h(9);
-    int sum = 0;
     int in;
     for(int i = 0; i < 9; i++){
         cin >> in;
         h[i] = in;
         sum += in;
     }
-    bool flag = true;
 
-    for(int i = 0; i < 8; i++){
-        if(flag) {
-            for(int j = i + 1; j < 9; j++){
-                if(sum - (h[i] + h[j]) == 100) {
-                    h[i] = 0;
-                    h[j] = 0;
-                    flag = false;
-                    break;
-                }
-            }
-        }
-    }
-
+    combi(0, 0);
     sort(h.begin(), h.end());
+
     for(int i = 0; i < h.size(); i++){
-        if(h[i] != 0) cout << h[i] << '\n';
+        if(ret.first == h[i] || ret.second == h[i]) continue;
+        cout << h[i] << '\n'; 
     }
+    
     return 0;
 }
