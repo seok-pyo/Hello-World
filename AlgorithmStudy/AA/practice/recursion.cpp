@@ -631,51 +631,86 @@
 //     return 0;
 // }
 
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+// const int n = 3;
+// int a[3][3] = {
+//     {10,20,30},
+//     {40,50,60},
+//     {70,80,90}
+// };
+// int xd[4] = {-1, 0, 1, 0};
+// int yd[4] = {0, 1, 0, -1};
+// int c[3][3];
+
+
+// void DFS(int x, int y, vector<int> v){
+//     if(x == n-1 && y == n-1){
+//         int sum = 0;
+//         for(int i = 0; i<v.size(); i++){
+//             cout << v[i] << " ";
+//             sum += v[i];
+//         }
+//         cout << "<< " <<sum << '\n';
+//         //puts("");
+//     } else {
+//         for(int i = 0; i < 4; i++){
+//             int nx = x + xd[i];
+//             int ny = y + yd[i];
+//             if(c[nx][ny]==0 && nx >= 0 && nx < 3 && ny >= 0 && ny < 3){
+//                 c[nx][ny] = 1;
+//                 v.push_back(a[nx][ny]);
+
+//                 DFS(nx, ny, v);
+
+//                 c[nx][ny] = 0;
+//                 v.pop_back();
+//             }
+//         }
+//     }
+// }
+
+// int main(){
+//     vector<int> v;
+//     c[0][0] = 1;
+//     v.push_back(a[0][0]);
+//     DFS(0,0, v);
+//     return 0;
+// }
+ 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
-const int n = 3;
-int a[3][3] = {
-    {10,20,30},
-    {40,50,60},
-    {70,80,90}
-};
-int xd[4] = {-1, 0, 1, 0};
-int yd[4] = {0, 1, 0, -1};
-int c[3][3];
 
+int main(){
+    vector<int> h(9);
+    int sum = 0;
+    int in;
+    for(int i = 0; i < 9; i++){
+        cin >> in;
+        h[i] = in;
+        sum += in;
+    }
+    bool flag = true;
 
-void DFS(int x, int y, vector<int> v){
-    if(x == n-1 && y == n-1){
-        int sum = 0;
-        for(int i = 0; i<v.size(); i++){
-            cout << v[i] << " ";
-            sum += v[i];
-        }
-        cout << "<< " <<sum << '\n';
-        //puts("");
-    } else {
-        for(int i = 0; i < 4; i++){
-            int nx = x + xd[i];
-            int ny = y + yd[i];
-            if(c[nx][ny]==0 && nx >= 0 && nx < 3 && ny >= 0 && ny < 3){
-                c[nx][ny] = 1;
-                v.push_back(a[nx][ny]);
-
-                DFS(nx, ny, v);
-
-                c[nx][ny] = 0;
-                v.pop_back();
+    for(int i = 0; i < 8; i++){
+        if(flag) {
+            for(int j = i + 1; j < 9; j++){
+                if(sum - (h[i] + h[j]) == 100) {
+                    h[i] = 0;
+                    h[j] = 0;
+                    flag = false;
+                    break;
+                }
             }
         }
     }
-}
 
-int main(){
-    vector<int> v;
-    c[0][0] = 1;
-    v.push_back(a[0][0]);
-    DFS(0,0, v);
+    sort(h.begin(), h.end());
+    for(int i = 0; i < h.size(); i++){
+        if(h[i] != 0) cout << h[i] << '\n';
+    }
     return 0;
 }
- 
