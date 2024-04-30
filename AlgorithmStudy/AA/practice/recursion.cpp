@@ -680,46 +680,30 @@
 // }
  
 #include <iostream>
-#include <vector>
-#include <algorithm>
 using namespace std;
-int sum = 0;
-pair<int, int> ret;
-vector<int> h(9);
-bool chk = true;
 
-void combi(int s, int L){
-    if(!chk) return;
-    ret.first = h[0];
-    ret.second = h[1];
+int a, b, c, s, e;
+int arr[101];
+int main() {
+    int sum = 0;
 
-    if(L == 2 && sum - (ret.first + ret.second) == 100){
-        chk = false;
-        return;
-    } else {
-        for(int i = s; i < 9; i++){
-            swap(h[i], h[L]);
-            combi(i+1, L+1);
-            swap(h[i], h[L]);
+    cin >> a >> b >> c;
+    
+    for(int i = 0; i < 3; i++){
+        cin >> s >> e;
+        for(int j = s; j < e; j++){
+            arr[j]++;
         }
     }
-}
 
-int main(){
-    int in;
-    for(int i = 0; i < 9; i++){
-        cin >> in;
-        h[i] = in;
-        sum += in;
+    for(int i = 1; i < 100; i++){
+        if(arr[i] == 1) sum += a;
+        else if(arr[i] == 2) sum += (b * 2);
+        else if(arr[i] == 3) sum += (c * 3);
     }
 
-    combi(0, 0);
-    sort(h.begin(), h.end());
+    cout << sum << '\n';
 
-    for(int i = 0; i < h.size(); i++){
-        if(ret.first == h[i] || ret.second == h[i]) continue;
-        cout << h[i] << '\n'; 
-    }
-    
     return 0;
 }
+
