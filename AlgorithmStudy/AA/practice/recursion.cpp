@@ -682,28 +682,69 @@
 #include <iostream>
 using namespace std;
 
-int a, b, c, s, e;
-int arr[101];
-int main() {
-    int sum = 0;
+// int main() {
+//     int chk = 1;
+//     string in, rin;
+//     cin >> in;
+//     rin = in;
+//     reverse(rin.begin(), rin.end());
+//     for(int i = 0; i < in.size(); i++){
+//         if(in[i] != rin[i]) {
+//             chk = 0;
+//             cout << chk << '\n';
+//             break;
+//         }
+//     }
+//     if(chk) cout << chk << '\n';
+//     return 0;
+// }
 
-    cin >> a >> b >> c;
-    
-    for(int i = 0; i < 3; i++){
-        cin >> s >> e;
-        for(int j = s; j < e; j++){
-            arr[j]++;
+int al[30];
+int main(){
+    bool chk = false;
+    string in;
+    string ret;
+    int num;
+    cin >> num;
+    for(int i = 1; i <= num; i++){
+        cin >> in;
+        al[in[0] - 'a']++;
+    }
+    for(int i = 0; i<26; i++){
+        if(al[i] >= 5) {
+            ret.push_back('a' + i);
+            chk = true;
         }
     }
 
-    for(int i = 1; i < 100; i++){
-        if(arr[i] == 1) sum += a;
-        else if(arr[i] == 2) sum += (b * 2);
-        else if(arr[i] == 3) sum += (c * 3);
+    if(chk) {
+        cout << ret << '\n';
+    } else {
+        cout << "PREDAJA" << '\n';
     }
-
-    cout << sum << '\n';
-
     return 0;
 }
 
+// int main(){
+//     string in;
+//     string ret = "";
+
+//     getline(cin, in);
+
+//     for(int i = 0; i < in.size(); i++){
+//         if(in[i] >= 65 && in[i] <= 90) {
+//             ret.push_back(((in[i] + 13 - 'A') % 26) + 'A');
+//         }
+//         else if(in[i] >= 97 && in[i] <= 122) {
+//             ret.push_back(((in[i] + 13 - 'a') % 26) + 'a');
+//         } else {
+//             ret.push_back(in[i]);
+//         }
+//     }
+//     cout << ret << '\n';
+//     return 0;
+//     // A = 65
+//     // Z = 90
+//     // a = 97
+//     // z = 122
+// }
