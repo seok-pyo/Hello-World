@@ -1,4 +1,3 @@
-
 ////////////// 재귀함수(recursion)는 정의 단계에서 자신을 재참조하는 함수
 // include <bits/stdc++.h>
 // #include <iostream>
@@ -678,9 +677,6 @@
 //     DFS(0,0, v);
 //     return 0;
 // }
- 
-#include <iostream>
-using namespace std;
 
 // int main() {
 //     int chk = 1;
@@ -699,31 +695,31 @@ using namespace std;
 //     return 0;
 // }
 
-int al[30];
-int main(){
-    bool chk = false;
-    string in;
-    string ret;
-    int num;
-    cin >> num;
-    for(int i = 1; i <= num; i++){
-        cin >> in;
-        al[in[0] - 'a']++;
-    }
-    for(int i = 0; i<26; i++){
-        if(al[i] >= 5) {
-            ret.push_back('a' + i);
-            chk = true;
-        }
-    }
+// int al[30];
+// int main(){
+//     bool chk = false;
+//     string in;
+//     string ret;
+//     int num;
+//     cin >> num;
+//     for(int i = 1; i <= num; i++){
+//         cin >> in;
+//         al[in[0] - 'a']++;
+//     }
+//     for(int i = 0; i<26; i++){
+//         if(al[i] >= 5) {
+//             ret.push_back('a' + i);
+//             chk = true;
+//         }
+//     }
 
-    if(chk) {
-        cout << ret << '\n';
-    } else {
-        cout << "PREDAJA" << '\n';
-    }
-    return 0;
-}
+//     if(chk) {
+//         cout << ret << '\n';
+//     } else {
+//         cout << "PREDAJA" << '\n';
+//     }
+//     return 0;
+// }
 
 // int main(){
 //     string in;
@@ -748,3 +744,63 @@ int main(){
 //     // a = 97
 //     // z = 122
 // }
+
+#include <iostream>
+using namespace std;
+
+int n, k, temp, psum[100001], ret = -2147000000;
+int main(){
+    cin >> n >> k;
+    for(int i = 1; i<=n; i++){
+        cin >> temp;
+        psum[i] = psum[i - 1] + temp;
+    }
+    for(int i = k; i <= n; i++){
+        ret = max(ret, psum[i] - psum[i-k]);
+    }
+    cout << ret << '\n';
+    return 0;
+}
+
+// int main(){
+//     int n, k;
+//     vector<int> a(n);
+//     int sum = 0;
+//     int ret = -2147000000;
+//     cin >> n >> k;
+//     for(int i = 0; i < n; i++){
+//         cin >> a[i];
+//     }
+//     for(int i = 0; i < k; i++){
+//         sum += a[i];
+//     }
+//     for(int i = k; i < n; i++){
+//         sum = sum + (a[i] - a[i - k]);
+//         if(sum > ret) ret = sum;
+//     }
+//     cout << ret << '\n';
+
+//     return 0;
+// }
+
+// int a[100005];
+// int main(){
+//     int n, k;
+//     int sum = 0;
+//     int ret = -2147000000;
+//     cin >> n >> k;
+//     for(int i = 0; i < n; i++){
+//         cin >> a[i];
+//     }
+//     for(int i = 0; i < k; i++){
+//         sum += a[i];
+//     }
+//     for(int i = 0; i < n - k; i++){
+//         sum = sum - a[i] + a[i + k];
+//         if(sum >= ret) ret = sum;
+//     }
+//     cout << ret << '\n';
+
+//     return 0;
+// }
+
