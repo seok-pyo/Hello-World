@@ -745,22 +745,22 @@
 //     // z = 122
 // }
 
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
 
-int n, k, temp, psum[100001], ret = -2147000000;
-int main(){
-    cin >> n >> k;
-    for(int i = 1; i<=n; i++){
-        cin >> temp;
-        psum[i] = psum[i - 1] + temp;
-    }
-    for(int i = k; i <= n; i++){
-        ret = max(ret, psum[i] - psum[i-k]);
-    }
-    cout << ret << '\n';
-    return 0;
-}
+// int n, k, temp, psum[100001], ret = -2147000000;
+// int main(){
+//     cin >> n >> k;
+//     for(int i = 1; i<=n; i++){
+//         cin >> temp;
+//         psum[i] = psum[i - 1] + temp;
+//     }
+//     for(int i = k; i <= n; i++){
+//         ret = max(ret, psum[i] - psum[i-k]);
+//     }
+//     cout << ret << '\n';
+//     return 0;
+// }
 
 // int main(){
 //     int n, k;
@@ -803,4 +803,58 @@ int main(){
 
 //     return 0;
 // }
+
+// #include <iostream>
+// using namespace std;
+// int n;
+// string s, ori_s, pre, suf;
+// int main(){
+//     cin >> n;
+//     cin >> ori_s;
+//     int pos = ori_s.find('*');
+//     pre = ori_s.substr(0, pos);
+//     suf = ori_s.substr(pos+1);
+//     for(int i = 0; i < n; i++){
+//         cin >> s;
+//         if(pre.size() + suf.size() > s.size()){
+//             cout << "NE\n";
+//         } else {
+//             if(pre == s.substr(0, pre.size()) && suf == s.substr(s.size() - suf.size())){
+//                 cout << "DA\n";
+//             } else {
+//                 cout << "NE\n";
+//             }
+//         }
+//     }
+//     return 0;
+// }
+
+#include <iostream>
+#include <cstdlib>
+#include <map>
+using namespace std;
+int n, m;
+string s;
+map<string, int> mp;
+string a[100001];
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL); cout.tie(NULL);
+    cin >> n >> m;
+    for(int i = 0; i < n; i++){
+        cin >> s;
+        mp[s] = i+1;
+        a[i+1] = s;
+    }
+
+    for(int i = 0; i<m; i++){
+        cin >> s;
+        if(atoi(s.c_str())==0){
+            cout << mp[s] << '\n';
+        } else {
+            cout << a[atoi(s.c_str())] << '\n';
+        }
+    }
+    return 0;
+}
 
