@@ -1,4 +1,4 @@
-if(m == 0) {
-        //     cout << 0 << '\n';
-        //     continue;
-        // }
+    if(m == 1){
+                cout << m << '\n';
+                continue;
+            }

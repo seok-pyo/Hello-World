@@ -878,6 +878,7 @@ int main(){
         for(auto& it : clo){
             ret *= (long long)it.second + 1;
         }
+       
         cout << ret - 1 << '\n';
     }
     return 0;
