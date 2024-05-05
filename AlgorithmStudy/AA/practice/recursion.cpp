@@ -884,25 +884,61 @@
 //     return 0;
 // }
 
+// #include <iostream>
+// using namespace std;
+
+// int a[15001];
+// int n, m;
+// int ret;
+// int main(){
+//     cin >> n >> m;
+//     for(int i = 0; i < n; i++){
+//         cin >> a[i];
+//     }
+//     for(int i = 0; i < n-1; i++){
+//         for(int j = i+1; j<n; j++){
+//             if(a[i] + a[j] == m){
+//                 ret++;
+//             }
+//         }
+//     }
+
+//     cout << ret << '\n';
+//     return 0;
+// }
+
 #include <iostream>
+#include <stack>
 using namespace std;
 
-int a[15001];
-int n, m;
-int ret;
 int main(){
-    cin >> n >> m;
+    int n;
+    int cnt = 0;
+
+    cin >> n;
     for(int i = 0; i < n; i++){
-        cin >> a[i];
-    }
-    for(int i = 0; i < n-1; i++){
-        for(int j = i+1; j<n; j++){
-            if(a[i] + a[j] == m){
-                ret++;
+        string input;
+        cin >> input;
+        
+        stack<char> s;
+        s.push(input[0]);
+        
+        for(int j = 1; j < input.size(); j++){
+            if(s.empty() || s.top() != input[j]){
+                s.push(input[j]);
+            } else {
+                s.pop();
             }
         }
+        if(s.empty()) cnt++;
     }
-
-    cout << ret << '\n';
+    cout << cnt << '\n';
     return 0;
 }
+
+
+
+
+
+
+
