@@ -858,28 +858,51 @@
 //     return 0;
 // }
 
+// #include <iostream>
+// #include <map>
+// using namespace std;
+
+// string o, t;
+// int main(){
+//     int n, m;
+//     cin >> n;
+//     for(int i = 0; i < n; i++){
+//         map<string, int> clo;
+//         cin >> m;
+       
+//         for(int j = 0; j < m; j++){
+//             cin >> o >> t;
+//             clo[t] += 1;
+//         }
+//         long long ret = 1; // 경우의 수인 경우 long long 사용을 추천
+//         for(auto& it : clo){
+//             ret *= (long long)it.second + 1;
+//         }
+       
+//         cout << ret - 1 << '\n';
+//     }
+//     return 0;
+// }
+
 #include <iostream>
-#include <map>
 using namespace std;
 
-string o, t;
+int a[15001];
+int n, m;
+int ret;
 int main(){
-    int n, m;
-    cin >> n;
+    cin >> n >> m;
     for(int i = 0; i < n; i++){
-        map<string, int> clo;
-        cin >> m;
-       
-        for(int j = 0; j < m; j++){
-            cin >> o >> t;
-            clo[t] += 1;
-        }
-        long long ret = 1;
-        for(auto& it : clo){
-            ret *= (long long)it.second + 1;
-        }
-       
-        cout << ret - 1 << '\n';
+        cin >> a[i];
     }
+    for(int i = 0; i < n-1; i++){
+        for(int j = i+1; j<n; j++){
+            if(a[i] + a[j] == m){
+                ret++;
+            }
+        }
+    }
+
+    cout << ret << '\n';
     return 0;
 }
