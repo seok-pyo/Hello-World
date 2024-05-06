@@ -907,35 +907,60 @@
 //     return 0;
 // }
 
+// #include <iostream>
+// #include <stack>
+// using namespace std;
+
+// int main(){
+//     int n;
+//     int cnt = 0;
+
+//     cin >> n;
+//     for(int i = 0; i < n; i++){
+//         string input;
+//         cin >> input;
+        
+//         stack<char> s;
+//         s.push(input[0]);
+        
+//         for(int j = 1; j < input.size(); j++){
+//             if(s.empty() || s.top() != input[j]){
+//                 s.push(input[j]);
+//             } else {
+//                 s.pop();
+//             }
+//         }
+//         if(s.empty()) cnt++;
+//     }
+//     cout << cnt << '\n';
+//     return 0;
+// }
+
 #include <iostream>
-#include <stack>
 using namespace std;
 
-int main(){
-    int n;
-    int cnt = 0;
+long long a, b, c;
 
-    cin >> n;
-    for(int i = 0; i < n; i++){
-        string input;
-        cin >> input;
-        
-        stack<char> s;
-        s.push(input[0]);
-        
-        for(int j = 1; j < input.size(); j++){
-            if(s.empty() || s.top() != input[j]){
-                s.push(input[j]);
-            } else {
-                s.pop();
-            }
-        }
-        if(s.empty()) cnt++;
+long long DFS(long long a, long long b){
+    if(b == 1){
+        return a % c;
+    } else {
+        long long ret = DFS(a, b/2);
+        ret = (ret * ret) % c;
+        if(b % 2) ret = (ret * a) % c;
+        return ret; 
     }
-    cout << cnt << '\n';
-    return 0;
 }
 
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    cin >> a >> b >> c;
+    cout << DFS(a, b) << '\n';
+
+    return 0;
+}
 
 
 
