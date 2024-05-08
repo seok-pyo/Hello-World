@@ -936,31 +936,52 @@
 //     return 0;
 // }
 
+// #include <iostream>
+// using namespace std;
+
+// long long a, b, c;
+
+// long long DFS(long long a, long long b){
+//     if(b == 1){
+//         return a % c;
+//     } else {
+//         long long ret = DFS(a, b/2);
+//         ret = (ret * ret) % c;
+//         if(b % 2) ret = (ret * a) % c;
+//         return ret; 
+//     }
+// }
+
+// int main(){
+//     ios_base::sync_with_stdio(false);
+//     cin.tie(NULL);
+
+//     cin >> a >> b >> c;
+//     cout << DFS(a, b) << '\n';
+
+//     return 0;
+// }
+
 #include <iostream>
 using namespace std;
 
-long long a, b, c;
-
-long long DFS(long long a, long long b){
-    if(b == 1){
-        return a % c;
-    } else {
-        long long ret = DFS(a, b/2);
-        ret = (ret * ret) % c;
-        if(b % 2) ret = (ret * a) % c;
-        return ret; 
-    }
-}
-
-int main(){
+int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-
-    cin >> a >> b >> c;
-    cout << DFS(a, b) << '\n';
-
+    long long ret = 0;
+    int n;
+    while(cin >> n){
+        for(int i = 1;; i++){
+            ret = (ret * 10 + 1) % n;
+            if(ret % n == 0){
+                cout << i << '\n';
+                break;
+            }
+        }
+    }
     return 0;
 }
+
 
 
 
