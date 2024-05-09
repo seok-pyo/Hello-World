@@ -962,28 +962,47 @@
 //     return 0;
 // }
 
+// #include <iostream>
+// using namespace std;
+
+// int main() {
+//     ios_base::sync_with_stdio(false);
+//     cin.tie(NULL);
+//     long long ret = 0;
+//     int n;
+//     while(cin >> n){
+//         for(int i = 1;; i++){
+//             ret = (ret * 10 + 1) % n;
+//             if(ret % n == 0){
+//                 cout << i << '\n';
+//                 break;
+//             }
+//         }
+//     }
+//     return 0;
+// }
+
 #include <iostream>
 using namespace std;
 
-int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    long long ret = 0;
-    int n;
-    while(cin >> n){
-        for(int i = 1;; i++){
-            ret = (ret * 10 + 1) % n;
-            if(ret % n == 0){
-                cout << i << '\n';
-                break;
-            }
-        }
+long long a, b ,c;
+
+int DFS(long long ret, long long b){
+    if(b == 1){
+        return (a) % c;
+    } else {
+        ret = DFS(ret, b / 2);
+        ret = ( ret * ret ) % c;
+        if(b % 2) ret = ( ret * a ) % c;
+        return ret;
     }
-    return 0;
 }
 
-
-
+int main(){
+    cin >> a >> b >> c;
+    cout << DFS(0, b) << '\n';
+    return 0;
+}
 
 
 
