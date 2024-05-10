@@ -982,28 +982,120 @@
 //     return 0;
 // }
 
+// #include <iostream>
+// using namespace std;
+
+// long long a, b ,c;
+
+// int DFS(long long ret, long long b){
+//     if(b == 1){
+//         return (a) % c;
+//     } else {
+//         ret = DFS(ret, b / 2);
+//         ret = ( ret * ret ) % c;
+//         if(b % 2) ret = ( ret * a ) % c;
+//         return ret;
+//     }
+// }
+
+// int main(){
+//     cin >> a >> b >> c;
+//     cout << DFS(0, b) << '\n';
+//     return 0;
+// }
+
+// #include <iostream>
+// using namespace std;
+
+// bool mat[4][4] = {
+//     {0,1,1,1},
+//     {1,0,1,0},
+//     {1,1,0,0},
+//     {1,0,0,0},
+// };
+
+// bool visited[4];
+
+// void go(int from){
+//     visited[from] = 1;
+//     cout << from << '\n';
+//     for(int i = 0; i < 4; i++){
+//         if(visited[i]) continue;
+//         if(mat[from][i]){
+//             go(i);
+//         }
+//     }
+// }
+
+// int main(){
+//     for(int i = 0; i < 4; i++){
+//         for(int j = 0; j < 4; j++){
+//             if(mat[i][j] && visited[i] == 0){
+//                 go(i);
+//             }
+//         }
+//     }
+// }
+
+// #include <iostream>
+// using namespace std; 
+// const int V = 10;
+// bool a[V][V], visited[V];
+// void go(int from){ 
+// 	visited[from] = 1; 
+// 	cout << from << ' ';
+// 	for(int i = 0; i < V; i++){
+// 		if(visited[i]) continue;
+// 		if(a[from][i]){ 
+//             cout << i << ' ';
+// 			go(i);
+// 		}
+// 	}
+// 	return;
+// }
+// int main(){
+// 	a[1][2] = 1; a[1][3] = 1; a[3][4] = 1;
+// 	a[2][1] = 1; a[3][1] = 1; a[4][3] = 1;
+// 	for(int i = 0; i < V; i++){
+// 		for(int j = 0; j < V; j++){
+// 			if(a[i][j] && visited[i] == 0){
+// 				go(i); 
+// 			}
+// 		}
+// 	} 
+// } 
+
 #include <iostream>
 using namespace std;
+int map[30][30], ch[30], cnt=0, n;
 
-long long a, b ,c;
-
-int DFS(long long ret, long long b){
-    if(b == 1){
-        return (a) % c;
+void DFS(int v){
+    int i;
+    if(v==n){
+        cnt++;
     } else {
-        ret = DFS(ret, b / 2);
-        ret = ( ret * ret ) % c;
-        if(b % 2) ret = ( ret * a ) % c;
-        return ret;
+        for(i = 1; i<=n; i++){
+            if(map[v][i]==1 && ch[i]==0){
+                ch[i] = 1;
+                DFS(i);
+                ch[i] = 0;
+            }
+        }
     }
 }
 
+
 int main(){
-    cin >> a >> b >> c;
-    cout << DFS(0, b) << '\n';
+    int m, i, j, a, b, c;
+    cin >> n >> m;
+    for(int i = 1; i<=m; i++){
+        cin >> a >> b;
+        map[a][b] = 1;
+    }
+    //ch[1] = 1;
+    DFS(1);
+    cout << cnt << '\n';
     return 0;
 }
-
-
 
 
