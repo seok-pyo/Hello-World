@@ -1038,68 +1038,69 @@
 // }
 
 // #include <iostream>
-// using namespace std; 
-// const int V = 10;
-// bool a[V][V], visited[V];
-// void go(int from){ 
-// 	visited[from] = 1; 
-// 	cout << from << ' ';
-// 	for(int i = 0; i < V; i++){
-// 		if(visited[i]) continue;
-// 		if(a[from][i]){ 
-//             cout << i << ' ';
-// 			go(i);
-// 		}
-// 	}
-// 	return;
+// using namespace std;
+// int map[30][30], ch[30], cnt=0, n, path[30];
+
+// void DFS(int v, int L){
+//     int i, j;
+//     if(v==n){
+//         cnt++;
+//         for(j = 0; j<L; j++){
+//             cout << path[j] << ' ';
+//         }
+//         puts("");
+//     } else {
+//         for(i=1; i<=n; i++){
+//             if(map[v][i]==1 && ch[i]==0){
+//                 ch[i] = 1;
+//                 path[L] = i;
+//                 DFS(i, L+1);
+//                 ch[i]=0;
+//             }
+//         }
+//     }
 // }
+
 // int main(){
-// 	a[1][2] = 1; a[1][3] = 1; a[3][4] = 1;
-// 	a[2][1] = 1; a[3][1] = 1; a[4][3] = 1;
-// 	for(int i = 0; i < V; i++){
-// 		for(int j = 0; j < V; j++){
-// 			if(a[i][j] && visited[i] == 0){
-// 				go(i); 
-// 			}
-// 		}
-// 	} 
-// } 
+//     int m, i, j, a, b, c;
+//     cin >> n >> m;
+//     for(int i=1; i<=m; i++){
+//         cin >> a >> b;
+//         map[a][b] = 1;
+//     }
+//     ch[1]=1;
+//     path[0]=1;
+//     DFS(1, 1);
+//     cout << cnt << '\n';
+//     return 0;
+// }
 
 #include <iostream>
 using namespace std;
-int map[30][30], ch[30], cnt=0, n, path[30];
 
-void DFS(int v, int L){
-    int i, j;
-    if(v==n){
-        cnt++;
-        for(j = 0; j<L; j++){
-            cout << path[j] << ' ';
-        }
-        puts("");
-    } else {
-        for(i=1; i<=n; i++){
-            if(map[v][i]==1 && ch[i]==0){
-                ch[i] = 1;
-                path[L] = i;
-                DFS(i, L+1);
-                ch[i]=0;
-            }
-        }
+const int V = 10;
+bool ma[V][V], chk[V];
+
+void DFS(int v){
+    cout << v << '\n';
+    chk[v] = 1;
+    for(int i = 0; i<V; i++){
+        if(chk[i]) continue;
+        if(ma[v][i]) DFS(i);
     }
+    return;
 }
 
 int main(){
-    int m, i, j, a, b, c;
-    cin >> n >> m;
-    for(int i=1; i<=m; i++){
-        cin >> a >> b;
-        map[a][b] = 1;
+    ma[1][2] = 1, ma[1][3] = 1, ma[3][4] = 1, ma[6][7] = 1;
+    ma[2][1] = 1, ma[3][1] = 1, ma[4][3] = 1;
+    for(int i = 0; i < V; i++){
+        for(int j = 0; j < V; j++){
+            if(chk[i]==0 && ma[i][j]){
+                DFS(i);
+            }
+        }
     }
-    ch[1]=1;
-    path[0]=1;
-    DFS(1, 1);
-    cout << cnt << '\n';
     return 0;
 }
 
