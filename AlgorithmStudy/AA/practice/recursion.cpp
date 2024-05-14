@@ -1111,7 +1111,7 @@ int n, r;
 int cnt = 0;
 int arr[10], chk[10], ans[10];
 
-void DFS(int L){
+void DFS(int L, int s){
     if(L==r){
         for(int i = 0; i < r; i++){
             cout << ans[i] << ' ';
@@ -1119,23 +1119,23 @@ void DFS(int L){
         cnt++;
         puts("");
     } else {
-        for(int i = 1; i <= n; i++){
-            if(chk[i]==0){
-                chk[i] = 1;
-                ans[L] = arr[i];
-                DFS(L+1);
-                chk[i] = 0;
-            }
+        for(int i = s; i < n; i++){
+            //if(chk[i]==0){
+            //chk[i] = 1;
+            ans[L] = arr[i];
+            DFS(L + 1, s + 1); // s를 넣느냐, i를 넣느냐. 어느쪽이 조합일까.
+            //chk[i] = 0;
+            //}
         }
     }
 }
 
 int main(){
     cin >> n >> r;
-    for(int i = 1; i <= n; i++){
-        arr[i] = i;
+    for(int i = 0; i < n; i++){
+        arr[i] = i + 1;
     }
-    DFS(0);
+    DFS(0, 0);
     cout << cnt << '\n';
     return 0;
 }
