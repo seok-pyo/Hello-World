@@ -1075,33 +1075,67 @@
 //     return 0;
 // }
 
+// #include <iostream>
+// using namespace std;
+
+// const int V = 10;
+// bool ma[V][V], chk[V];
+
+// void DFS(int v){
+//     cout << v << '\n';
+//     chk[v] = 1;
+//     for(int i = 0; i<V; i++){
+//         if(chk[i]) continue;
+//         if(ma[v][i]) DFS(i);
+//     }
+//     return;
+// }
+
+// int main(){
+//     ma[1][2] = 1, ma[1][3] = 1, ma[3][4] = 1, ma[6][7] = 1;
+//     ma[2][1] = 1, ma[3][1] = 1, ma[4][3] = 1;
+//     for(int i = 0; i < V; i++){
+//         for(int j = 0; j < V; j++){
+//             if(chk[i]==0 && ma[i][j]){
+//                 DFS(i);
+//             }
+//         }
+//     }
+//     return 0;
+// }
+
 #include <iostream>
 using namespace std;
 
-const int V = 10;
-bool ma[V][V], chk[V];
+int n, r;
+int cnt = 0;
+int arr[10], chk[10], ans[10];
 
-void DFS(int v){
-    cout << v << '\n';
-    chk[v] = 1;
-    for(int i = 0; i<V; i++){
-        if(chk[i]) continue;
-        if(ma[v][i]) DFS(i);
-    }
-    return;
-}
-
-int main(){
-    ma[1][2] = 1, ma[1][3] = 1, ma[3][4] = 1, ma[6][7] = 1;
-    ma[2][1] = 1, ma[3][1] = 1, ma[4][3] = 1;
-    for(int i = 0; i < V; i++){
-        for(int j = 0; j < V; j++){
-            if(chk[i]==0 && ma[i][j]){
-                DFS(i);
+void DFS(int L){
+    if(L==r){
+        for(int i = 0; i < r; i++){
+            cout << ans[i] << ' ';
+        }
+        cnt++;
+        puts("");
+    } else {
+        for(int i = 1; i <= n; i++){
+            if(chk[i]==0){
+                chk[i] = 1;
+                ans[L] = arr[i];
+                DFS(L+1);
+                chk[i] = 0;
             }
         }
     }
-    return 0;
 }
 
-
+int main(){
+    cin >> n >> r;
+    for(int i = 1; i <= n; i++){
+        arr[i] = i;
+    }
+    DFS(0);
+    cout << cnt << '\n';
+    return 0;
+}
