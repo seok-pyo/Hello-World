@@ -1140,37 +1140,73 @@
 //     return 0;
 // }
 
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// const int V = 10;
+
+// vector<int> adj[V];
+// int chk[V];
+
+// void DFS(int v){
+//     cout << v << ' ';
+//     chk[v] = 1;
+//     for(int next = 0; next < adj[v].size(); next++){
+//         if(chk[next]) continue;
+//         if(adj[next].size()) DFS(next);
+//     }
+//     return;
+// }
+
+// int main(){
+//     adj[1].push_back(2);
+//     adj[2].push_back(1);
+
+//     adj[1].push_back(3);
+//     adj[3].push_back(1);
+
+//     adj[3].push_back(4);
+//     adj[4].push_back(3);
+
+//     for(int i = 0; i < V; i++){
+//         if(adj[i].size() && chk[i] == 0) DFS(i);
+//     }
+
+// }
+
 #include <iostream>
 #include <vector>
 using namespace std;
 
-const int V = 10;
-
-vector<int> adj[V];
-int chk[V];
+int n;
+vector<int> adj[30];
+int ch[30], cnt =0;
 
 void DFS(int v){
-    cout << v << ' ';
-    chk[v] = 1;
-    for(int next = 0; next < adj[v].size(); next++){
-        if(chk[next]) continue;
-        if(adj[next].size()) DFS(next);
+    if(v == n){
+        cnt++;
+    } else {
+        for(int j = 0; j < adj[v].size(); j++){
+            if(ch[adj[v][j]] == 0) {
+                ch[adj[v][j]] = 1;
+                DFS(adj[v][j]);
+                ch[adj[v][j]] = 0;
+            }
+        }
     }
-    return;
 }
 
-int main(){
-    adj[1].push_back(2);
-    adj[2].push_back(1);
-
-    adj[1].push_back(3);
-    adj[3].push_back(1);
-
-    adj[3].push_back(4);
-    adj[4].push_back(3);
-
-    for(int i = 0; i < V; i++){
-        if(adj[i].size() && chk[i] == 0) DFS(i);
+int main() {
+    int m, i, a, b;
+    cin >> n >> m;
+    for(i = 1; i <= m; i++){
+        cin >> a >> b;
+        adj[a].push_back(b);
+        // adj[b].push_back(a);
     }
-
+    ch[1] = 1;
+    DFS(1);
+    cout << cnt << '\n';
+    return 0;
 }
