@@ -1104,38 +1104,73 @@
 //     return 0;
 // }
 
+// #include <iostream>
+// using namespace std;
+
+// int n, r;
+// int cnt = 0;
+// int arr[10], chk[10], ans[10];
+
+// void DFS(int L, int s){
+//     if(L==r){
+//         for(int i = 0; i < r; i++){
+//             cout << ans[i] << ' ';
+//         }
+//         cnt++;
+//         puts("");
+//     } else {
+//         for(int i = s; i < n; i++){
+//             //if(chk[i]==0){
+//             //chk[i] = 1;
+//             ans[L] = arr[i];
+//             DFS(L + 1, s + 1); // s를 넣느냐, i를 넣느냐. 어느쪽이 조합일까.
+//             //chk[i] = 0;
+//             //}
+//         }
+//     }
+// }
+
+// int main(){
+//     cin >> n >> r;
+//     for(int i = 0; i < n; i++){
+//         arr[i] = i + 1;
+//     }
+//     DFS(0, 0);
+//     cout << cnt << '\n';
+//     return 0;
+// }
+
 #include <iostream>
+#include <vector>
 using namespace std;
 
-int n, r;
-int cnt = 0;
-int arr[10], chk[10], ans[10];
+const int V = 10;
 
-void DFS(int L, int s){
-    if(L==r){
-        for(int i = 0; i < r; i++){
-            cout << ans[i] << ' ';
-        }
-        cnt++;
-        puts("");
-    } else {
-        for(int i = s; i < n; i++){
-            //if(chk[i]==0){
-            //chk[i] = 1;
-            ans[L] = arr[i];
-            DFS(L + 1, s + 1); // s를 넣느냐, i를 넣느냐. 어느쪽이 조합일까.
-            //chk[i] = 0;
-            //}
-        }
+vector<int> adj[V];
+int chk[V];
+
+void DFS(int v){
+    cout << v << ' ';
+    chk[v] = 1;
+    for(int next = 0; next < adj[v].size(); next++){
+        if(chk[next]) continue;
+        if(adj[next].size()) DFS(next);
     }
+    return;
 }
 
 int main(){
-    cin >> n >> r;
-    for(int i = 0; i < n; i++){
-        arr[i] = i + 1;
+    adj[1].push_back(2);
+    adj[2].push_back(1);
+
+    adj[1].push_back(3);
+    adj[3].push_back(1);
+
+    adj[3].push_back(4);
+    adj[4].push_back(3);
+
+    for(int i = 0; i < V; i++){
+        if(adj[i].size() && chk[i] == 0) DFS(i);
     }
-    DFS(0, 0);
-    cout << cnt << '\n';
-    return 0;
+
 }
