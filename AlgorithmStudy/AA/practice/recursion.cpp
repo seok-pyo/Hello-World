@@ -1248,36 +1248,60 @@
 //     return 0;
 // }
 
+// #include <iostream>
+// using namespace std;
+
+// int adj[30][30], n, ch[30];
+// int cost = 2147000000;
+
+// void DFS(int v, int sum){
+//     if(n == v){
+//         if(sum < cost) cost = sum;
+//     } else {
+//         for(int i=1; i<=n; i++){
+//             if(ch[i] == 0 && adj[v][i]){ // i가 다음 노드이다. adj[v][i]는 가중치값이다.
+//                 ch[i] = 1;
+//                 DFS(i, sum + adj[v][i]);
+//                 ch[i] = 0;
+//             }
+//         }
+//     }
+// }
+
+// int main(){
+//     int m, a, b, c;
+//     cin >> n >> m;
+//     for(int i = 0; i<m; i++){
+//         cin >> a >> b >> c;
+//         adj[a][b] = c;
+//     }
+
+//     ch[1] = 1;
+//     DFS(1, 0);
+//     cout << cost << '\n';
+//     return 0;    
+// }
+
 #include <iostream>
+#include <vector>
 using namespace std;
-
-int adj[30][30], n, ch[30];
-int cost = 2147000000;
-
-void DFS(int v, int sum){
-    if(n == v){
-        if(sum < cost) cost = sum;
-    } else {
-        for(int i=1; i<=n; i++){
-            if(ch[i] == 0 && adj[v][i]){ // i가 다음 노드이다. adj[v][i]는 가중치값이다.
-                ch[i] = 1;
-                DFS(i, sum + adj[v][i]);
-                ch[i] = 0;
-            }
+vector<int> m;
+vector<int> r;
+ 
+int main(){
+    m.push_back(1);
+    m.push_back(2);
+    m.push_back(1);
+    
+    for(int i = 0; i<m.size(); i++){
+        for(int j = -1; j<m.size(); j++){
+            r[i] = m[i] + m[j];
         }
     }
-}
 
-int main(){
-    int m, a, b, c;
-    cin >> n >> m;
-    for(int i = 0; i<m; i++){
-        cin >> a >> b >> c;
-        adj[a][b] = c;
+    for(int i = 0; i<r.size(); i++){
+        cout << r[i] << '\n';
     }
 
-    ch[1] = 1;
-    DFS(1, 0);
-    cout << cost << '\n';
-    return 0;    
+    return 0;
 }
