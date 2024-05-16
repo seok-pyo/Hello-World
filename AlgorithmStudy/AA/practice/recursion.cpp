@@ -1211,39 +1211,73 @@
 //     return 0;
 // }
 
+// #include <iostream>
+// #include <vector>
+// #define x first
+// #define y second
+// using namespace std;
+// int ch[30], cnt = 0, n, cost = 2147000000;
+// vector<pair<int, int> > map[30];
+
+// void DFS(int v, int sum){
+//     if(v == n){
+//         if(sum < cost) cost = sum;
+//     } else {
+//         for(int i = 0; i < map[v].size(); i++){
+//             if(ch[map[v][i].x]==0){
+//                 ch[map[v][i].x] = 1;
+//                 DFS(map[v][i].x, sum + map[v][i].y);
+//                 ch[map[v][i].x] = 0;
+//             }
+//         }
+
+//     }
+// }
+
+
+// int main(){
+//     int m, i, a, b, c;
+//     cin >> n >> m;
+//     for(i = 1; i <= m; i++){
+//         cin >> a >> b >> c;
+//         map[a].push_back(make_pair(b,c));
+//     }
+//     ch[1] = 1;
+//     DFS(1, 0);
+//     cout << cost << '\n';
+//     return 0;
+// }
+
 #include <iostream>
-#include <vector>
-#define x first
-#define y second
 using namespace std;
-int ch[30], cnt = 0, n, cost = 2147000000;
-vector<pair<int, int> > map[30];
+
+int adj[30][30], n, ch[30];
+int cost = 2147000000;
 
 void DFS(int v, int sum){
-    if(v == n){
+    if(n == v){
         if(sum < cost) cost = sum;
     } else {
-        for(int i = 0; i < map[v].size(); i++){
-            if(ch[map[v][i].x]==0){
-                ch[map[v][i].x] = 1;
-                DFS(map[v][i].x, sum + map[v][i].y);
-                ch[map[v][i].x] = 0;
+        for(int i=1; i<=n; i++){
+            if(ch[i] == 0 && adj[v][i]){ // i가 다음 노드이다. adj[v][i]는 가중치값이다.
+                ch[i] = 1;
+                DFS(i, sum + adj[v][i]);
+                ch[i] = 0;
             }
         }
-
     }
 }
 
-
 int main(){
-    int m, i, a, b, c;
+    int m, a, b, c;
     cin >> n >> m;
-    for(i = 1; i <= m; i++){
+    for(int i = 0; i<m; i++){
         cin >> a >> b >> c;
-        map[a].push_back(make_pair(b,c));
+        adj[a][b] = c;
     }
+
     ch[1] = 1;
     DFS(1, 0);
     cout << cost << '\n';
-    return 0;
+    return 0;    
 }
