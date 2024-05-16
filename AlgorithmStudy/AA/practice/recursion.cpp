@@ -1175,38 +1175,75 @@
 
 // }
 
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// int n;
+// vector<int> adj[30];
+// int ch[30], cnt =0;
+
+// void DFS(int v){
+//     if(v == n){
+//         cnt++;
+//     } else {
+//         for(int j = 0; j < adj[v].size(); j++){
+//             if(ch[adj[v][j]] == 0) {
+//                 ch[adj[v][j]] = 1;
+//                 DFS(adj[v][j]);
+//                 ch[adj[v][j]] = 0;
+//             }
+//         }
+//     }
+// }
+
+// int main() {
+//     int m, i, a, b;
+//     cin >> n >> m;
+//     for(i = 1; i <= m; i++){
+//         cin >> a >> b;
+//         adj[a].push_back(b);
+//         // adj[b].push_back(a);
+//     }
+//     ch[1] = 1;
+//     DFS(1);
+//     cout << cnt << '\n';
+//     return 0;
+// }
+
 #include <iostream>
 #include <vector>
+#define x first
+#define y second
 using namespace std;
+int ch[30], cnt = 0, n, cost = 2147000000;
+vector<pair<int, int> > map[30];
 
-int n;
-vector<int> adj[30];
-int ch[30], cnt =0;
-
-void DFS(int v){
+void DFS(int v, int sum){
     if(v == n){
-        cnt++;
+        if(sum < cost) cost = sum;
     } else {
-        for(int j = 0; j < adj[v].size(); j++){
-            if(ch[adj[v][j]] == 0) {
-                ch[adj[v][j]] = 1;
-                DFS(adj[v][j]);
-                ch[adj[v][j]] = 0;
+        for(int i = 0; i < map[v].size(); i++){
+            if(ch[map[v][i].x]==0){
+                ch[map[v][i].x] = 1;
+                DFS(map[v][i].x, sum + map[v][i].y);
+                ch[map[v][i].x] = 0;
             }
         }
+
     }
 }
 
-int main() {
-    int m, i, a, b;
+
+int main(){
+    int m, i, a, b, c;
     cin >> n >> m;
     for(i = 1; i <= m; i++){
-        cin >> a >> b;
-        adj[a].push_back(b);
-        // adj[b].push_back(a);
+        cin >> a >> b >> c;
+        map[a].push_back(make_pair(b,c));
     }
     ch[1] = 1;
-    DFS(1);
-    cout << cnt << '\n';
+    DFS(1, 0);
+    cout << cost << '\n';
     return 0;
 }
