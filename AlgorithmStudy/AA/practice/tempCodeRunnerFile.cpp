@@ -1,27 +1,40 @@
-
 #include <iostream>
-using namespace std; 
-const int V = 10;
-bool a[V][V], visited[V];
-void go(int from){ 
-	visited[from] = 1; 
-	cout << from << '\n';
-	for(int i = 0; i < V; i++){
-		if(visited[i]) continue;
-		if(a[from][i]){ 
-			go(i);
-		}
-	}
-	return;
+#include <vector>
+#include <cmath>
+
+using namespace std;
+
+long long binomialCoefficent(int n, int k){
+    if(k > n - k) k = n - k;
+    long long res = 1;
+    for(int i = 0; i < k; ++i){
+        res *= (n - i);
+        res /= (i + 1);
+        if(res > 1e15) return res;
+    }
+    return res;
 }
-int main(){
-	a[1][2] = 1; a[1][3] = 1; a[3][4] = 1, a[6][7] = 1;
-	a[2][1] = 1; a[3][1] = 1; a[4][3] = 1;
-	for(int i = 0; i < V; i++){
-		for(int j = 0; j < V; j++){
-			if(a[i][j] && visited[i] == 0){
-				go(i); 
-			}
-		}
-	} 
-} 
+
+int main() {
+    long long m;
+    cin >> m;
+
+    vector<pair<int, int> > results;
+
+    for(int n = 1; n <= 10000; ++n){
+        for(int k = 0; k <= n; ++k) {
+            long long bc = binomialCoefficent(n, k);
+            if(bc > m) break;
+            if(bc == m) {
+                results.push_back(make_pair(n, k));
+                results.push_back(make_pair(n, n - k));
+            }
+        }
+    }
+    cout << results.size() << endl;
+    for(const auto& p : results) {
+        cout << p.first << " " << p.second << '\n';
+    }
+
+    return 0;
+}

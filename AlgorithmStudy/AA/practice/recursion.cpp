@@ -1282,25 +1282,68 @@
 //     return 0;    
 // }
 
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+// vector<int> m;
+// vector<int> r;
+ 
+// int main(){
+//     m.push_back(1);
+//     m.push_back(2);
+//     m.push_back(1);
+    
+//     for(int i = 0; i<m.size(); i++){
+//         for(int j = -1; j<m.size(); j++){
+//             r[i] = m[i] + m[j];
+//         }
+//     }
+
+//     for(int i = 0; i<r.size(); i++){
+//         cout << r[i] << '\n';
+//     }
+
+//     return 0;
+// }
+
 #include <iostream>
 #include <vector>
+#include <cmath>
+
 using namespace std;
-vector<int> m;
-vector<int> r;
- 
-int main(){
-    m.push_back(1);
-    m.push_back(2);
-    m.push_back(1);
-    
-    for(int i = 0; i<m.size(); i++){
-        for(int j = -1; j<m.size(); j++){
-            r[i] = m[i] + m[j];
+
+long long binomialCoefficent(int n, int k){
+    if(k > n - k) k = n - k;
+    long long res = 1;
+    for(int i = 0; i < k; ++i){
+        res *= (n - i);
+        res /= (i + 1);
+        if(res > 1e15) return res;
+    }
+    return res;
+}
+
+int main() {
+    long long m;
+    cin >> m;
+
+    vector<pair<int, int> > results;
+
+    for(int n = 1; n <= 10000; ++n){
+        for(int k = 0; k <= n; ++k) {
+            long long bc = binomialCoefficent(n, k);
+            if(bc > m) break;
+            if(bc == m) {
+                results.push_back(make_pair(n, k));
+                if(k != n-k){
+                    results.push_back(make_pair(n, n - k));
+                }
+            }
         }
     }
-
-    for(int i = 0; i<r.size(); i++){
-        cout << r[i] << '\n';
+    cout << results.size() << endl;
+    for(const auto& p : results) {
+        cout << p.first << " " << p.second << '\n';
     }
 
     return 0;
