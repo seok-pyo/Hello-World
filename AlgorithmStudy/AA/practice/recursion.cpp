@@ -1308,43 +1308,72 @@
 
 #include <iostream>
 #include <vector>
-#include <cmath>
-
+#include <algorithm>
+#include <climits>
 using namespace std;
 
-long long binomialCoefficent(int n, int k){
+long long bino(int n, int k){
     if(k > n - k) k = n - k;
     long long res = 1;
     for(int i = 0; i < k; ++i){
         res *= (n - i);
+        if(res > LLONG_MAX) return LLONG_MAX;
         res /= (i + 1);
-        if(res > 1e15) return res;
     }
     return res;
 }
 
-int main() {
+int main(){
     long long m;
     cin >> m;
 
     vector<pair<int, int> > results;
 
-    for(int n = 1; n <= 10000; ++n){
-        for(int k = 0; k <= n; ++k) {
-            long long bc = binomialCoefficent(n, k);
-            if(bc > m) break;
-            if(bc == m) {
-                results.push_back(make_pair(n, k));
-                if(k != n-k){
-                    results.push_back(make_pair(n, n - k));
-                }
-            }
+    for(int r = 1; r <= 30; ++r){
+        int lo = r * 2, hi = m + 1;
+        while(lo + 1 < hi) {
+            int mid = (lo + hi) / 2;
+            if(bino(mid, r) <= m) lo = mid;
+            else hi = mid;
+        }
+        if(bino(lo, r) == m) {
+            results.push_back(make_pair(lo, r));
+            if(r < lo - r) results.push_back(make_pair(lo, lo - r));
         }
     }
-    cout << results.size() << endl;
-    for(const auto& p : results) {
-        cout << p.first << " " << p.second << '\n';
+
+    sort(results.begin(), results.end());
+
+    cout << results.size() << '\n';
+    for(int i = 0; i < results.size(); i++){
+        cout << results[i].first << " " << results[i].second << '\n';
     }
 
     return 0;
 }
+
+// n = int(input())
+// v = []
+
+// def nCr(n, r):
+//     ret = 1
+//     for i in range(r): ret *= n - i
+//     for i in range(r): ret //= r - i
+//     return ret
+
+// for r in range(1, 31):
+//     lo, hi = r << 1, n + 1
+//     while lo + 1 < hi:
+//         mid = lo + hi >> 1
+//         if nCr(mid, r) <= n: lo = mid
+//         else: hi = mid
+//     if nCr(lo, r) == n:
+//         v.append((lo, r))
+//         if r < lo - r: v.append((lo, lo - r))
+
+// v.sort(key = lambda x : (x[0], x[1]))
+
+// print(len(v))
+// for [a, b] in v:
+//     print(f"{a} {b}")
+
