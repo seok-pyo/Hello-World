@@ -1306,52 +1306,54 @@
 //     return 0;
 // }
 
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <climits>
-using namespace std;
+// 이항계수 값 찾기 - 이분검색 / c++
+// #include <iostream>
+// #include <vector>
+// #include <algorithm>
+// #include <climits>
+// using namespace std;
 
-long long bino(int n, int k){
-    if(k > n - k) k = n - k;
-    long long res = 1;
-    for(int i = 0; i < k; ++i){
-        res *= (n - i);
-        if(res > LLONG_MAX) return LLONG_MAX;
-        res /= (i + 1);
-    }
-    return res;
-}
+// long long bino(int n, int k){
+//     if(k > n - k) k = n - k;
+//     long long res = 1;
+//     for(int i = 0; i < k; ++i){
+//         res *= (n - i);
+//         if(res > LLONG_MAX) return LLONG_MAX;
+//         res /= (i + 1);
+//     }
+//     return res;
+// }
 
-int main(){
-    long long m;
-    cin >> m;
+// int main(){
+//     long long m;
+//     cin >> m;
 
-    vector<pair<int, int> > results;
+//     vector<pair<int, int> > results;
 
-    for(int r = 1; r <= 30; ++r){
-        int lo = r * 2, hi = m + 1;
-        while(lo + 1 < hi) {
-            int mid = (lo + hi) / 2;
-            if(bino(mid, r) <= m) lo = mid;
-            else hi = mid;
-        }
-        if(bino(lo, r) == m) {
-            results.push_back(make_pair(lo, r));
-            if(r < lo - r) results.push_back(make_pair(lo, lo - r));
-        }
-    }
+//     for(int r = 1; r <= 30; ++r){
+//         int lo = r * 2, hi = m + 1;
+//         while(lo + 1 < hi) {
+//             int mid = (lo + hi) / 2;
+//             if(bino(mid, r) <= m) lo = mid;
+//             else hi = mid;
+//         }
+//         if(bino(lo, r) == m) {
+//             results.push_back(make_pair(lo, r));
+//             if(r < lo - r) results.push_back(make_pair(lo, lo - r));
+//         }
+//     }
 
-    sort(results.begin(), results.end());
+//     sort(results.begin(), results.end());
 
-    cout << results.size() << '\n';
-    for(int i = 0; i < results.size(); i++){
-        cout << results[i].first << " " << results[i].second << '\n';
-    }
+//     cout << results.size() << '\n';
+//     for(int i = 0; i < results.size(); i++){
+//         cout << results[i].first << " " << results[i].second << '\n';
+//     }
 
-    return 0;
-}
+//     return 0;
+// }
 
+// 이항계수 값 찾기 - 파이썬 코드
 // n = int(input())
 // v = []
 
@@ -1376,4 +1378,69 @@ int main(){
 // print(len(v))
 // for [a, b] in v:
 //     print(f"{a} {b}")
+
+#include <iostream>
+#include <vector>
+using namespace std;
+int visited[1004];
+vector<int> adj[1004];
+
+void postOrder(int here){
+    if(visited[here] == 0){
+        if(adj[here].size() == 1) postOrder(adj[here][0]);
+        if(adj[here].size() == 2){
+            postOrder(adj[here][0]);
+            postOrder(adj[here][1]);
+        }
+        visited[here] = 1;
+        cout << here << ' ';
+    }
+}
+
+void preOrder(int here){
+    if(visited[here] == 0){
+        visited[here] = 1;
+        cout << here << ' ';
+        if(adj[here].size() == 1) preOrder(adj[here][0]);
+        if(adj[here].size() == 2){
+            preOrder(adj[here][0]);
+            preOrder(adj[here][1]);
+        }
+    }
+}
+
+void inOrder(int here){
+    if(visited[here] == 0){
+        if(adj[here].size() == 1){
+            inOrder(adj[here][0]);
+            visited[here] = 1;
+            cout << here << ' ';
+        } else if(adj[here].size() == 2){
+            inOrder(adj[here][0]);
+
+            visited[here] = 1;
+            cout << here << ' ';
+
+            inOrder(adj[here][1]);
+        } else {
+            visited[here] = 1;
+            cout << here << ' ';
+        }
+    }
+}
+
+int main(){
+    adj[1].push_back(2);
+    adj[1].push_back(3);
+    adj[2].push_back(4);
+    adj[2].push_back(5);
+    int root = 1;
+    cout << "\n 트리순회 : postOrder \n";
+    postOrder(root); memset(visited, 0, sizeof(visited));
+    cout << "\n 트리순회 : preOrder \n";
+    preOrder(root); memset(visited, 0, sizeof(visited));
+    cout << "\n 트리순회 : inOrder \n";
+    inOrder(root);
+    return 0;
+}
 
