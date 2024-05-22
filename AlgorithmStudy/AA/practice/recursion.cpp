@@ -1379,68 +1379,161 @@
 // for [a, b] in v:
 //     print(f"{a} {b}")
 
+
+// 트리순회: 일반적으로 이진 트리를 예시로 들지만, 모든 트리에서 적용이 가능하다.
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+// int visited[1004];
+// vector<int> adj[1004];
+
+// void postOrder(int here){
+//     if(visited[here] == 0){
+//         if(adj[here].size() == 1) postOrder(adj[here][0]);
+//         if(adj[here].size() == 2){
+//             postOrder(adj[here][0]);
+//             postOrder(adj[here][1]);
+//         }
+//         visited[here] = 1;
+//         cout << here << ' ';
+//     }
+// }
+
+// void preOrder(int here){
+//     if(visited[here] == 0){
+//         visited[here] = 1;
+//         cout << here << ' ';
+//         if(adj[here].size() == 1) preOrder(adj[here][0]);
+//         if(adj[here].size() == 2){
+//             preOrder(adj[here][0]);
+//             preOrder(adj[here][1]);
+//         }
+//     }
+// }
+
+// void inOrder(int here){
+//     if(visited[here] == 0){
+//         if(adj[here].size() == 1){
+//             inOrder(adj[here][0]);
+//             visited[here] = 1;
+//             cout << here << ' ';
+//         } else if(adj[here].size() == 2){
+//             inOrder(adj[here][0]);
+
+//             visited[here] = 1;
+//             cout << here << ' ';
+
+//             inOrder(adj[here][1]);
+//         } else {
+//             visited[here] = 1;
+//             cout << here << ' ';
+//         }
+//     }
+// }
+
+// int main(){
+//     adj[1].push_back(2);
+//     adj[1].push_back(3);
+//     adj[2].push_back(4);
+//     adj[2].push_back(5);
+//     int root = 1;
+//     cout << "\n 트리순회 : postOrder \n";
+//     postOrder(root); memset(visited, 0, sizeof(visited));
+//     cout << "\n 트리순회 : preOrder \n";
+//     preOrder(root); memset(visited, 0, sizeof(visited));
+//     cout << "\n 트리순회 : inOrder \n";
+//     inOrder(root);
+//     return 0;
+// }
+
+// 너비 우선 탐색 
+
+// BFS(G, u)
+//     u.visited = 1
+//     q.push(u)
+//     while(q.size())
+//         u=q.front()
+//         q.pop()
+//             for each v in G[u] // G.Adj.[u] 코드를 수정
+//                 if v.visited == false
+//                     v.visited = u.visited + 1
+//                     q.push(v)
+
+
+// <<< BFS로 최단 거리 찾기 >>>
+// 토끼 찬우는 가장 좋아하는 음식인 당근을 찾아 모험을 떠났다. 찬우는 거대한 숲을 지나야만 당근 농장에 도착할 수 있다.
+// 이 숲은 여러 칸으로 이루어져 있으며, 일부 칸은 숲의 길이 있고, 일부 칸은 깊은 웅덩이로 가로막혀 있다.
+// 찬우는 웅덩이를 건널 수 없고, 숲의 길(1)만을 따라 이동할 수 있다. 찬우는 상하좌우로만 이동할 수 있다.
+
+// 찬우는 가능한 한 빨리 당근 농장에 도착하고 싶다. 찬우가 한 칸 움직일 때마다 체력을 1씩 소모한다.
+// 최단 거리로 이동했을 때, 찬우가 당근 농장에 도착하기 위해 소모해야 하는 최소 체력을 구해보자.
+
+// 지도에서 1은 찬우가 이동할 수 있는 숲의 길을, 0은 찬우가 이동할 수 없는 웅덩이를 나타낸다.
+
+// 입렵
+// 지도에서 세로길이와 가로길이 N*M이 주어진다. 그 다음 줄에 찬우의 위치 (y, x)와 숲의 출구 (y, x)가
+// 주어진다. 이 때 찬우의 시작위치(y, x)에서 체력 1이 이미 소모된 상태로 본다.
+
+// 출력
+// 숲을 건너기 위해 필요한 최소 체력
+
+// 범위
+// 1 <= N <= 100
+// 1 <= M <= 100
+
+// 예제 입력
+// 5 5
+// 0 0
+// 4 4
+// 1 0 1 0 1
+// 1 1 1 0 1
+// 0 0 1 1 1
+// 0 0 1 1 1
+// 0 0 1 1 1
+
+// 예제 출력
+// 9
+
 #include <iostream>
-#include <vector>
+#include <queue>
 using namespace std;
-int visited[1004];
-vector<int> adj[1004];
-
-void postOrder(int here){
-    if(visited[here] == 0){
-        if(adj[here].size() == 1) postOrder(adj[here][0]);
-        if(adj[here].size() == 2){
-            postOrder(adj[here][0]);
-            postOrder(adj[here][1]);
-        }
-        visited[here] = 1;
-        cout << here << ' ';
-    }
-}
-
-void preOrder(int here){
-    if(visited[here] == 0){
-        visited[here] = 1;
-        cout << here << ' ';
-        if(adj[here].size() == 1) preOrder(adj[here][0]);
-        if(adj[here].size() == 2){
-            preOrder(adj[here][0]);
-            preOrder(adj[here][1]);
-        }
-    }
-}
-
-void inOrder(int here){
-    if(visited[here] == 0){
-        if(adj[here].size() == 1){
-            inOrder(adj[here][0]);
-            visited[here] = 1;
-            cout << here << ' ';
-        } else if(adj[here].size() == 2){
-            inOrder(adj[here][0]);
-
-            visited[here] = 1;
-            cout << here << ' ';
-
-            inOrder(adj[here][1]);
-        } else {
-            visited[here] = 1;
-            cout << here << ' ';
-        }
-    }
-}
-
+const int max_n = 104;
+int dy[4] = {-1, 0, 1, 0};
+int dx[4] = {0, 1, 0, -1};
+int n, m, a[max_n][max_n], visited[max_n][max_n], y, x, sy, sx, ey, ex;
 int main(){
-    adj[1].push_back(2);
-    adj[1].push_back(3);
-    adj[2].push_back(4);
-    adj[2].push_back(5);
-    int root = 1;
-    cout << "\n 트리순회 : postOrder \n";
-    postOrder(root); memset(visited, 0, sizeof(visited));
-    cout << "\n 트리순회 : preOrder \n";
-    preOrder(root); memset(visited, 0, sizeof(visited));
-    cout << "\n 트리순회 : inOrder \n";
-    inOrder(root);
+    cin >> n >> m;
+    cin >> sy >> sx;
+    cin >> ey >> ex;
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            cin >> a[i][j];
+        }
+    }
+    queue<pair<int, int> > q;
+    visited[sy][sx] = 1;
+    q.push({sy, sx});
+    while(q.size()){
+        tie(y, x) = q.front(); q.pop();
+        for(int i = 0; i < 4; i++){
+            int ny = y + dy[i];
+            int nx = x + dx[i];
+            if(ny < 0 || ny >= n || nx >= m || a[ny][nx] == 0) continue;
+            if(visited[ny][nx]) continue;
+            visited[ny][nx] = visited[y][x] + 1;
+            q.push({ny, nx});
+        }
+    }
+    cout << visited[ey][ex];
+    // 최단거리 디버깅
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < m; j++){
+            cout << visited[i][j] << ' ';
+        }
+        cout << '\n';
+    }
     return 0;
 }
+
+
 
