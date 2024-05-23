@@ -1494,46 +1494,95 @@
 // 예제 출력
 // 9
 
+// // 정답 코드
+// #include <iostream>
+// #include <queue>
+// using namespace std;
+// const int max_n = 104;
+// int dy[4] = {-1, 0, 1, 0};
+// int dx[4] = {0, 1, 0, -1};
+// int n, m, a[max_n][max_n], visited[max_n][max_n], y, x, sy, sx, ey, ex;
+// int main(){
+//     cin >> n >> m;
+//     cin >> sy >> sx;
+//     cin >> ey >> ex;
+//     for(int i = 0; i < n; i++){
+//         for(int j = 0; j < m; j++){
+//             cin >> a[i][j];
+//         }
+//     }
+//     queue<pair<int, int> > q;
+//     visited[sy][sx] = 1;
+//     q.push({sy, sx});
+//     while(q.size()){
+//         tie(y, x) = q.front(); q.pop();
+//         for(int i = 0; i < 4; i++){
+//             int ny = y + dy[i];
+//             int nx = x + dx[i];
+//             if(ny < 0 || ny >= n || nx >= m || a[ny][nx] == 0) continue;
+//             if(visited[ny][nx]) continue;
+//             visited[ny][nx] = visited[y][x] + 1;
+//             q.push({ny, nx});
+//         }
+//     }
+//     cout << visited[ey][ex];
+//     // 최단거리 디버깅
+//     for(int i = 0; i < n; i++){
+//         for(int j = 0; j < m; j++){
+//             cout << visited[i][j] << ' ';
+//         }
+//         cout << '\n';
+//     }
+//     return 0;
+// }
+
+// 입력을 받고
+// 배열에 저장한 후에
+// 너비우선탐색으로 최단거리를 찾는다.
+
 #include <iostream>
 #include <queue>
+
 using namespace std;
+
 const int max_n = 104;
 int dy[4] = {-1, 0, 1, 0};
 int dx[4] = {0, 1, 0, -1};
-int n, m, a[max_n][max_n], visited[max_n][max_n], y, x, sy, sx, ey, ex;
+int n, m, a[max_n][max_n], visited[max_n][max_n], y, x;
 int main(){
     cin >> n >> m;
-    cin >> sy >> sx;
-    cin >> ey >> ex;
     for(int i = 0; i < n; i++){
         for(int j = 0; j < m; j++){
-            cin >> a[i][j];
+            // cin으로 숫자 하나씩 입력받기
+            char c;
+            cin >> c;
+            a[i][j] = c - '0';
+            //scanf("%1d", &a[i][j]);
         }
     }
     queue<pair<int, int> > q;
-    visited[sy][sx] = 1;
-    q.push({sy, sx});
+    visited[0][0] = 1;
+    q.push(make_pair(0,0));
     while(q.size()){
-        tie(y, x) = q.front(); q.pop();
+        // tie(y, x) = q.front(); q.pop();
+        pair<int, int> f = q.front();
+        q.pop();
+        int y = f.first;
+        int x = f.second;
+
         for(int i = 0; i < 4; i++){
             int ny = y + dy[i];
             int nx = x + dx[i];
-            if(ny < 0 || ny >= n || nx >= m || a[ny][nx] == 0) continue;
+            if(ny < 0 || ny >=n || nx < 0 || nx >= m || a[ny][nx]==0) continue;
             if(visited[ny][nx]) continue;
             visited[ny][nx] = visited[y][x] + 1;
-            q.push({ny, nx});
+            q.push(make_pair(ny, nx));
         }
     }
-    cout << visited[ey][ex];
-    // 최단거리 디버깅
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < m; j++){
-            cout << visited[i][j] << ' ';
-        }
-        cout << '\n';
-    }
+    cout << visited[n - 1][m - 1] << '\n';
     return 0;
 }
+
 
 
 
