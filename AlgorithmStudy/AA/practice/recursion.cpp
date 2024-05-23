@@ -1539,49 +1539,90 @@
 // 입력을 받고
 // 배열에 저장한 후에
 // 너비우선탐색으로 최단거리를 찾는다.
+// // #2178
+// #include <iostream>
+// #include <queue>
+
+// using namespace std;
+
+// const int max_n = 104;
+// int dy[4] = {-1, 0, 1, 0};
+// int dx[4] = {0, 1, 0, -1};
+// int n, m, a[max_n][max_n], visited[max_n][max_n], y, x;
+// int main(){
+//     cin >> n >> m;
+//     for(int i = 0; i < n; i++){
+//         for(int j = 0; j < m; j++){
+//             // cin으로 숫자 하나씩 입력받기
+//             char c;
+//             cin >> c;
+//             a[i][j] = c - '0';
+//             //scanf("%1d", &a[i][j]);
+//         }
+//     }
+//     queue<pair<int, int> > q;
+//     visited[0][0] = 1;
+//     q.push(make_pair(0,0));
+//     while(q.size()){
+//         // tie(y, x) = q.front(); q.pop();
+//         pair<int, int> f = q.front();
+//         q.pop();
+//         int y = f.first;
+//         int x = f.second;
+
+//         for(int i = 0; i < 4; i++){
+//             int ny = y + dy[i];
+//             int nx = x + dx[i];
+//             if(ny < 0 || ny >=n || nx < 0 || nx >= m || a[ny][nx]==0) continue;
+//             if(visited[ny][nx]) continue;
+//             visited[ny][nx] = visited[y][x] + 1;
+//             q.push(make_pair(ny, nx));
+//         }
+//     }
+//     cout << visited[n - 1][m - 1] << '\n';
+//     return 0;
+// }
 
 #include <iostream>
+#include <vector>
 #include <queue>
-
 using namespace std;
 
-const int max_n = 104;
-int dy[4] = {-1, 0, 1, 0};
-int dx[4] = {0, 1, 0, -1};
-int n, m, a[max_n][max_n], visited[max_n][max_n], y, x;
+int n, m;
+queue<int> q;
+vector<int> g[21];
+int visited[21];
+int dis[21];
+
 int main(){
     cin >> n >> m;
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < m; j++){
-            // cin으로 숫자 하나씩 입력받기
-            char c;
-            cin >> c;
-            a[i][j] = c - '0';
-            //scanf("%1d", &a[i][j]);
-        }
+    int a, b;
+    for(int i = 1; i <=m; i++){
+        cin >> a >> b;
+        g[a].push_back(b);
     }
-    queue<pair<int, int> > q;
-    visited[0][0] = 1;
-    q.push(make_pair(0,0));
+    visited[1] = 1;
+    q.push(1);
     while(q.size()){
-        // tie(y, x) = q.front(); q.pop();
-        pair<int, int> f = q.front();
+        int f = q.front();
         q.pop();
-        int y = f.first;
-        int x = f.second;
-
-        for(int i = 0; i < 4; i++){
-            int ny = y + dy[i];
-            int nx = x + dx[i];
-            if(ny < 0 || ny >=n || nx < 0 || nx >= m || a[ny][nx]==0) continue;
-            if(visited[ny][nx]) continue;
-            visited[ny][nx] = visited[y][x] + 1;
-            q.push(make_pair(ny, nx));
-        }
+        for(int j = 0; j < g[f].size(); j++){
+            if(visited[g[f][j]] == 0){
+                visited[g[f][j]] = 1;
+                q.push(g[f][j]);
+                dis[g[f][j]] = dis[f] + 1; // 한 단계씩 이동하는게 최단거리를 만들기 때문에
+                // visited 배열로 체크를 하고, dis의 1씩 더해주면, 최단 거리가 된다. 
+                // 다시 돌아오는 경우는 이 문제의 경우에는 발생하지 않는다.
+            }
+        }   
     }
-    cout << visited[n - 1][m - 1] << '\n';
+
+    for(int i = 2; i <= n; i++){
+        cout << i << " : " << dis[i] << '\n';
+    }
     return 0;
 }
+
 
 
 
