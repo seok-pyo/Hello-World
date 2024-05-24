@@ -1583,43 +1583,72 @@
 //     return 0;
 // }
 
-#include <iostream>
-#include <vector>
-#include <queue>
-using namespace std;
+// #include <iostream>
+// #include <vector>
+// #include <queue>
+// using namespace std;
 
-int n, m;
-queue<int> q;
-vector<int> g[21];
-int visited[21];
-int dis[21];
+// int n, m;
+// queue<int> q;
+// vector<int> g[21];
+// int visited[21];
+// int dis[21];
+
+// int main(){
+//     cin >> n >> m;
+//     int a, b;
+//     for(int i = 1; i <=m; i++){
+//         cin >> a >> b;
+//         g[a].push_back(b);
+//     }
+//     visited[1] = 1;
+//     q.push(1);
+//     while(q.size()){
+//         int f = q.front();
+//         q.pop();
+//         for(int j = 0; j < g[f].size(); j++){
+//             if(visited[g[f][j]] == 0){
+//                 visited[g[f][j]] = 1;
+//                 q.push(g[f][j]);
+//                 dis[g[f][j]] = dis[f] + 1; // 한 단계씩 이동하는게 최단거리를 만들기 때문에
+//                 // visited 배열로 체크를 하고, dis의 1씩 더해주면, 최단 거리가 된다. 
+//                 // 다시 돌아오는 경우는 이 문제의 경우에는 발생하지 않는다.
+//             }
+//         }   
+//     }
+
+//     for(int i = 2; i <= n; i++){
+//         cout << i << " : " << dis[i] << '\n';
+//     }
+//     return 0;
+// }
+
+// 선택 정렬
+#include <iostream>
+using namespace std;
+int n;
+int a[101];
 
 int main(){
-    cin >> n >> m;
-    int a, b;
-    for(int i = 1; i <=m; i++){
-        cin >> a >> b;
-        g[a].push_back(b);
+    cin >> n;
+    for(int i = 0; i < n; i++){
+        cin >> a[i];
     }
-    visited[1] = 1;
-    q.push(1);
-    while(q.size()){
-        int f = q.front();
-        q.pop();
-        for(int j = 0; j < g[f].size(); j++){
-            if(visited[g[f][j]] == 0){
-                visited[g[f][j]] = 1;
-                q.push(g[f][j]);
-                dis[g[f][j]] = dis[f] + 1; // 한 단계씩 이동하는게 최단거리를 만들기 때문에
-                // visited 배열로 체크를 하고, dis의 1씩 더해주면, 최단 거리가 된다. 
-                // 다시 돌아오는 경우는 이 문제의 경우에는 발생하지 않는다.
+    int tmp = 0;
+    for(int i = 0; i < n; i++){
+        for(int j = i + 1; j < n; j++){
+            if(a[i] > a[j]) {
+                tmp = a[j];
+                a[j] = a[i];
+                a[i] = tmp;
             }
-        }   
+        }
     }
 
-    for(int i = 2; i <= n; i++){
-        cout << i << " : " << dis[i] << '\n';
+    for(int k = 0; k < n; k++){
+        cout << a[k] << ' ';
     }
+
     return 0;
 }
 
