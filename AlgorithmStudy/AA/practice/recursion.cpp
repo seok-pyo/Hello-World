@@ -1652,49 +1652,95 @@
 //     return 0;
 // }
 
+// #include <iostream>
+// using namespace std;
+// int dy[4] = {-1, 0, 1, 0};
+// int dx[4] = {0, 1, 0, -1};
+// int m, n, k, y, x, ret, ny, nx, t;
+// int a[51][51];
+// bool visited[51][51];
+// void dfs(int y, int x){
+//     visited[y][x] = 1;
+//     for(int i = 0; i < 4; i++){
+//         ny = y + dy[i];
+//         nx = x + dx[i];
+//         if(ny < 0 || nx < 0 || ny >= n || nx >= m) continue;
+//         if(a[ny][nx] == 1 && !visited[ny][nx]){
+//             dfs(ny, nx);
+//         }
+//     }
+//     return;
+// }
+
+// int main(){
+//     cin >> t;
+//     while(t--){
+//         fill(&a[0][0], &a[0][0] + 51 * 51, 0);
+//         fill(&visited[0][0], &visited[0][0] + 51 * 51, 0);
+//         ret = 0;
+//         cin >> m >> n >> k;
+//         for(int i = 0; i < k; i++){
+//             cin >> x >> y;
+//             a[y][x] = 1;
+//         }
+//         for(int i = 0; i < n; i++){
+//             for(int j = 0; j < m; j++){
+//                 if(a[i][j] == 1 && !visited[i][j]){
+//                     dfs(i, j);
+//                     ret++;
+//                 }
+//             }
+//         }
+//         cout << ret << "\n";
+//     }
+//     return 0;
+// }
+
 #include <iostream>
 using namespace std;
+int map[101][101];
+int chk[101][101];
+int n, h, maxH = -2147000000, num = -2147000000;
 int dy[4] = {-1, 0, 1, 0};
 int dx[4] = {0, 1, 0, -1};
-int m, n, k, y, x, ret, ny, nx, t;
-int a[51][51];
-bool visited[51][51];
-void dfs(int y, int x){
-    visited[y][x] = 1;
-    for(int i = 0; i < 4; i++){
-        ny = y + dy[i];
-        nx = x + dx[i];
-        if(ny < 0 || nx < 0 || ny >= n || nx >= m) continue;
-        if(a[ny][nx] == 1 && !visited[ny][nx]){
-            dfs(ny, nx);
+
+int DFS(int x, int y, int max, int cnt){
+    if(chk[y][x] == 0 && map[y][x] > max){
+        chk[y][x] = 1;
+        for(int i = 0; i < 4; i++){
+            int ny = y + dy[i];
+            int nx = x + dx[i];
+            if(ny > 0 && ny < n && nx > 0 && nx < n && chk[ny][nx] == 0){
+                DFS(ny, nx, max, cnt);
+                cnt++;
+            }
         }
     }
-    return;
+    return cnt;
 }
 
 int main(){
-    cin >> t;
-    while(t--){
-        fill(&a[0][0], &a[0][0] + 51 * 51, 0);
-        fill(&visited[0][0], &visited[0][0] + 51 * 51, 0);
-        ret = 0;
-        cin >> m >> n >> k;
-        for(int i = 0; i < k; i++){
-            cin >> x >> y;
-            a[y][x] = 1;
+    cin >> n;
+
+    for(int i = 1; i <= n; i++){
+        for(int j = 1; j <= n; j++){
+            cin >> map[i][j];
+            if(maxH < map[i][j]) maxH = map[i][j];
         }
-        for(int i = 0; i < n; i++){
-            for(int j = 0; j < m; j++){
-                if(a[i][j] == 1 && !visited[i][j]){
-                    dfs(i, j);
-                    ret++;
-                }
-            }
-        }
-        cout << ret << "\n";
     }
+
+    int res = 0;
+    for(int k = 1; k <= maxH; k++){
+        int cnt = 0;
+        res = DFS(0, 0, maxH, cnt);
+        if(res > num) num = res;
+    }
+
+    cout << res << '\n';
+
     return 0;
 }
+
 
 
 
