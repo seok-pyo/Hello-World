@@ -1697,6 +1697,7 @@
 // }
 
 #include <iostream>
+#include <cstring>
 using namespace std;
 int map[101][101];
 int chk[101][101];
@@ -1718,6 +1719,11 @@ void DFS(int y, int x, int max){
 }
 
 int main(){
+    // 큰 입출력 처리
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
     cin >> n;
 
     for(int i = 0; i < n; i++){
@@ -1728,7 +1734,9 @@ int main(){
 
     int res = 1;
     for(int k = 1; k < 101; k++){
-        fill(&chk[0][0], &chk[0][0] + 101 * 101, 0);
+        // 배열 초기화
+        // fill(&chk[0][0], &chk[0][0] + 101 * 101, 0);
+        memset(chk, 0, sizeof(chk)); // cstring 라이브러리가 포함해야 한다.
         int cnt = 0;
         for(int i = 0; i < n; i++){
             for(int j = 0; j < n; j++){
