@@ -1704,36 +1704,41 @@ int n, h, maxH = -2147000000, num = -2147000000;
 int dy[4] = {-1, 0, 1, 0};
 int dx[4] = {0, 1, 0, -1};
 
-int DFS(int x, int y, int max, int cnt){
-    if(chk[y][x] == 0 && map[y][x] > max){
-        chk[y][x] = 1;
-        for(int i = 0; i < 4; i++){
-            int ny = y + dy[i];
-            int nx = x + dx[i];
-            if(ny > 0 && ny < n && nx > 0 && nx < n && chk[ny][nx] == 0){
-                DFS(ny, nx, max, cnt);
-                cnt++;
-            }
+void DFS(int y, int x, int max){
+    chk[y][x] = 1;
+    for(int i = 0; i < 4; i++){
+        int ny = y + dy[i];
+        int nx = x + dx[i];
+        if(ny < 0 || ny >= n || nx < 0 || nx >= n) continue;
+        if(chk[ny][nx] == 0 && map[ny][nx] > max){
+            DFS(ny, nx, max);
         }
     }
-    return cnt;
+    return;
 }
 
 int main(){
     cin >> n;
 
-    for(int i = 1; i <= n; i++){
-        for(int j = 1; j <= n; j++){
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j < n; j++){
             cin >> map[i][j];
-            if(maxH < map[i][j]) maxH = map[i][j];
         }
     }
 
-    int res = 0;
-    for(int k = 1; k <= maxH; k++){
+    int res = 1;
+    for(int k = 1; k < 101; k++){
+        fill(&chk[0][0], &chk[0][0] + 101 * 101, 0);
         int cnt = 0;
-        res = DFS(0, 0, maxH, cnt);
-        if(res > num) num = res;
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < n; j++){
+                if(chk[i][j] == 0 && map[i][j] > k){
+                    DFS(i, j, k);
+                    cnt++;
+                }
+            }
+        }
+        if(cnt > res) res = cnt;
     }
 
     cout << res << '\n';
