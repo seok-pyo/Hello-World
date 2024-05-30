@@ -1696,64 +1696,120 @@
 //     return 0;
 // }
 
+// #include <iostream>
+// #include <cstring>
+// using namespace std;
+// int map[101][101];
+// int chk[101][101];
+// int n, h, maxH = -2147000000, num = -2147000000;
+// int dy[4] = {-1, 0, 1, 0};
+// int dx[4] = {0, 1, 0, -1};
+
+// void DFS(int y, int x, int max){
+//     chk[y][x] = 1;
+//     for(int i = 0; i < 4; i++){
+//         int ny = y + dy[i];
+//         int nx = x + dx[i];
+//         if(ny < 0 || ny >= n || nx < 0 || nx >= n) continue;
+//         if(chk[ny][nx] == 0 && map[ny][nx] > max){
+//             DFS(ny, nx, max);
+//         }
+//     }
+//     return;
+// }
+
+// int main(){
+//     // 큰 입출력 처리
+//     ios_base::sync_with_stdio(false);
+//     cin.tie(NULL);
+//     cout.tie(NULL);
+
+//     cin >> n;
+
+//     for(int i = 0; i < n; i++){
+//         for(int j = 0; j < n; j++){
+//             cin >> map[i][j];
+//         }
+//     }
+
+//     int res = 1;
+//     for(int k = 1; k < 101; k++){
+//         // 배열 초기화
+//         // fill(&chk[0][0], &chk[0][0] + 101 * 101, 0);
+//         memset(chk, 0, sizeof(chk)); // cstring 라이브러리가 포함해야 한다.
+//         int cnt = 0;
+//         for(int i = 0; i < n; i++){
+//             for(int j = 0; j < n; j++){
+//                 if(chk[i][j] == 0 && map[i][j] > k){
+//                     DFS(i, j, k);
+//                     cnt++;
+//                 }
+//             }
+//         }
+//         if(cnt > res) res = cnt;
+//     }
+
+//     cout << res << '\n';
+
+//     return 0;
+// }
+
 #include <iostream>
-#include <cstring>
+#include <vector>
+#include <algorithm>
 using namespace std;
 int map[101][101];
 int chk[101][101];
-int n, h, maxH = -2147000000, num = -2147000000;
-int dy[4] = {-1, 0, 1, 0};
-int dx[4] = {0, 1, 0, -1};
+int ny[4] = {-1, 0, 1, 0};
+int nx[4] = {0, 1, 0, -1};
+vector<int> res; 
+int n, m, k;
 
-void DFS(int y, int x, int max){
+void DFS(int y, int x, int &c){
     chk[y][x] = 1;
+    c++;
     for(int i = 0; i < 4; i++){
-        int ny = y + dy[i];
-        int nx = x + dx[i];
-        if(ny < 0 || ny >= n || nx < 0 || nx >= n) continue;
-        if(chk[ny][nx] == 0 && map[ny][nx] > max){
-            DFS(ny, nx, max);
+        int dx = x + nx[i];
+        int dy = y + ny[i];
+        if(dx < 0 || dy < 0 || dx >= n || dy >= m) continue;
+        if(chk[dy][dx] == 0 && map[dy][dx] == 0){
+            DFS(dy, dx, c);
         }
     }
-    return;
 }
 
 int main(){
-    // 큰 입출력 처리
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    cout.tie(NULL);
 
-    cin >> n;
+    cin >> m >> n >> k;
 
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            cin >> map[i][j];
-        }
-    }
-
-    int res = 1;
-    for(int k = 1; k < 101; k++){
-        // 배열 초기화
-        // fill(&chk[0][0], &chk[0][0] + 101 * 101, 0);
-        memset(chk, 0, sizeof(chk)); // cstring 라이브러리가 포함해야 한다.
-        int cnt = 0;
-        for(int i = 0; i < n; i++){
-            for(int j = 0; j < n; j++){
-                if(chk[i][j] == 0 && map[i][j] > k){
-                    DFS(i, j, k);
-                    cnt++;
-                }
+    int lx, ly, rx, ry; 
+    
+    for(int i = 0; i < k; i++){
+        cin >> lx >> ly >> rx >> ry;
+        for(int j = lx; j < rx; j++){
+            for(int l = ly; l < ry; l++){
+                map[l][j] = 1;
             }
         }
-        if(cnt > res) res = cnt;
     }
 
-    cout << res << '\n';
+    for(int i = 0; i < m; i++){
+        for(int j = 0; j < n; j++){
+            if(chk[i][j] == 0 && map[i][j] == 0){
+                int count = 0;
+                DFS(i, j, count);
+                res.push_back(count);
+            }
+        }
+    }
+
+    sort(res.begin(), res.end());
+    cout << res.size() << '\n';
+    for(int i = 0; i < res.size(); i++){
+        cout << res[i] << ' ';
+    }
 
     return 0;
 }
-
-
-
-
