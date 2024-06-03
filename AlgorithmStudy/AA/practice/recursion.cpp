@@ -1809,7 +1809,56 @@
 
 // 2828번 정답코드
 
+// #include <iostream>
+// #include <queue>
+// using namespace std;
+
+
+// int main(){
+//     int n,m,j,p,step;
+//     queue<int> q;
+
+//     cin >> n >> m;
+//     cin >> j;
+
+//     for(int i = 0; i < j; i++){
+//         cin >> p;
+//         q.push(p);
+//     }
+
+//     int lp = 1;
+//     int rp = m;
+//     int ms = 0;
+//     int dis1 = 0, dis2 = 0;
+
+//     while(!q.empty()){
+//         int po = q.front();
+//         q.pop();
+
+//         if(lp <= po && po <= rp) { 
+//             continue;
+//         } else if(po < lp){
+//             int mL = lp - po;
+//             lp -= mL;
+//             rp -= mL;
+//             ms += mL;
+//         } else if (po > rp){
+//             int mR = po - rp;
+//             lp += mR;
+//             rp += mR;
+//             ms += mR;
+//         }
+//     }
+
+//     cout << ms << '\n';
+
+//     return 0;
+// }
+
+// 2828번 오답 코드
+
 #include <iostream>
+#include <cmath>
 #include <queue>
 using namespace std;
 
@@ -1835,19 +1884,21 @@ int main(){
         int po = q.front();
         q.pop();
 
-        if(lp <= po && po <= rp) { 
-            continue;
-        } else if(po < lp){
-            int mL = lp - po;
-            lp -= mL;
-            rp -= mL;
-            ms += mL;
-        } else if (po > rp){
-            int mR = po - rp;
-            lp += mR;
-            rp += mR;
-            ms += mR;
+        if(lp <= po && po <= rp) continue;
+
+        dis1 = po - lp;
+        dis2 = po - rp;  
+            
+        if(dis1 < 0 && dis2 < 0){
+            step = min(abs(dis1), abs(dis2)); 
+            ms += step;
+        } else if (dis1 > 0 && dis2 > 0) {
+            step = min(dis1, dis2); 
+            ms += step;
         }
+
+        lp += step;
+        rp += step;
     }
 
     cout << ms << '\n';
