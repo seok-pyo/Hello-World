@@ -39,7 +39,6 @@
 //     return 0;
 // }
 
-
 ////////////// 조합 구하기
 // #include <iostream>
 // #include <vector>
@@ -172,7 +171,6 @@
 // 	return 0;
 // }
 
-
 // #include <iostream>
 // using namespace std;
 // int n, r, cnt = 0;
@@ -184,7 +182,7 @@
 //         }
 //         cnt++;
 //         puts("");
-// 	} 
+// 	}
 // 	else {
 // 		for(int i = 1; i<=n; i++){
 // 			if(ch[i] == 0){
@@ -296,7 +294,6 @@
 //     for(string b : an) cout << b << '\n';
 // }
 
-
 // 문자열로 표현된 두 정수를 더하는 함수
 // #include <iostream>
 // #include <vector>
@@ -356,8 +353,8 @@
 // }
 
 // 4/24
-//순열이란 
-//순서가 부여된 임의의 집합을 다른 순서로 뒤섞는 연산
+// 순열이란
+// 순서가 부여된 임의의 집합을 다른 순서로 뒤섞는 연산
 
 // #include <iostream>
 // using namespace std;
@@ -491,19 +488,19 @@
 
 // int sum(vector<int> &v){
 //     sort(v.begin(), v.end());
-//     return v[v.size()-1] + v[v.size()-2];   
+//     return v[v.size()-1] + v[v.size()-2];
 // }
 
 // int main(){
 //     int a[] = {1,2,5,9,8};
 //     int arr_size = sizeof(a) / sizeof(a[0]);
- 
+
 //     vector<int> v;
 //     for(int i = 0; i < arr_size; i++){
 //         v.push_back(a[i]);
 //     }
 //     cout << sum(v) << "\n";
- 
+
 //     return 0;
 // }
 
@@ -549,7 +546,7 @@
 // }
 
 // 0426
-// #include <iostream> 
+// #include <iostream>
 // #include <vector>
 // using namespace std;
 
@@ -570,7 +567,7 @@
 //     string a = "hellophello", d = "p";
 //     vector<string> res = split(a, d);
 //     for(string b : res) cout << b << " ";
-//     return 0; 
+//     return 0;
 // }
 
 // 다음 코드의 시간복잡도는?
@@ -642,7 +639,6 @@
 // int xd[4] = {-1, 0, 1, 0};
 // int yd[4] = {0, 1, 0, -1};
 // int c[3][3];
-
 
 // void DFS(int x, int y, vector<int> v){
 //     if(x == n-1 && y == n-1){
@@ -869,7 +865,7 @@
 //     for(int i = 0; i < n; i++){
 //         map<string, int> clo;
 //         cin >> m;
-       
+
 //         for(int j = 0; j < m; j++){
 //             cin >> o >> t;
 //             clo[t] += 1;
@@ -878,7 +874,7 @@
 //         for(auto& it : clo){
 //             ret *= (long long)it.second + 1;
 //         }
-       
+
 //         cout << ret - 1 << '\n';
 //     }
 //     return 0;
@@ -919,10 +915,10 @@
 //     for(int i = 0; i < n; i++){
 //         string input;
 //         cin >> input;
-        
+
 //         stack<char> s;
 //         s.push(input[0]);
-        
+
 //         for(int j = 1; j < input.size(); j++){
 //             if(s.empty() || s.top() != input[j]){
 //                 s.push(input[j]);
@@ -948,7 +944,7 @@
 //         long long ret = DFS(a, b/2);
 //         ret = (ret * ret) % c;
 //         if(b % 2) ret = (ret * a) % c;
-//         return ret; 
+//         return ret;
 //     }
 // }
 
@@ -1234,7 +1230,6 @@
 //     }
 // }
 
-
 // int main(){
 //     int m, i, a, b, c;
 //     cin >> n >> m;
@@ -1279,7 +1274,7 @@
 //     ch[1] = 1;
 //     DFS(1, 0);
 //     cout << cost << '\n';
-//     return 0;    
+//     return 0;
 // }
 
 // #include <iostream>
@@ -1287,12 +1282,12 @@
 // using namespace std;
 // vector<int> m;
 // vector<int> r;
- 
+
 // int main(){
 //     m.push_back(1);
 //     m.push_back(2);
 //     m.push_back(1);
-    
+
 //     for(int i = 0; i<m.size(); i++){
 //         for(int j = -1; j<m.size(); j++){
 //             r[i] = m[i] + m[j];
@@ -1379,7 +1374,6 @@
 // for [a, b] in v:
 //     print(f"{a} {b}")
 
-
 // 트리순회: 일반적으로 이진 트리를 예시로 들지만, 모든 트리에서 적용이 가능하다.
 // #include <iostream>
 // #include <vector>
@@ -1446,7 +1440,7 @@
 //     return 0;
 // }
 
-// 너비 우선 탐색 
+// 너비 우선 탐색
 
 // BFS(G, u)
 //     u.visited = 1
@@ -1458,7 +1452,6 @@
 //                 if v.visited == false
 //                     v.visited = u.visited + 1
 //                     q.push(v)
-
 
 // <<< BFS로 최단 거리 찾기 >>>
 // 토끼 찬우는 가장 좋아하는 음식인 당근을 찾아 모험을 떠났다. 찬우는 거대한 숲을 지나야만 당근 농장에 도착할 수 있다.
@@ -1611,10 +1604,10 @@
 //                 visited[g[f][j]] = 1;
 //                 q.push(g[f][j]);
 //                 dis[g[f][j]] = dis[f] + 1; // 한 단계씩 이동하는게 최단거리를 만들기 때문에
-//                 // visited 배열로 체크를 하고, dis의 1씩 더해주면, 최단 거리가 된다. 
+//                 // visited 배열로 체크를 하고, dis의 1씩 더해주면, 최단 거리가 된다.
 //                 // 다시 돌아오는 경우는 이 문제의 경우에는 발생하지 않는다.
 //             }
-//         }   
+//         }
 //     }
 
 //     for(int i = 2; i <= n; i++){
@@ -1754,62 +1747,113 @@
 //     return 0;
 // }
 
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
-int map[101][101];
-int chk[101][101];
-int ny[4] = {-1, 0, 1, 0};
-int nx[4] = {0, 1, 0, -1};
-vector<int> res; 
-int n, m, k;
+// #include <iostream>
+// #include <vector>
+// #include <algorithm>
+// using namespace std;
+// int map[101][101];
+// int chk[101][101];
+// int ny[4] = {-1, 0, 1, 0};
+// int nx[4] = {0, 1, 0, -1};
+// vector<int> res;
+// int n, m, k;
 
-void DFS(int y, int x, int &c){
-    chk[y][x] = 1;
-    c++;
-    for(int i = 0; i < 4; i++){
-        int dx = x + nx[i];
-        int dy = y + ny[i];
-        if(dx < 0 || dy < 0 || dx >= n || dy >= m) continue;
-        if(chk[dy][dx] == 0 && map[dy][dx] == 0){
-            DFS(dy, dx, c);
-        }
-    }
-}
+// void DFS(int y, int x, int &c){
+//     chk[y][x] = 1;
+//     c++;
+//     for(int i = 0; i < 4; i++){
+//         int dx = x + nx[i];
+//         int dy = y + ny[i];
+//         if(dx < 0 || dy < 0 || dx >= n || dy >= m) continue;
+//         if(chk[dy][dx] == 0 && map[dy][dx] == 0){
+//             DFS(dy, dx, c);
+//         }
+//     }
+// }
+
+// int main(){
+//     ios_base::sync_with_stdio(false);
+//     cin.tie(NULL);
+
+//     cin >> m >> n >> k;
+
+//     int lx, ly, rx, ry;
+
+//     for(int i = 0; i < k; i++){
+//         cin >> lx >> ly >> rx >> ry;
+//         for(int j = lx; j < rx; j++){
+//             for(int l = ly; l < ry; l++){
+//                 map[l][j] = 1;
+//             }
+//         }
+//     }
+
+//     for(int i = 0; i < m; i++){
+//         for(int j = 0; j < n; j++){
+//             if(chk[i][j] == 0 && map[i][j] == 0){
+//                 int count = 0;
+//                 DFS(i, j, count);
+//                 res.push_back(count);
+//             }
+//         }
+//     }
+
+//     sort(res.begin(), res.end());
+//     cout << res.size() << '\n';
+//     for(int i = 0; i < res.size(); i++){
+//         cout << res[i] << ' ';
+//     }
+
+//     return 0;
+// }
+
+// 2828번 정답코드
+
+#include <iostream>
+#include <queue>
+using namespace std;
+
 
 int main(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
+    int n,m,j,p,step;
+    queue<int> q;
 
-    cin >> m >> n >> k;
+    cin >> n >> m;
+    cin >> j;
 
-    int lx, ly, rx, ry; 
-    
-    for(int i = 0; i < k; i++){
-        cin >> lx >> ly >> rx >> ry;
-        for(int j = lx; j < rx; j++){
-            for(int l = ly; l < ry; l++){
-                map[l][j] = 1;
-            }
+    for(int i = 0; i < j; i++){
+        cin >> p;
+        q.push(p);
+    }
+
+    int lp = 1;
+    int rp = m;
+    int ms = 0;
+    int dis1 = 0, dis2 = 0;
+
+    while(!q.empty()){
+        int po = q.front();
+        q.pop();
+
+        if(lp <= po && po <= rp) { 
+            continue;
+        } else if(po < lp){
+            int mL = lp - po;
+            lp -= mL;
+            rp -= mL;
+            ms += mL;
+        } else if (po > rp){
+            int mR = po - rp;
+            lp += mR;
+            rp += mR;
+            ms += mR;
         }
     }
 
-    for(int i = 0; i < m; i++){
-        for(int j = 0; j < n; j++){
-            if(chk[i][j] == 0 && map[i][j] == 0){
-                int count = 0;
-                DFS(i, j, count);
-                res.push_back(count);
-            }
-        }
-    }
-
-    sort(res.begin(), res.end());
-    cout << res.size() << '\n';
-    for(int i = 0; i < res.size(); i++){
-        cout << res[i] << ' ';
-    }
+    cout << ms << '\n';
 
     return 0;
 }
+
+
+
