@@ -1813,6 +1813,53 @@
 // #include <queue>
 // using namespace std;
 
+// int main(){
+//     int n,m,j,p,step;
+//     queue<int> q;
+
+//     cin >> n >> m;
+//     cin >> j;
+
+//     for(int i = 0; i < j; i++){
+//         cin >> p;
+//         q.push(p);
+//     }
+
+//     int lp = 1;
+//     int rp = m;
+//     int ms = 0;
+//     int dis1 = 0, dis2 = 0;
+
+//     while(!q.empty()){
+//         int po = q.front();
+//         q.pop();
+
+//         if(lp <= po && po <= rp) {
+//             continue;
+//         } else if(po < lp){
+//             int mL = lp - po;
+//             lp -= mL;
+//             rp -= mL;
+//             ms += mL;
+//         } else if (po > rp){
+//             int mR = po - rp;
+//             lp += mR;
+//             rp += mR;
+//             ms += mR;
+//         }
+//     }
+
+//     cout << ms << '\n';
+
+//     return 0;
+// }
+
+// 2828번 오답 코드
+
+// #include <iostream>
+// #include <cmath>
+// #include <queue>
+// using namespace std;
 
 // int main(){
 //     int n,m,j,p,step;
@@ -1835,19 +1882,21 @@
 //         int po = q.front();
 //         q.pop();
 
-//         if(lp <= po && po <= rp) { 
-//             continue;
-//         } else if(po < lp){
-//             int mL = lp - po;
-//             lp -= mL;
-//             rp -= mL;
-//             ms += mL;
-//         } else if (po > rp){
-//             int mR = po - rp;
-//             lp += mR;
-//             rp += mR;
-//             ms += mR;
+//         if(lp <= po && po <= rp) continue;
+
+//         dis1 = po - lp;
+//         dis2 = po - rp;
+
+//         if(dis1 < 0 && dis2 < 0){
+//             step = min(abs(dis1), abs(dis2));
+//             ms += step;
+//         } else if (dis1 > 0 && dis2 > 0) {
+//             step = min(dis1, dis2);
+//             ms += step;
 //         }
+
+//         lp += step;
+//         rp += step;
 //     }
 
 //     cout << ms << '\n';
@@ -1855,56 +1904,48 @@
 //     return 0;
 // }
 
-// 2828번 오답 코드
+// 빈도정렬
 
-#include <iostream>
-#include <cmath>
-#include <queue>
+#include <bits/stdc++.h>
 using namespace std;
-
-
-int main(){
-    int n,m,j,p,step;
-    queue<int> q;
-
-    cin >> n >> m;
-    cin >> j;
-
-    for(int i = 0; i < j; i++){
-        cin >> p;
-        q.push(p);
+typedef long long ll;
+const ll INF = 1e18;
+int n, c, a[1004];
+vector<pair<int, int>> v;
+map<int, int> mp, mp_first;
+bool cmp(pair<int, int> a, pair<int, int> b)
+{
+    if (a.first == b.first)
+    {
+        return mp_first[a.second] < mp_first[b.second];
     }
-
-    int lp = 1;
-    int rp = m;
-    int ms = 0;
-    int dis1 = 0, dis2 = 0;
-
-    while(!q.empty()){
-        int po = q.front();
-        q.pop();
-
-        if(lp <= po && po <= rp) continue;
-
-        dis1 = po - lp;
-        dis2 = po - rp;  
-            
-        if(dis1 < 0 && dis2 < 0){
-            step = min(abs(dis1), abs(dis2)); 
-            ms += step;
-        } else if (dis1 > 0 && dis2 > 0) {
-            step = min(dis1, dis2); 
-            ms += step;
+    return a.first > b.first;
+}
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    cin >> n >> c;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+        mp[a[i]]++;
+        if (mp_first[a[i]] == 0)
+            mp_first[a[i]] = i + 1;
+    }
+    for (auto it : mp)
+    {
+        v.push_back({it.second, it.first});
+    }
+    sort(v.begin(), v.end(), cmp);
+    for (auto i : v)
+    {
+        for (int j = 0; j < i.first; j++)
+        {
+            cout << i.second << " ";
         }
-
-        lp += step;
-        rp += step;
     }
-
-    cout << ms << '\n';
 
     return 0;
 }
-
-
-
