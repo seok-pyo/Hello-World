@@ -1906,43 +1906,44 @@
 
 // 빈도정렬
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <map>
+#include <vector>
+#include <utility>
 using namespace std;
-typedef long long ll;
-const ll INF = 1e18;
-int n, c, a[1004];
-vector<pair<int, int>> v;
+
+int n, c;
+int a[1001];
 map<int, int> mp, mp_first;
-bool cmp(pair<int, int> a, pair<int, int> b)
-{
-    if (a.first == b.first)
-    {
+vector<pair<int, int> > v;
+
+bool cmp(pair<int, int> a, pair<int, int> b){
+    if(a.first == b.first){
         return mp_first[a.second] < mp_first[b.second];
     }
     return a.first > b.first;
 }
-int main()
-{
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
+
+int main(){
+    ios_base::sync_with_stdio(0);
+    cin.tie(NULL); cout.tie(NULL);
+
     cin >> n >> c;
-    for (int i = 0; i < n; i++)
-    {
+    for(int i = 0; i < n; i++){
         cin >> a[i];
+        // if(mp[a[i]] == 0) mp[a[i]] = 1; 아래 줄로 대체 가능
         mp[a[i]]++;
-        if (mp_first[a[i]] == 0)
-            mp_first[a[i]] = i + 1;
+        if(mp_first[i] == 0) mp_first[i] = i + 1;
     }
-    for (auto it : mp)
-    {
-        v.push_back({it.second, it.first});
+
+    for(auto it : mp){
+        v.push_back({ it.second, it.first });
     }
+
     sort(v.begin(), v.end(), cmp);
-    for (auto i : v)
-    {
-        for (int j = 0; j < i.first; j++)
-        {
+
+    for(auto i : v){
+        for(int j = 0; j < i.first; j++){
             cout << i.second << " ";
         }
     }
