@@ -1906,47 +1906,106 @@
 
 // 빈도정렬
 
+// #include <iostream>
+// #include <map>
+// #include <vector>
+// #include <utility>
+// using namespace std;
+
+// int n, c;
+// int a[1001];
+// map<int, int> mp, mp_first;
+// vector<pair<int, int> > v;
+
+// bool cmp(pair<int, int> a, pair<int, int> b){
+//     if(a.first == b.first){
+//         return mp_first[a.second] < mp_first[b.second];
+//     }
+//     return a.first > b.first;
+// }
+
+// int main(){
+//     ios_base::sync_with_stdio(0);
+//     cin.tie(NULL); cout.tie(NULL);
+
+//     cin >> n >> c;
+//     for(int i = 0; i < n; i++){
+//         cin >> a[i];
+//         // if(mp[a[i]] == 0) mp[a[i]] = 1; 아래 줄로 대체 가능
+//         mp[a[i]]++;
+//         if(mp_first[i] == 0) mp_first[i] = i + 1;
+//     }
+
+//     for(auto it : mp){
+//         v.push_back({ it.second, it.first });
+//     }
+
+//     sort(v.begin(), v.end(), cmp);
+
+//     for(auto i : v){
+//         for(int j = 0; j < i.first; j++){
+//             cout << i.second << " ";
+//         }
+//     }
+
+//     return 0;
+// }
+
 #include <iostream>
-#include <map>
-#include <vector>
 #include <utility>
 using namespace std;
 
-int n, c;
-int a[1001];
-map<int, int> mp, mp_first;
-vector<pair<int, int> > v;
+int mc = 0, jc = 0;
+bool isV, isD, isT=false;
 
-bool cmp(pair<int, int> a, pair<int, int> b){
-    if(a.first == b.first){
-        return mp_first[a.second] < mp_first[b.second];
+void Vchk(string s){
+    for(int i = 0; i < s.length(); i++){
+        int flag = 0;
+        pair<int, char> sc = { 0, ' ' };
+        isV = false, isD = false;
+        if(s[i] - 97 == 'a' - 97) flag = 1;
+        if(s[i] - 97 == 'e' - 97) flag = 1;
+        if(s[i] - 97 == 'i' - 97) flag = 1;
+        if(s[i] - 97 == 'o' - 97) flag = 1;
+        if(s[i] - 97 == 'u' - 97) flag = 1;
+        if(flag){
+            mc += 1;
+            jc = 0;
+            isV = true;
+        } else {
+            jc += 1;
+            mc = 0;
+        }
+        if(mc == 3 || jc == 3) isD = true;
+        if(sc.second == s[i]) sc.first += 1;
+        sc.second = s[i];
+        if(sc.first == 2){
+            if(sc.second == 'e') {
+                sc.first = 0;
+                continue;
+            }
+            else if(sc.second == 'o') {
+                sc.first = 0;
+                continue;
+            } else {
+                isT = true;
+            }
+        }
     }
-    return a.first > b.first;
+    
 }
 
 int main(){
-    ios_base::sync_with_stdio(0);
-    cin.tie(NULL); cout.tie(NULL);
-
-    cin >> n >> c;
-    for(int i = 0; i < n; i++){
-        cin >> a[i];
-        // if(mp[a[i]] == 0) mp[a[i]] = 1; 아래 줄로 대체 가능
-        mp[a[i]]++;
-        if(mp_first[i] == 0) mp_first[i] = i + 1;
-    }
-
-    for(auto it : mp){
-        v.push_back({ it.second, it.first });
-    }
-
-    sort(v.begin(), v.end(), cmp);
-
-    for(auto i : v){
-        for(int j = 0; j < i.first; j++){
-            cout << i.second << " ";
+    string a;
+    int f1, f2, f3;
+    do{
+        cin >> a;
+        if(a == "end") continue;
+        Vchk(a);
+        if(isV == true && isT == false && isD == false) {
+            cout << '<' << a << '>' << "is Acceptable" << '\n';
+        } else {
+            cout << '<' << a << '>' << "is not Acceptable" << '\n';
         }
-    }
-
-    return 0;
+    } while(a != "end");
 }
