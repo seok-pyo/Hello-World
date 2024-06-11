@@ -2010,39 +2010,133 @@
 //     } while(a != "end");
 // }
 
+// #include <iostream>
+// #include <cmath>
+// #include <string>
+// #include <vector>
+// using namespace std;
+
+// int main(){
+//     string a = "";
+//     vector<int> V;
+//     int n;
+//     cin >> n;
+
+//     for(int i = 0; i < n; i++){
+//         cin >> a;
+//         int res = 0; int count = 1;
+//         for(int i = 0; i < a.size(); i++){
+//             if(0 <= a[i] - 48 && a[i] - 48 <= 9){
+//                 res *= count; // 예상한 대로 동작하지 않음
+//                 res += (a[i] - 48);
+//                 count *= 10;
+//             } else {
+//                 if(count){
+//                     V.push_back(res);
+//                     count = 0;
+//                     res = 0;
+//                 }
+//             }
+//         }
+//         V.push_back(res);
+//     }
+
+//     for(auto a : V){
+//         cout << a << " ";
+//     }
+//     return 0;
+// }
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+// int n;
+// vector<string> v;
+// string s, ret;
+
+// void go(){
+//     while(true){
+//         if(ret.size() && ret.front() == '0') ret.erase(ret.begin());
+//         else break;
+//     }
+//     if(ret.size() == 0) ret = "0";
+//     v.push_back(ret);
+//     ret = "";
+// }
+
+// bool cmp(string a, string b){
+//     if(a.size() == b.size()) return a < b;
+//     return a.size() < b.size();
+// }
+
+// int main(){
+//     cin >> n;
+//     for(int i = 0; i < n; i++){
+//         cin >> s;
+//         ret = "";
+//         for(int j = 0; j < s.size(); j++){
+//             if(s[j] < 65)ret += s[j];
+//             else if(ret.size()) go();
+//         }
+//         if(ret.size()) go();
+//     }
+
+//     sort(v.begin(), v.end(), cmp);
+//     for(string i : v) cout << i << "\n";
+//     return 0;
+// }
+
+// 10709 기상캐스터
 #include <iostream>
-#include <cmath>
-#include <string>
-#include <vector>
 using namespace std;
+int map[101][101];
+int res[101][101];
+int h, w;
+int CC = 0;
+int flag = 0;
+int cp = 0;
+char a;
+int main()
+{
+    cin >> h >> w;
+    for (int i = 0; i < h; i++)
+    {
+        for (int j = 0; j < w; j++)
+        {
+            cin >> a;
+            map[i][j] = a;
+        }
+    }
 
-int main(){
-    string a = "";
-    vector<int> V;
-    int n;
-    cin >> n;
-
-    for(int i = 0; i < n; i++){
-        cin >> a;
-        int res = 0; int count = 1;
-        for(int i = 0; i < a.size(); i++){            
-            if(0 <= a[i] - 48 && a[i] - 48 <= 9){
-                res *= count; // 예상한 대로 동작하지 않음
-                res += (a[i] - 48);
-                count *= 10;
-            } else {
-                if(count){
-                    V.push_back(res);
-                    count = 0;
-                    res = 0;
-                }
+    for (int i = 0; i < h; i++)
+    {
+        flag = 0;
+        for (int j = 0; j < w; j++)
+        {
+            if (flag == 0 && map[i][j] != 'c')
+            {
+                res[i][j] = -1;
+            }
+            if (map[i][j] == 'c')
+            {
+                flag = 1;
+                cp = j;
+            }
+            if (flag == 1 && map[i][j] != 'c')
+            {
+                res[i][j] = j - cp;
             }
         }
-        V.push_back(res);
     }
 
-    for(auto a : V){
-        cout << a << " ";
+    for (int i = 0; i < h; i++)
+    {
+        for (int j = 0; j < w; j++)
+        {
+            cout << res[i][j] << ' ';
+        }
+        puts("");
     }
-    return 0;    
+
+    return 0;
 }
