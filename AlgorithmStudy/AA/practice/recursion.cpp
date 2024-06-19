@@ -2143,31 +2143,25 @@
 
 #include <iostream>
 using namespace std;
-int n, t, res, cnt;
 
 int chkFive(int num){
-    res = 0;
-    cnt = 0;
-    while(num % 5 == 0){
-        cnt++;
-        res = num % 5;
+    int count = 0;
+    for(int i = 5; num / i >= 1; i *= 5){
+        count += num / i;
     }
-    return cnt;
+    return count;
 }
 
 int main(){
     ios_base::sync_with_stdio(0);
     cin.tie(NULL); cout.tie(NULL);
 
+    int t;
     cin >> t;
-    while(t){
-        t--;
+    while(t--){
+        int n;
         cin >> n;
-        int ans = 0;
-        for(int i = 5; i <= n; i+= 5){
-            ans += chkFive(i);
-        }
-        cout << ans << '\n';
+        cout << chkFive(n) << '\n';
     }
 
     return 0;
