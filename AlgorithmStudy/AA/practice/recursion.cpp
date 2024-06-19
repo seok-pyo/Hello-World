@@ -2087,55 +2087,87 @@
 // }
 
 // 10709 기상캐스터
+// #include <iostream>
+// using namespace std;
+// int map[101][101];
+// int res[101][101];
+// int h, w;
+// int CC = 0;
+// int flag = 0;
+// int cp = 0;
+// char a;
+// int main()
+// {
+//     cin >> h >> w;
+//     for (int i = 0; i < h; i++)
+//     {
+//         for (int j = 0; j < w; j++)
+//         {
+//             cin >> a;
+//             map[i][j] = a;
+//         }
+//     }
+
+//     for (int i = 0; i < h; i++)
+//     {
+//         flag = 0;
+//         for (int j = 0; j < w; j++)
+//         {
+//             if (flag == 0 && map[i][j] != 'c')
+//             {
+//                 res[i][j] = -1;
+//             }
+//             if (map[i][j] == 'c')
+//             {
+//                 flag = 1;
+//                 cp = j;
+//             }
+//             if (flag == 1 && map[i][j] != 'c')
+//             {
+//                 res[i][j] = j - cp;
+//             }
+//         }
+//     }
+
+//     for (int i = 0; i < h; i++)
+//     {
+//         for (int j = 0; j < w; j++)
+//         {
+//             cout << res[i][j] << ' ';
+//         }
+//         puts("");
+//     }
+
+//     return 0;
+// }
+
 #include <iostream>
 using namespace std;
-int map[101][101];
-int res[101][101];
-int h, w;
-int CC = 0;
-int flag = 0;
-int cp = 0;
-char a;
-int main()
-{
-    cin >> h >> w;
-    for (int i = 0; i < h; i++)
-    {
-        for (int j = 0; j < w; j++)
-        {
-            cin >> a;
-            map[i][j] = a;
-        }
-    }
+int n, t, res, cnt;
 
-    for (int i = 0; i < h; i++)
-    {
-        flag = 0;
-        for (int j = 0; j < w; j++)
-        {
-            if (flag == 0 && map[i][j] != 'c')
-            {
-                res[i][j] = -1;
-            }
-            if (map[i][j] == 'c')
-            {
-                flag = 1;
-                cp = j;
-            }
-            if (flag == 1 && map[i][j] != 'c')
-            {
-                res[i][j] = j - cp;
-            }
-        }
+int chkFive(int num){
+    res = 0;
+    cnt = 0;
+    while(num % 5 == 0){
+        cnt++;
+        res = num % 5;
     }
+    return cnt;
+}
 
-    for (int i = 0; i < h; i++)
-    {
-        for (int j = 0; j < w; j++)
-        {
-            cout << res[i][j] << ' ';
+int main(){
+    ios_base::sync_with_stdio(0);
+    cin.tie(NULL); cout.tie(NULL);
+
+    cin >> t;
+    while(t){
+        t--;
+        cin >> n;
+        int ans = 0;
+        for(int i = 5; i <= n; i+= 5){
+            ans += chkFive(i);
         }
-        puts("");
+        cout << ans << '\n';
     }
 
     return 0;
