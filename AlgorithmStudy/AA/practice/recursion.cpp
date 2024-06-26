@@ -2141,28 +2141,53 @@
 //     return 0;
 // }
 
+// #include <iostream>
+// using namespace std;
+
+// int chkFive(int num){
+//     int count = 0;
+//     for(int i = 5; num / i >= 1; i *= 5){
+//         count += num / i;
+//     }
+//     return count;
+// }
+
+// int main(){
+//     ios_base::sync_with_stdio(0);
+//     cin.tie(NULL); cout.tie(NULL);
+
+//     int t;
+//     cin >> t;
+//     while(t--){
+//         int n;
+//         cin >> n;
+//         cout << chkFive(n) << '\n';
+//     }
+
+//     return 0;
+// }
+
 #include <iostream>
+#include <string>
+#include <vector>
+#include <sstream>
+
 using namespace std;
+int cnt, win;
+int board[2];
+vector<string> times;
 
-int chkFive(int num){
-    int count = 0;
-    for(int i = 5; num / i >= 1; i *= 5){
-        count += num / i;
+int main() {
+    cin >> cnt;
+    for(int i = 0; i < cnt; i++){
+        string time;
+        cin >> win;
+        cin >> time;
+        times.push_back(time);
+        stringstream ss(time);
+        string part;
+        while(getline(ss, part, ':')) {
+            cout << part << '\n';
+        }
     }
-    return count;
-}
-
-int main(){
-    ios_base::sync_with_stdio(0);
-    cin.tie(NULL); cout.tie(NULL);
-
-    int t;
-    cin >> t;
-    while(t--){
-        int n;
-        cin >> n;
-        cout << chkFive(n) << '\n';
-    }
-
-    return 0;
 }
