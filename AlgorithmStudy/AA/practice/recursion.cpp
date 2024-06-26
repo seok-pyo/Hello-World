@@ -2167,27 +2167,55 @@
 //     return 0;
 // }
 
+// #include <iostream>
+// #include <string>
+// #include <vector>
+// #include <sstream>
+
+// using namespace std;
+// int cnt, win;
+// int board[2];
+// vector<string> times;
+
+// // https://www.acmicpc.net/problem/2852
+
+// int main() {
+//     cin >> cnt;
+//     for(int i = 0; i < cnt; i++){
+//         string time;
+//         cin >> win;
+//         cin >> time;
+//         times.push_back(time);
+//         stringstream ss(time);
+//         string part;
+//         while(getline(ss, part, ':')) {
+//             cout << part << '\n';
+//         }
+//     }
+// }
+
 #include <iostream>
-#include <string>
 #include <vector>
-#include <sstream>
-
+#include <algorithm>
 using namespace std;
-int cnt, win;
-int board[2];
-vector<string> times;
+int maxV = -2147000000;
+int cnt = 1;
+int cn, bcn = -1;
 
-int main() {
-    cin >> cnt;
-    for(int i = 0; i < cnt; i++){
-        string time;
-        cin >> win;
-        cin >> time;
-        times.push_back(time);
-        stringstream ss(time);
-        string part;
-        while(getline(ss, part, ':')) {
-            cout << part << '\n';
+int main(){
+    int n;
+    cin >> n;
+    for(int i = 0; i < n; i++){
+        cin >> cn;
+        if(bcn != -1 && bcn <= cn) {
+            cnt++;
+        } else {
+            cnt = 1; // cnt를 1로 초기화해주는 부분! 
         }
+        bcn = cn;
+        maxV = max(maxV, cnt);
     }
+
+    cout << maxV << '\n';
+    return 0;
 }
