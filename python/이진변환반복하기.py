@@ -24,7 +24,7 @@ def solution(s):
   answer[1]=eliZero
   return answer
 
-# 재귀함수를 활용한 이진법 변환
+# 재귀함수를 활용한  이진법 변환
 def to_binary(n):
   if n == 0:
     return "0"
