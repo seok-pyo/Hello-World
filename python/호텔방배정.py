@@ -16,6 +16,9 @@
   
 #   return answer
 
+import sys
+sys.setrecursionlimit(2000)
+
 def solution(k, room_number):
   hotel = {}
   answer = []
