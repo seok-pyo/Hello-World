@@ -1,20 +1,20 @@
-hotel = {}
-
 def solution(k, room_number):
+  hotel = {}
   answer = []
+  def recur(n):
+    if n not in hotel:
+      hotel[n] = n + 1
+      return n
+    
+    empty_room = recur(hotel[n])
+    hotel[n] = empty_room + 1 # 경로 압축
+    return empty_room
   for room in room_number:
-    recur(room)
-
-  for i in hotel:
-    answer.append(hotel[i])
+    assigned_room = recur(room)
+    answer.append(assigned_room)
   
   return answer
 
-def recur(n):
-  if n not in hotel:
-    hotel[n] = n 
-    return n
-  recur(n+1)
 
 print(solution(10, [1,3,4,1,3,1]))
     
