@@ -13,27 +13,28 @@
 #   return result
 
 # 조합 반복문
-# def combi_iter(arr, r):
+def combi_iter(arr, r):
+  
 
 # 조합 재귀
-def combi_recu(arr, r):
-  cnt = 0
-  result = []
+# def combi_recu(arr, r):
+#   cnt = 0
+#   result = []
   
-  def dfs(start, path):
-    nonlocal cnt
-    if len(path) == r:
-      cnt += 1
-      result.append(path[:])
-      return 
-    for i in range(start, len(arr)):
-      path.append(arr[i])
-      dfs(i + 1, path)
-      path.pop()
+#   def dfs(start, path):
+#     nonlocal cnt
+#     if len(path) == r:
+#       cnt += 1
+#       result.append(path[:])
+#       return 
+#     for i in range(start, len(arr)):
+#       path.append(arr[i])
+#       dfs(i + 1, path) # 중복 조합은 dfs(i, path)
+#       path.pop()
   
-  dfs(0, [])
-  return cnt
+#   dfs(0, [])
+#   return cnt
 
 
 # print(permu_recu([1,2,3,4,5], 3))
-print(combi_recu([1,2,3,4,5], 3))
+# print(combi_recu([1,2,3,4,5], 3))
