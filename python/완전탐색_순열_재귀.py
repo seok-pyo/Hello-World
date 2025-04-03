@@ -14,3 +14,6 @@ def permutation(arr, n):
 
 print(permutation([1,2,3,4,5], 3))
 
+
+
+
