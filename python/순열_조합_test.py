@@ -14,7 +14,14 @@
 
 # 조합 반복문
 def combi_iter(arr, r):
+  indices = list(range(r))
+
+  while True:
+    result.append()
+
+    for i in 
   
+
 
 # 조합 재귀
 # def combi_recu(arr, r):
