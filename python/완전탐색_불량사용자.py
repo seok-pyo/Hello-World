@@ -19,4 +19,6 @@ def solution(user_id, banned_id):
 
   return len(possible_case)
   
-        
+# re.match(pattern, user)
+# permutaions(list, numbers)
+# frozenset(set)
