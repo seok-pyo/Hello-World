@@ -14,6 +14,8 @@ def bubble(data):
   for i in range(len(data) - 1):
     for j in range(len(data) - 1 - i):
       if data[j] > data[j + 1]:
+        print('this is data[i]', data[j], 'this is data[j+1]', data[j+1])
+
         data[j], data[j + 1] = data[j + 1], data[j]
   
 bubble(sample)
