@@ -13,7 +13,6 @@ sample2 = [3, 0, 1, 8, 8, 7, 2, 5, 4, 6, 9]
 def bubble(data):
   for i in range(len(data) - 1):
     for j in range(len(data) - 1 - i):
-      print('this is data[j]', data[j], 'this is data[j+1]', data[j+1])
       if data[j] > data[j + 1]:
         data[j], data[j + 1] = data[j + 1], data[j]
   
