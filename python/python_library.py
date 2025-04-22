@@ -23,4 +23,3 @@ result = list(combinations_with_replacement(data, 2))
 print(result)
 
 a = 2.8
-print(round(a, 1))
