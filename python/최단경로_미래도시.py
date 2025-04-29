@@ -10,7 +10,7 @@ for i in range(n + 1):
 for i in range(m):
     row, col = map(int, input().split())
     graph[row][col] = 1
-    # 양방향으로 가는 것의 비용이 동일하게 1이다. # 오답 참고!
+    # 양방향으로 가는 것의 비용이 동일하게 1이다. # 놓친 부분 참고!
     graph[col][row] = 1
 
 x, k = map(int, input().split())
