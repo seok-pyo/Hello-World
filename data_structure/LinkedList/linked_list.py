@@ -52,7 +52,7 @@ class LinkedList:
         self.no -= 1
 
     def remove_last(self):
-        if self.head is Not None:
+        if self.head is not None:
             if self.head.next is None:
                 self.remove_first()
             else:
