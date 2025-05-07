@@ -4,7 +4,10 @@ def bs(target, arr):
     arr.sort()
     start = 0
     end = len(arr) - 1
-    mid = (start + end) // 2
+    mid = (start + end) // 2 # mid가 갱신되지 않는다...
+    # while 문 안에 있어야 함.
+    # 이렇게 놓치는 부분을 어떻게 잡을 수 있지
+    # 더 중요한 것...
 
     while start <= end:
         if arr[mid] == target:
