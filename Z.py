@@ -77,7 +77,7 @@ def z(n:int, x, y):
         return
     if x + n <= c or y + n <= r: # 등호가 필요한 이유?
         cnt+=int(n**2)
-    if x < c < x + n and y < r < y + n:
+    if x <= c < x + n and y <= r < y + n:
         z(n//2, x, y)
         z(n//2, x + (n//2), y)
         z(n//2, x, y + (n//2))
