@@ -8,9 +8,10 @@ for _ in range(c):
     for i in score[1:]:
         sum += i
     ave = sum / score[0]
-    for j in score:
+    for j in score[1:]:
         if j > ave:
             cnt += 1
-    result = cnt / score[0] * 1000
-    result = round(result, 3)
-    print(f'{"%5.3f" % result}%')
+    result = cnt / score[0] * 100
+    # result = round(result, 3)
+
+    print(f'{"%.3f" % result}%')
