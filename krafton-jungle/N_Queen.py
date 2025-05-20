@@ -1,29 +1,29 @@
-def set(i, n, cnt):
-    pos = [0] * n
-    flaga = [False] * n
-    flagb = [False] * (n * 2)
-    flagc = [False] * (n * 2)
+t = int(input())
+cnt = 0
 
-    for j in range(n):
-        if not flaga[j] and not flagb[i + j] and not flagc[i - j + (n - 1)]:
-            pos[i] = j
-            if i == (n - 1):
-                cnt += 1
-                return
-            else:
-                flaga[j] = flagb[i + j] = flagc[i - j + (n - 1)] = True
-                set(i + 1, n, cnt)
-                flaga[j] = flagb[i + j] = flagc[i - j + (n - 1)]= False
+flag_a = [False] * t
+flag_b = [False] * (2*t - 1)
+flag_c = [False] * (2*t - 1)
 
-def sol():
-    n = int(input())
-    result = 0
+def set2(n):
+    global cnt
 
-    set(0, n, result)
+    if n == t:
+        cnt += 1
+        return
 
-    print(result)
+    for i in range(t):
+        if not flag_a[i] and not flag_b[n + i] and not flag_c[n - i + (t - 1)]:
+            flag_a[i] = True
+            flag_b[n + i] = True
+            flag_c[n - i + (t - 1)] = True
+            set2(n + 1)
+            flag_a[i] = False
+            flag_b[n + i] = False
+            flag_c[n - i + (t - 1)] = False
 
-sol()
+set2(0)
 
+print(cnt)
 
 
