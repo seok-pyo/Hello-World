@@ -6,14 +6,15 @@ for _ in range(n):
 
 myList = list(result)
 
-# sorted(myList, key=len)
-# sorted(myList)
+newlist = sorted(myList)
+newlist = sorted(newlist, key=len)
 
-# sorted(myList)
+# myList.sort()
+# myList.sort(key=len)
 
-myList.sort()
-myList.sort(key=len)
+# for i in myList:
+#     print(i)
 
-for i in myList:
+for i in newlist:
     print(i)
 
