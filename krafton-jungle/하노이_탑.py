@@ -1,6 +1,14 @@
+import sys
+sys.path.append("/Users/seokpyohong/Documents/Hello-World/krafton-jungle/function_visualizer")
+
+from function_visualizer import FunctionVisualizer
+
+visualizer = FunctionVisualizer()
+
 n = int(input())
 c = [0] * 100
 
+@visualizer.visualize(param_names=["n"],show_execution_order=True)
 def hanoi(n, start, mid, end):
     if n == 0:
         return
@@ -21,3 +29,5 @@ def sol(n):
         print(c[n - 1])
 
 sol(n)
+
+visualizer.render("hanoi","png")
