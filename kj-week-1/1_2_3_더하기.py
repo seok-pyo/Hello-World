@@ -1,23 +1,30 @@
-# n = int(input())
-# case = []
-# numbers = [1,2,3]
+n = int(input())
+case = []
+sum = 0
+cnt = 0
 
-# for _ in range(n):
-#     case.append(int(input()))
+for _ in range(n):
+    case.append(int(input()))
 
-t = int(input())
+def otw(sum, tar):
+    global cnt
+    if sum > tar:
+        return
 
-# def sum_123(n,k):
-#     if n < 1 or k < 1:
-#         return 1
-#     return sum_123(n-1,k-1) + sum_123(n-k,k) 실패작
-for _ in range(t):
-    n = int(input())
-    dp = [0] * (n+1)
-    for i in range(1,n+1):
-        for j in range(1,4):    #현재 정수는 이전 정수 계산값을 전부 더해주면 된다.
-            if i > j:
-                dp[i] += dp[i-j]
-            elif i == j:
-                dp[i] += 1
-    print(dp[n])
+    if sum == tar:
+        cnt += 1
+
+    for i in range(1, 4):
+        otw(sum + i, tar)
+
+for c in case:
+    # global cnt
+    cnt = 0
+    otw(0, c)
+    print(cnt)
+
+
+
+
+
+

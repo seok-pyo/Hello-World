@@ -1,5 +1,5 @@
 import sys
-sys.path.append("/Users/seokpyohong/Documents/Hello-World/krafton-jungle/function_visualizer")
+sys.path.append("/Users/seokpyohong/Documents/Hello-World/kj-week-1/function_visualizer")
 
 from function_visualizer import FunctionVisualizer
 
