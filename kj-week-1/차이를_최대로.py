@@ -12,4 +12,3 @@ for i in permutations(arr):
 
     mv = max(mv, mn)
 print(mv)
-
