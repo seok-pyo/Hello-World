@@ -16,5 +16,3 @@ while len(people) != 1:
 result.append(people[0])
 
 print(f'<{', '.join(map(str, result))}>')
-
-# 문제를 잘 읽는 것을 습관으로 만들자.

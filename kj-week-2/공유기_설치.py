@@ -1,41 +1,77 @@
+# # import sys
+# # sys.stdin.readline
+
+# # n, c = map(int, input().split())
+# # house = []
+
+# # for _ in range(n):
+# #     house.append(int(input()))
+
+# # house.sort()
+
+# # first = house[0]
+# # end = house[n - 1]
+
+# # dis = float('inf')
+
+# # if n == 2:
+# #     dis = house[end] - house[first]
+# #     flag = True
+
+# # while first <= end:
+# #     mid = (first + end) // 2
+
+#     # if mid == first or mid == end:
+#     #     break
+
+#     # front = house[mid] - house[first]
+#     # back = house[end] - house[mid]
+
+# #     for i in range(mid):
+
+
+# #     if front > back:
+# #         end = mid - 1
+# #     else:
+# #         first = mid + 1
+
+# #     dis = min(dis, front, back)
+
+# # print(dis)
+
 import sys
 sys.stdin.readline
 
 n, c = map(int, input().split())
 house = []
 
-flag = False
-
 for _ in range(n):
     house.append(int(input()))
 
 house.sort()
 
-first = 0
-end = n - 1
+first = 1
+end = house[-1] - house[0]
+answer = 0
 
-dis = float('inf')
-
-if n == 2:
-    dis = house[end] - house[first]
-    flag = True
-
-while first <= end and not flag:
+while first <= end:
+    cnt = 1
+    last_installed = house[0]
     mid = (first + end) // 2
 
-    if mid == first or mid == end:
-        break
+    for h in house:
+        if (h - last_installed) >= mid:
+            cnt += 1
+            last_installed = h
 
-    front = house[mid] - house[first]
-    back = house[end] - house[mid]
-
-    if front > back:
-        end = mid - 1
-    else:
+    if cnt >= c:
+        answer = mid
         first = mid + 1
+    else:
+        end = mid - 1
 
-    dis = min(dis, front, back)
+print(answer)
 
-print(dis)
+
 
 
