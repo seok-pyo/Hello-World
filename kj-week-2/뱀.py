@@ -3,10 +3,11 @@ from collections import deque
 n = int(input())
 a = int(input())
 
-apples = []
+apples = set()
 
 for _ in range(a):
-    apples.append(input().split())
+    r, c = map(int, input().split())
+    apples.add((r - 1, c - 1))
 
 o = int(input())
 
@@ -21,56 +22,35 @@ queue = deque()
 queue.append((x, y))
 
 pos = 0
+dx = [0, 1, 0, -1]
+dy = [1, 0, -1, 0]
 
 direc_cnt, direc = directions.popleft()
 direc_cnt = int(direc_cnt)
 
 while True:
     seconds += 1
+    x += dx[pos]
+    y += dy[pos]
 
-    if pos % 4 == 0:
-        y += 1
-    elif pos % 4 == 1:
-        x -= 1
-    elif pos % 4 == 2:
-        x += 1
-    elif pos % 4 == 3:
-        y -= 1
-
-    direc_cnt -= 1
-
-    if direc_cnt == 0:
+    if seconds == int(direc_cnt):
         if direc == 'D':
-            pos += 1
-            if pos % 4 == 0:
-                y += 1
-            elif pos % 4 == 1:
-                y += 1
-            elif pos % 4 == 2:
-                y -= 1
-            elif pos % 4 == 3:
-                x += 1
+            pos = (pos + 1) % 4
         else:
-            pos -= 1
-            if pos % 4 == 0:
-                x -= 1
-            elif pos % 4 == 1:
-                y -= 1
-            elif pos % 4 == 2:
-                y += 1
-            elif pos % 4 == 3:
-                x += 1
+            pos = (pos - 1) % 4
 
-        direc_cnt, direc = directions.popleft()
-        direc_cnt = int(direc_cnt)
+        if directions:
+            direc_cnt, direc = directions.popleft()
+            direc_cnt = int(direc_cnt)
 
     if (x, y) in queue:
         break
 
-    if x > n or y > n or x < 0 or y < 0:
+    if x >= n or y >= n or x < 0 or y < 0:
         break
 
-    if [str(x), str(y)] in apples:
+    if (x, y) in apples:
+        apples.remove((x, y))
         queue.append((x, y))
     else:
         queue.append((x, y))
