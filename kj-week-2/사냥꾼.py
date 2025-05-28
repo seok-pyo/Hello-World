@@ -1,34 +1,26 @@
 m, n ,length = map(int, input().split())
-
 spot = list(map(int, input().split()))
-
 animals = [list(map(int, input().split())) for _ in range(n)]
 
-animals.sort()
 spot.sort()
-
 cnt = 0
 
-start = 0
-end = n
+closest = float('inf')
 
-# while start <= end:
-#     mid = (start + end) // 2
+for x, y in animals:
+    start = 0
+    end = m - 1
 
-#     x, y = animals[mid - 1]
-#     for s in spot:
-#         if abs(s - x) + y <= length:
-#             cnt += 1
-#             start = mid + 1
-#         elif abs(s - x) + y > length:
-#             end = mid - 1
+    while start <= end:
+        mid = ((start + end) // 2)
+        distance = abs(spot[mid] - x) + y
 
-for ani in animals:
-    x, y = ani
-
-
-
-
+        if distance <= length:
+            cnt += 1
+            break
+        elif spot[mid] < x:
+            start = mid + 1
+        else:
+            end = mid - 1
 
 print(cnt)
-
