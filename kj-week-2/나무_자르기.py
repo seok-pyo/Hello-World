@@ -51,7 +51,7 @@ trees = list(map(int, input().split()))
 
 ground = 0
 height = max(trees)
-result = 0
+# result = 0
 
 def cut(ground, height):
     global result

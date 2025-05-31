@@ -71,7 +71,3 @@ while first <= end:
         end = mid - 1
 
 print(answer)
-
-
-
-
