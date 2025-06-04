@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 node, vertex = map(int, input().split())
 
 graph = [[] for _ in range(node + 1)]
