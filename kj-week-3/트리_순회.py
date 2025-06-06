@@ -33,7 +33,6 @@ def traverse_post(node):
     traverse_post(trees[node][1])
     result_pos.append(node)
 
-
 traverse_pre('A')
 traverse_mid('A')
 traverse_post('A')
