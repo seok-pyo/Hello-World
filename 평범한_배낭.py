@@ -1,3 +1,4 @@
+# --------- 1차 시도
 
 # def search(weight, cnt, value):
     # if weight <= 0:
@@ -10,8 +11,7 @@
 
     # return value
 
-# --------- 1차 시도
-
+# --------- 2차 시도
 
 # n, k = map(int, input().split())
 
@@ -33,11 +33,11 @@
 #                 table[i] = max(table[i - item[0]] + table[i], table[i])
 
 # search()
-# print(table)
+# # print(table)
 
 # print(max(table))
 
-# --------- 2차 시도
+# --------- 3차 시도
 
 n, k = map(int, input().split())
 
@@ -65,3 +65,9 @@ search()
 # print(table)
 
 print(max(table))
+
+# --------- 4차 시도
+
+# n, k = int(input().split())
+
+# graph = []
