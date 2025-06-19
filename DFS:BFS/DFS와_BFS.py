@@ -91,3 +91,4 @@ def bfs(graph, visited, node):
 bfs(graph, visited2, v)
 print(*blist)
 
+# https://www.acmicpc.net/problem/1260
