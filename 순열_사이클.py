@@ -10,20 +10,29 @@ for _ in range(t):
     graph_length = int(input())
     graph = list(map(int, input().split()))
     visi = [False] * (graph_length + 1)
-    q = deque()
-    q.append(1)
+    # q = deque()
+    # q.append(1)
 
     for i in range(1, graph_length + 1):
-        q.append(i)
+        if visi[i]:
+            continue
+
+        # q.append(i)
+        q = deque([i])
+        visi[i] = True
 
         while q:
-            if visi[i]:
-                continue
             idx = q.popleft()
-            q.append(graph[idx-1])
-            if i == idx:
-                cnt += 1
-            visi[idx] = True
+            # q.append(graph[idx-1])
+
+            # if i == idx:
+            #     cnt += 1
+            # visi[idx] = True
+
+            if not visi[graph[idx-1]]:
+                visi[graph[idx-1]] = True
+                q.append(graph[idx-1])
+        cnt += 1
 
     print(cnt)
 
