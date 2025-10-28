@@ -41,13 +41,7 @@ def bfs(start):
                 visit[i] = True
                 q.append(i)
 
-
-
-
 bfs(v)
+
 print(*dfs_result)
 print(*bfs_order)
-
-
-
-
