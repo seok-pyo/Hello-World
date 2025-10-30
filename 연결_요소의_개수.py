@@ -1,3 +1,5 @@
+# 이 문제의 경우 bfs, dfs로 풀어도 상관이 없다.
+
 # import sys
 # from collections import deque
 
