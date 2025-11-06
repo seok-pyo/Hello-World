@@ -26,3 +26,30 @@
 #     seen[cur] = idx
 
 # print(seen[cur])
+
+import sys
+input = sys.stdin.readline
+
+def next_value(x, p):
+    s = 0
+    while x > 0:
+        x, d = divmod(x, 10)
+        s += d ** p
+    return s
+
+a, p = map(int, input().split())
+
+seen = {a: 0}
+cur = a
+idx = 0
+
+while True:
+    idx += 1
+    cur = next_value(cur, p)
+    print('this is cur', cur)
+    if cur in seen:
+        print(seen[cur])
+        break
+    seen[cur] = idx
+
+print(seen)
