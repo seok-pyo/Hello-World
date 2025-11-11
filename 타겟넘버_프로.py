@@ -8,3 +8,12 @@
 # 1. 현재 인덱스
 # 2. 현재까지의 합
 # f(i, s) = "i번째 숫자부터 끝까지 선택해서 최종 타겟을 만드는 방법의 수"
+
+def solution(numbers, target):
+  def dfs(i, s):
+    if i == len(numbers):
+        return 1 if s == target else 0
+    return dfs(i + 1, s + numbers[i]) + dfs(i + 1, s - numbers[i])
+
+  return dfs(0, 0)
+
